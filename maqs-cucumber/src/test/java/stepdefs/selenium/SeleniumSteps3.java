@@ -4,7 +4,7 @@
 
 package stepdefs.selenium;
 
-import com.cognizantsoftvision.maqs.cucumber.steps.BaseSeleniumStep;
+import io.github.maqs.cucumber.steps.BaseSeleniumStep;
 import io.cucumber.java.en.Then;
 
 public class SeleniumSteps3 extends BaseSeleniumStep {

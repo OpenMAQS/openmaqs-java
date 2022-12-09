@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.cognizantsoftvision.maqs</groupId>
+        <groupId>io.github.maqs</groupId>
         <artifactId>maqs-java</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <groupId>com.cognizantsoftvision.maqs.accessibility</groupId>
+    <groupId>io.github.maqs.accessibility</groupId>
     <artifactId>maqs-accessibility</artifactId>
     <version>${revision}</version>
     <name>MAQS Accessibility Testing Module</name>
@@ -23,7 +23,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.cognizantsoftvision.maqs.selenium</groupId>
+            <groupId>io.github.maqs.selenium</groupId>
             <artifactId>maqs-selenium</artifactId>
         </dependency>
         <dependency>

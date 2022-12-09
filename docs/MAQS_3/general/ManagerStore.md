@@ -58,11 +58,11 @@ DatabaseDriver dbNamed = this.getManagerStore().getDriver("NAMEDB");
 ```java
 package com.cognizantsoftvision.maqs.selenium.unittestpagemodel;
 
-import com.cognizantsoftvision.maqs.database.DatabaseConfig;
-import com.cognizantsoftvision.maqs.database.DatabaseDriver;
-import com.cognizantsoftvision.maqs.database.DatabaseDriverManager;
-import com.cognizantsoftvision.maqs.selenium.BaseSeleniumTest;
-import com.cognizantsoftvision.maqs.selenium.SeleniumConfig;
+import io.github.maqs.database.DatabaseConfig;
+import io.github.maqs.database.DatabaseDriver;
+import io.github.maqs.database.DatabaseDriverManager;
+import io.github.maqs.selenium.BaseSeleniumTest;
+import io.github.maqs.selenium.SeleniumConfig;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
