@@ -39,16 +39,16 @@ this.getTestObject().getLog().logMessage("I am testing with MAQS");
 
 ## Sample code
 ```java
-package com.cognizantsoftvision.maqs.webservices;
+package com.maqs.webservices;
 
-import com.cognizantsoftvision.maqs.utilities.helper.TestCategories;
-import com.cognizantsoftvision.maqs.webservices.BaseWebServiceTest;
-import com.cognizantsoftvision.maqs.webservices.HttpClientFactory;
-import com.cognizantsoftvision.maqs.webservices.MediaType;
-import com.cognizantsoftvision.maqs.webservices.WebServiceConfig;
-import com.cognizantsoftvision.maqs.webservices.WebServiceDriver;
-import com.cognizantsoftvision.maqs.webservices.WebServiceUtilities;
-import com.cognizantsoftvision.maqs.webservices.models.Product;
+import TestCategories;
+import com.maqs.webservices.BaseWebServiceTest;
+import HttpClientFactory;
+import MediaType;
+import WebServiceConfig;
+import WebServiceDriver;
+import WebServiceUtilities;
+import Product;
 import java.io.IOException;
 import java.net.http.HttpResponse;
 import org.springframework.http.HttpStatus;

@@ -3,10 +3,10 @@
 ## Inheritance Hierarchy
 ```java
 BaseTestObject
-    com.cognizantsoftvision.maqs.playwright.PlaywrightTestObject
+    PlaywrightTestObject
 ```
-Package: com.cognizantsoftvision.maqs.playwright;  
-Assembly: import com.cognizantsoftvision.maqs.playwright.PlaywrightTestObject
+Package: com.maqs.playwright;  
+Assembly: import PlaywrightTestObject
 
 ## Syntax
 java

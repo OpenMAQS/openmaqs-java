@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>maqs-java</artifactId>
-        <groupId>com.cognizantsoftvision.maqs</groupId>
+        <groupId>com.maqs</groupId>
         <version>${revision}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -55,35 +55,35 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.cognizantsoftvision.maqs.appium</groupId>
+            <groupId>com.maqs.appium</groupId>
             <artifactId>maqs-appium</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.cognizantsoftvision.maqs.accessibility</groupId>
+            <groupId>com.maqs.accessibility</groupId>
             <artifactId>maqs-accessibility</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.cognizantsoftvision.maqs.base</groupId>
+            <groupId>com.maqs.base</groupId>
             <artifactId>maqs-base</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.cognizantsoftvision.maqs.utilities</groupId>
+            <groupId>com.maqs.utilities</groupId>
             <artifactId>maqs-utilities</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.cognizantsoftvision.maqs.database</groupId>
+            <groupId>com.maqs.database</groupId>
             <artifactId>maqs-database</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.cognizantsoftvision.maqs.selenium</groupId>
+            <groupId>com.maqs.selenium</groupId>
             <artifactId>maqs-selenium</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.cognizantsoftvision.maqs.cucumber</groupId>
+            <groupId>com.maqs.cucumber</groupId>
             <artifactId>maqs-cucumber</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.cognizantsoftvision.maqs.webservices</groupId>
+            <groupId>com.maqs.webservices</groupId>
             <artifactId>maqs-webservices</artifactId>
         </dependency>
     </dependencies>

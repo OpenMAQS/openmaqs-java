@@ -36,9 +36,9 @@ this.getTestObject().getLogger().logMessage("I am testing with MAQS");
 
 ## Sample code
 ```java
-import com.cognizantsoftvision.maqs.database.BaseDatabaseTest;
-import com.cognizantsoftvision.maqs.utilites.helper.logger;
-import com.cognizantsoftvision.maqs.utilities.helper.TestCategories;
+import BaseDatabaseTest;
+import com.maqs.utilites.helper.logger;
+import TestCategories;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
