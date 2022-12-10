@@ -5,7 +5,7 @@
 BaseTestObject
     AppiumTestObject
 ```
-Package: com.Copyright 2022 (C) MAQS-Framework, All rights Reserved.maqs.appium;  
+Package: com.Copyright 2022 (C) MAQS, All rights Reserved.maqs.appium;  
 Assembly: import AppiumTestObject
 
 ## Syntax

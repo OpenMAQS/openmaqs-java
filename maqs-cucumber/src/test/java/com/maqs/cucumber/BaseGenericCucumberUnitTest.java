@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 (C) MAQS-Framework
+ * Copyright 2022 (C) MAQS, All rights Reserved
 */
 
 package com.maqs.cucumber;

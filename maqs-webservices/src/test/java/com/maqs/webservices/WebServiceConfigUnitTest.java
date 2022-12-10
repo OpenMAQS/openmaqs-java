@@ -1,6 +1,6 @@
 
 /*
- * Copyright 2022 (C) MAQS-Framework, All rights Reserved
+ * Copyright 2022 (C) MAQS, All rights Reserved
  */
 
 package com.maqs.webservices;
