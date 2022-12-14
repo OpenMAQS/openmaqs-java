@@ -7,7 +7,7 @@ package io.github.maqs.accessibility;
 import com.deque.html.axecore.results.AxeRuntimeException;
 import com.deque.html.axecore.results.Results;
 import com.deque.html.axecore.selenium.AxeBuilder;
-import com.deque.html.axecore.selenium.ResultType;
+import com.deque.html.axecore.results.ResultType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.maqs.selenium.BaseSeleniumTest;
 import io.github.maqs.selenium.LazyWebElement;
@@ -28,6 +28,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.openqa.selenium.By;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**
@@ -52,10 +53,10 @@ public class AccessibilityHTMLUnitTest extends BaseSeleniumTest {
 
   /**
    * Sets up and navigates to the provided url.
-   * @param url the url to be navigated to
    */
-  public void setup(String url) {
-    this.getWebDriver().navigate().to(url);
+  @BeforeMethod
+  public void setup() {
+    this.getWebDriver().navigate().to(testSiteAutomationUrl);
     UIWaitFactory.getWaitDriver(this.getWebDriver()).waitForPageLoad();
   }
 
@@ -65,7 +66,6 @@ public class AccessibilityHTMLUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.ACCESSIBILITY)
   public void testAccessibilityHtmlReport() throws IOException, ParseException {
-    setup(testSiteAutomationUrl);
     AccessibilityUtilities.createAccessibilityHtmlReport(this.getTestObject(),
         new AxeBuilder().analyze(this.getWebDriver()), false);
 
@@ -81,8 +81,6 @@ public class AccessibilityHTMLUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.ACCESSIBILITY)
   public void accessibilityMultipleHtmlReports() throws IOException, ParseException {
-    setup(testSiteAutomationUrl);
-
     // Create 3 reports
     AccessibilityUtilities.createAccessibilityHtmlReport(this.getTestObject(), false);
     AccessibilityUtilities.createAccessibilityHtmlReport(this.getTestObject(), false);
@@ -100,7 +98,6 @@ public class AccessibilityHTMLUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.ACCESSIBILITY, expectedExceptions = AxeRuntimeException.class)
   public void accessibilityHtmlReportWithError() throws IOException, ParseException {
-    setup(testSiteAutomationUrl);
     String axeResultWithError = FileUtils.readFileToString(axeResultWithErrorFile, StandardCharsets.UTF_8);
     Results results = new ObjectMapper().readValue(axeResultWithError, Results.class);
     AccessibilityUtilities.createAccessibilityHtmlReport(this.getTestObject(), results, false);
@@ -116,7 +113,6 @@ public class AccessibilityHTMLUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.ACCESSIBILITY, expectedExceptions = AxeRuntimeException.class)
   public void accessibilityHtmlReportWithErrorFromLazyElement() throws IOException, ParseException {
-    setup(testSiteAutomationUrl);
     String axeResultWithError = FileUtils.readFileToString(axeResultWithErrorFile, StandardCharsets.UTF_8);
     Results error = new ObjectMapper().readValue(axeResultWithError, Results.class);
     AccessibilityUtilities.createAccessibilityHtmlReport(this.getTestObject(), error,false);
@@ -134,7 +130,6 @@ public class AccessibilityHTMLUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.ACCESSIBILITY, expectedExceptions = RuntimeException.class)
   public void accessibilityHtmlReportWithViolation() throws IOException, ParseException {
-    setup(testSiteAutomationUrl);
     AccessibilityUtilities.createAccessibilityHtmlReport(this.getTestObject(), true);
     deleteFiles(Arrays.asList(this.getTestObject().getArrayOfAssociatedFiles()));
   }
@@ -145,7 +140,6 @@ public class AccessibilityHTMLUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.ACCESSIBILITY)
   public void accessibilityHtmlReportWithLazyElement() throws IOException, ParseException {
-    setup(testSiteAutomationUrl);
     LazyWebElement foodTable = new LazyWebElement(this.getTestObject(),
         By.id("FoodTable"), "Food Table");
 
@@ -164,7 +158,6 @@ public class AccessibilityHTMLUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.ACCESSIBILITY)
   public void accessibilityHtmlReportWithElement() throws IOException, ParseException {
-    setup(testSiteAutomationUrl);
     AccessibilityUtilities.createAccessibilityHtmlReport(this.getTestObject(),
         this.getWebDriver().findElement(By.id("FoodTable")), false);
 
@@ -185,7 +178,6 @@ public class AccessibilityHTMLUnitTest extends BaseSeleniumTest {
     // Make sure we are not using verbose logging
     this.getLogger().setLoggingLevel(MessageType.INFORMATION);
 
-    setup(testSiteAutomationUrl);
     AccessibilityUtilities.createAccessibilityHtmlReport(this.getTestObject(), false);
 
     // The script executed message should be suppressed when we run the accessibility check
@@ -203,8 +195,6 @@ public class AccessibilityHTMLUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.ACCESSIBILITY)
   public void accessibilityHtmlReportViolationsOnly() throws IOException, ParseException {
-    setup(testSiteAutomationUrl);
-
     // Make sure we are not using verbose logging
     this.getLogger().setLoggingLevel(MessageType.INFORMATION);
 
@@ -226,7 +216,6 @@ public class AccessibilityHTMLUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.ACCESSIBILITY)
   public void accessibilityHtmlViolationsReportWithElement() throws IOException, ParseException {
-    setup(testSiteAutomationUrl);
     AccessibilityUtilities.createAccessibilityHtmlReport(this.getTestObject(),
         this.getWebDriver().findElement(By.id("FoodTable")),
         false, EnumSet.of(ResultType.Violations));

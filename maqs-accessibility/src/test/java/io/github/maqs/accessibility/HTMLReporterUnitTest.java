@@ -4,13 +4,13 @@
 
 package io.github.maqs.accessibility;
 
-import com.deque.html.axecore.axeargs.AxeRunOptions;
+import com.deque.html.axecore.args.AxeRunOptions;
 import com.deque.html.axecore.results.Check;
 import com.deque.html.axecore.results.CheckedNode;
 import com.deque.html.axecore.results.Results;
 import com.deque.html.axecore.results.Rule;
 import com.deque.html.axecore.selenium.AxeBuilder;
-import com.deque.html.axecore.selenium.ResultType;
+import com.deque.html.axecore.results.ResultType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.maqs.selenium.BaseSeleniumTest;
 import io.github.maqs.selenium.factories.UIWaitFactory;
@@ -39,9 +39,14 @@ import org.testng.Assert;
 public class HTMLReporterUnitTest extends BaseSeleniumTest {
 
   /**
+   * The file path to the testFiles folder.
+   */
+  private static final String TEST_FILES = "src/test/resources/testFiles/";
+
+  /**
    * The file path to the html testing page.
    */
-  private static final String filePath = "src/test/resources/testFiles/integration-test-target.html";
+  private static final String filePath = TEST_FILES + "integration-test-target.html";
 
   /**
    * The file to be opened in the browser.
@@ -57,7 +62,7 @@ public class HTMLReporterUnitTest extends BaseSeleniumTest {
    * The file to be opened in the browser.
    */
   private static final File integrationTestTargetComplexFile = new File(
-      "src/test/resources/testFiles/integration-test-target-complex.html");
+          TEST_FILES + "integration-test-target-complex.html");
 
   /**
    * The url to be opened in the browser.
@@ -67,8 +72,7 @@ public class HTMLReporterUnitTest extends BaseSeleniumTest {
   /**
    * The file to be converted into a result type.
    */
-  private static final File integrationTestJsonResultFile = new File(
-      "src/test/resources/testFiles/sampleResults.json");
+  private static final File integrationTestJsonResultFile = new File(TEST_FILES + "sampleResults.json");
 
   /**
    * The path to the file converted into a result type.
@@ -119,13 +123,12 @@ public class HTMLReporterUnitTest extends BaseSeleniumTest {
   }
 
   @Test(groups = TestCategories.ACCESSIBILITY)
-  public void runScanOnGivenElement()
-      throws IOException, ParseException {
+  public void runScanOnGivenElement() throws IOException, ParseException {
     loadTestPage(integrationTestTargetSimpleUrl);
     String path = createReportPath();
     SeleniumReport.createHtmlReport(this.getWebDriver(),
         this.getWebDriver().findElement(By.cssSelector(mainElementSelector)), path);
-    validateReport(path, 3, 14, 0, 75);
+    validateReport(path, 3, 14, 0, 76);
 
     deleteFile(new File(path));
   }
@@ -135,14 +138,13 @@ public class HTMLReporterUnitTest extends BaseSeleniumTest {
     loadTestPage(integrationTestTargetSimpleUrl);
     String path = createReportPath();
     SeleniumReport.createHtmlReport(this.getWebDriver(), path);
-    validateReport(path, 4, 26, 0, 69);
+    validateReport(path, 4, 26, 0, 70);
 
     deleteFile(new File(path));
   }
 
   @Test(groups = TestCategories.ACCESSIBILITY)
-  public void reportFullPageViolationsOnly()
-      throws IOException, ParseException {
+  public void reportFullPageViolationsOnly() throws IOException, ParseException {
     loadTestPage(integrationTestTargetSimpleUrl);
     String path = createReportPath();
     SeleniumReport.createHtmlReport(this.getWebDriver(), path, EnumSet.of(ResultType.Violations));
@@ -156,15 +158,14 @@ public class HTMLReporterUnitTest extends BaseSeleniumTest {
   }
 
   @Test(groups = TestCategories.ACCESSIBILITY)
-  public void reportFullPagePassesInapplicableViolationsOnly()
-      throws IOException, ParseException {
+  public void reportFullPagePassesInapplicableViolationsOnly() throws IOException, ParseException {
     loadTestPage(integrationTestTargetSimpleUrl);
     String path = createReportPath();
     SeleniumReport.createHtmlReport(this.getWebDriver(), path,
         EnumSet.of(ResultType.Passes, ResultType.Inapplicable, ResultType.Violations));
 
     // Check Passes
-    validateReport(path, 4, 26, 0, 69);
+    validateReport(path, 4, 26, 0, 70);
     validateResultNotWritten(path, EnumSet.of(ResultType.Incomplete));
 
     deleteFile(new File(path));
@@ -178,7 +179,7 @@ public class HTMLReporterUnitTest extends BaseSeleniumTest {
     var mainElement = this.getWebDriver().findElement(By.cssSelector(mainElementSelector));
     SeleniumReport.createHtmlReport(this.getWebDriver(), mainElement, path);
 
-    validateReport(path, 3, 14, 0, 75);
+    validateReport(path, 3, 14, 0, 76);
     deleteFile(new File(path));
   }
 
@@ -190,7 +191,7 @@ public class HTMLReporterUnitTest extends BaseSeleniumTest {
     var builder = new AxeBuilder().disableRules(Collections.singletonList("color-contrast"));
     SeleniumReport.createHtmlReport(this.getWebDriver(), builder.analyze(this.getWebDriver()), path);
 
-    validateReport(path, 3, 21, 0, 69);
+    validateReport(path, 3, 21, 0, 70);
     deleteFile(new File(path));
   }
 
@@ -225,7 +226,7 @@ public class HTMLReporterUnitTest extends BaseSeleniumTest {
     String path = createReportPath();
 
     SeleniumReport.createHtmlReport(this.getWebDriver(), path);
-    validateReport(path, 4, 43, 0, 64);
+    validateReport(path, 4, 43, 0, 65);
 
     deleteFile(new File(path));
   }
@@ -241,7 +242,7 @@ public class HTMLReporterUnitTest extends BaseSeleniumTest {
     var builder = new AxeBuilder().withOptions(runOptions);
 
     SeleniumReport.createHtmlReport(this.getWebDriver(), builder.analyze(this.getWebDriver()), path);
-    validateReport(path, 4, 43, 0, 64);
+    validateReport(path, 4, 43, 0, 65);
 
     deleteFile(new File(path));
   }
@@ -256,7 +257,7 @@ public class HTMLReporterUnitTest extends BaseSeleniumTest {
 
     var builder = new AxeBuilder().withOptions(runOptions);
     SeleniumReport.createHtmlReport(this.getWebDriver(), builder.analyze(this.getWebDriver()), path);
-    validateReport(path, 4, 43, 0, 64);
+    validateReport(path, 4, 43, 0, 65);
 
     deleteFile(new File(path));
   }

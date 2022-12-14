@@ -17,7 +17,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 /**
  * The Accessibility Unit test class.
@@ -32,6 +34,7 @@ public class AccessibilityUnitTest extends BaseSeleniumTest {
   /**
    * Navigates and sets up the login page for scanning.
    */
+  @BeforeMethod
   public void setup() {
     this.getWebDriver().navigate().to(testSiteAccessibilityUrl);
     UIWaitFactory.getWaitDriver(getWebDriver()).waitForPageLoad();
@@ -42,15 +45,16 @@ public class AccessibilityUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.ACCESSIBILITY)
   public void testAccessibilityCheckVerbose() throws IOException {
-    setup();
     String filePath = ((FileLogger)getLogger()).getFilePath();
     AccessibilityUtilities.checkAccessibility(getTestObject(), false);
     String logContent = String.valueOf(Files.readAllLines(Paths.get(filePath)));
 
-    Assert.assertTrue(logContent.contains("Found 15 items"), "Expected to find 15 pass matches.");
-    Assert.assertTrue(logContent.contains("Found 66 items"), "Expected to find 66 inapplicable matches.");
-    Assert.assertTrue(logContent.contains("Found 6 items"), "Expected to find 6 violations matches.");
-    Assert.assertTrue(logContent.contains("Found 0 items"), "Expected to find 0 incomplete matches.");
+    SoftAssert softAssert = new SoftAssert();
+    softAssert.assertTrue(logContent.contains("Found 13 items"), "Expected to find 15 pass matches.");
+    softAssert.assertTrue(logContent.contains("Found 71 items"), "Expected to find 66 inapplicable matches.");
+    softAssert.assertTrue(logContent.contains("Found 6 items"), "Expected to find 6 violations matches.");
+    softAssert.assertTrue(logContent.contains("Found 0 items"), "Expected to find 0 incomplete matches.");
+    softAssert.assertAll();
     deleteFile(filePath);
   }
 
@@ -59,7 +63,6 @@ public class AccessibilityUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.ACCESSIBILITY)
   public void testAccessibilityCheckRespectsMessageLevel() {
-    setup();
     String filePath = ((FileLogger)getLogger()).getFilePath();
     FileLogger fileLogger = new FileLogger(filePath, "LevTest.txt", MessageType.WARNING);
 
@@ -88,7 +91,6 @@ public class AccessibilityUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.ACCESSIBILITY)
   public void testAccessibilityInapplicableCheckRespectsMessageLevel() {
-    setup();
     String filePath = ((FileLogger)getLogger()).getFilePath();
     FileLogger fileLogger = new FileLogger(filePath, getTestContext().getName() + ".txt", MessageType.INFORMATION);
 
@@ -113,7 +115,6 @@ public class AccessibilityUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.ACCESSIBILITY)
   public void testAccessibilityIncompleteCheckRespectsMessageLevel() {
-    setup();
     String filePath = ((FileLogger)getLogger()).getFilePath();
     FileLogger fileLogger = new FileLogger(filePath, getTestContext().getName() + ".txt", MessageType.INFORMATION);
 
@@ -138,7 +139,6 @@ public class AccessibilityUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.ACCESSIBILITY)
   public void testAccessibilityPassesCheckRespectsMessageLevel() {
-    setup();
     String filePath = ((FileLogger)getLogger()).getFilePath();
     FileLogger fileLogger = new FileLogger(filePath, getTestContext().getName() + ".txt", MessageType.INFORMATION);
 
@@ -163,7 +163,6 @@ public class AccessibilityUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.ACCESSIBILITY)
   public void testAccessibilityViolationsCheckRespectsMessageLevel() {
-    setup();
     String filePath = ((FileLogger)getLogger()).getFilePath();
     FileLogger fileLogger = new FileLogger(filePath, getTestContext().getName() + ".txt", MessageType.INFORMATION);
 
@@ -188,7 +187,6 @@ public class AccessibilityUnitTest extends BaseSeleniumTest {
    */
     @Test(groups = TestCategories.ACCESSIBILITY, expectedExceptions = RuntimeException.class)
   public void testAccessibilityCheckThrows() {
-      setup();
       AccessibilityUtilities.checkAccessibility(getTestObject(), true);
   }
 
@@ -197,8 +195,6 @@ public class AccessibilityUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.ACCESSIBILITY)
   public void testAccessibilityCheckNoThrowOnNoResults() {
-    setup();
-
     // There should be 0 incomplete items found
     AccessibilityUtilities.checkAccessibilityIncomplete(getTestObject().getWebDriver(),
         getTestObject().getLogger(), MessageType.WARNING, true);
@@ -209,13 +205,14 @@ public class AccessibilityUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.ACCESSIBILITY)
   public void testAccessibilityReadableResults() {
-    setup();
     AxeReporter.getReadableAxeResults("TEST", getWebDriver(),
         new AxeBuilder().analyze(getWebDriver()).getViolations());
     String messages = AxeReporter.getAxeResultString();
 
-    Assert.assertTrue(messages.contains("TEST check for"), "Expected header.");
-    Assert.assertTrue(messages.contains("Found 6 items"), "Expected to find 6 violations matches.");
+    SoftAssert softAssert = new SoftAssert();
+    softAssert.assertTrue(messages.contains("TEST check for"), "Expected header.");
+    softAssert.assertTrue(messages.contains("Found 6 items"), "Expected to find 6 violations matches.");
+    softAssert.assertAll();
   }
 
   private void deleteFile(String filePath) {

@@ -11,12 +11,11 @@
 
     <groupId>io.github.maqs.accessibility</groupId>
     <artifactId>maqs-accessibility</artifactId>
-    <version>${revision}</version>
     <name>MAQS Accessibility Testing Module</name>
-    <packaging>jar</packaging>
+    <version>${revision}</version>
 
     <properties>
-        <deque.axe.version>4.4.1</deque.axe.version>
+        <deque.axe.version>4.5.1</deque.axe.version>
         <apache.commons.version>1.10.0</apache.commons.version>
         <jsoup.version>1.15.3</jsoup.version>
     </properties>
@@ -32,10 +31,6 @@
             <version>${deque.axe.version}</version>
         </dependency>
         <dependency>
-            <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-text</artifactId>
             <version>${apache.commons.version}</version>
@@ -45,18 +40,6 @@
             <artifactId>jsoup</artifactId>
             <version>${jsoup.version}</version>
             <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-remote-driver</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
         </dependency>
     </dependencies>
 </project>

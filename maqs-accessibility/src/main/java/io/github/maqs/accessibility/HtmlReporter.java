@@ -8,7 +8,7 @@ import com.deque.html.axecore.results.Check;
 import com.deque.html.axecore.results.CheckedNode;
 import com.deque.html.axecore.results.Results;
 import com.deque.html.axecore.results.Rule;
-import com.deque.html.axecore.selenium.ResultType;
+import com.deque.html.axecore.results.ResultType;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
