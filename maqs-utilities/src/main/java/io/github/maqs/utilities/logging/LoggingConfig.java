@@ -65,8 +65,7 @@ public class LoggingConfig {
       case "SUSPENDED":
         return MessageType.SUSPENDED;       // All logging is suspended
       default:
-        throw new MaqsLoggingConfigException(StringProcessor
-            .safeFormatter("Logging level value '{0}' is not a valid option", Config.getGeneralValue("LogLevel")));
+        throw new MaqsLoggingConfigException("Logging level value " + Config.getGeneralValue("LogLevel") + " is not a valid option");
     }
   }
 
