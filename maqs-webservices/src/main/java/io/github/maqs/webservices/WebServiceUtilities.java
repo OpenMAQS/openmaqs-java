@@ -4,10 +4,10 @@
 
 package io.github.maqs.webservices;
 
-import io.github.maqs.utilities.helper.StringProcessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import io.github.maqs.utilities.helper.StringProcessor;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.net.http.HttpResponse;

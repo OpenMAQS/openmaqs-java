@@ -4,13 +4,13 @@
 
 package io.github.maqs.appium;
 
-import io.github.maqs.appium.constants.PlatformType;
-import io.github.maqs.utilities.helper.StringProcessor;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.windows.WindowsDriver;
+import io.github.maqs.appium.constants.PlatformType;
+import io.github.maqs.utilities.helper.StringProcessor;
 import java.net.URL;
 import java.time.Duration;
 import java.util.Map;
@@ -18,7 +18,6 @@ import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
-
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.CapabilityType;

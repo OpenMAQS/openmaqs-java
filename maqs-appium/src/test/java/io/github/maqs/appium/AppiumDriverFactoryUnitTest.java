@@ -4,17 +4,16 @@
 
 package io.github.maqs.appium;
 
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.remote.MobileCapabilityType;
 import io.github.maqs.appium.constants.PlatformType;
 import io.github.maqs.base.BaseGenericTest;
 import io.github.maqs.utilities.helper.TestCategories;
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.remote.MobileCapabilityType;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
-
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;

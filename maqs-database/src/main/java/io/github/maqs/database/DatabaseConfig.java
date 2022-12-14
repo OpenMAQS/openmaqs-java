@@ -10,7 +10,6 @@ import io.github.maqs.database.providers.SQLProvider;
 import io.github.maqs.database.providers.SQLiteProvider;
 import io.github.maqs.utilities.helper.Config;
 import io.github.maqs.utilities.helper.ConfigSection;
-
 import java.util.HashMap;
 import java.util.Map;
 

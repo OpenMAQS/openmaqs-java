@@ -4,8 +4,8 @@
 
 package io.github.maqs.appium;
 
-import io.github.maqs.base.BaseGenericTest;
 import io.appium.java_client.AppiumDriver;
+import io.github.maqs.base.BaseGenericTest;
 import java.util.function.Supplier;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;

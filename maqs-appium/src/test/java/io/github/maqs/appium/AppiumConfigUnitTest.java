@@ -10,7 +10,6 @@ import io.github.maqs.utilities.helper.ConfigSection;
 import io.github.maqs.utilities.helper.TestCategories;
 import java.util.HashMap;
 import java.util.Map;
-
 import org.testng.Assert;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;

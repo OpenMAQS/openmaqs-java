@@ -4,13 +4,13 @@
 
 package io.github.maqs.appium;
 
+import io.appium.java_client.AppiumDriver;
 import io.github.maqs.base.BaseGenericTest;
 import io.github.maqs.utilities.helper.StringProcessor;
 import io.github.maqs.utilities.helper.TestCategories;
 import io.github.maqs.utilities.logging.ConsoleLogger;
 import io.github.maqs.utilities.logging.FileLogger;
 import io.github.maqs.utilities.logging.Logger;
-import io.appium.java_client.AppiumDriver;
 import java.io.File;
 import java.nio.file.Paths;
 import java.time.Clock;

@@ -4,9 +4,9 @@
 
 package io.github.maqs.appium;
 
+import io.appium.java_client.AppiumDriver;
 import io.github.maqs.base.BaseTestObject;
 import io.github.maqs.utilities.logging.ILogger;
-import io.appium.java_client.AppiumDriver;
 import java.util.function.Supplier;
 import org.openqa.selenium.WebElement;
 

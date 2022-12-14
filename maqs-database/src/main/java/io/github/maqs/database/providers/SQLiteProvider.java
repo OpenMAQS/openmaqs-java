@@ -6,7 +6,6 @@ package io.github.maqs.database.providers;
 
 import io.github.maqs.database.constants.DataProviderType;
 import javax.sql.DataSource;
-
 import org.sqlite.SQLiteDataSource;
 
 /**
@@ -17,7 +16,7 @@ public class SQLiteProvider implements IDataSourceProvider {
   /**
    * Field dbUrl.
    */
-  private String dbUrl;
+  private final String dbUrl;
   /**
    * Field dataProviderType.
    */

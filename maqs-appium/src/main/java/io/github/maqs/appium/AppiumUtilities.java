@@ -4,12 +4,12 @@
 
 package io.github.maqs.appium;
 
+import io.appium.java_client.AppiumDriver;
 import io.github.maqs.utilities.helper.StringProcessor;
 import io.github.maqs.utilities.logging.FileLogger;
 import io.github.maqs.utilities.logging.Logger;
 import io.github.maqs.utilities.logging.LoggingConfig;
 import io.github.maqs.utilities.logging.MessageType;
-import io.appium.java_client.AppiumDriver;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;

@@ -4,11 +4,11 @@
 
 package io.github.maqs.appium;
 
+import io.appium.java_client.AppiumDriver;
 import io.github.maqs.base.DriverManager;
 import io.github.maqs.base.ITestObject;
 import io.github.maqs.utilities.helper.StringProcessor;
 import io.github.maqs.utilities.logging.MessageType;
-import io.appium.java_client.AppiumDriver;
 import java.util.function.Supplier;
 import org.openqa.selenium.WebElement;
 
