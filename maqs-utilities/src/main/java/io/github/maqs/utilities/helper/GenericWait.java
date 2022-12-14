@@ -6,7 +6,6 @@ package io.github.maqs.utilities.helper;
 
 import io.github.maqs.utilities.helper.exceptions.FunctionException;
 import io.github.maqs.utilities.helper.exceptions.TimeoutException;
-
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.function.BooleanSupplier;

@@ -7,7 +7,6 @@ package io.github.maqs.utilities.logging;
 import io.github.maqs.utilities.helper.Config;
 import io.github.maqs.utilities.helper.StringProcessor;
 import io.github.maqs.utilities.helper.exceptions.MaqsLoggingConfigException;
-
 import java.io.File;
 
 /**
