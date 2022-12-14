@@ -10,7 +10,6 @@ import io.github.maqs.utilities.logging.ILogger;
 import io.github.maqs.utilities.logging.MessageType;
 import io.github.maqs.utilities.performance.IPerfTimerCollection;
 import io.github.maqs.utilities.performance.PerfTimerCollection;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
