@@ -151,6 +151,8 @@ public class HtmlFileLoggerUnitTest {
     logger.close();
     Assert.assertFalse(file.exists());
     Assert.assertEquals(filePath, "test file path", "Expected 'test file path' as file path");
+
+    deleteFile(logger);
   }
 
   /**
@@ -164,6 +166,8 @@ public class HtmlFileLoggerUnitTest {
     logger.logMessage(MessageType.GENERIC, "Test throws error as expected.");
     new File(logger.getFilePath());
     logger.close();
+
+    deleteFile(logger);
   }
 
   /**
