@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 (C) Cognizant SoftVision, All rights Reserved
+ * Copyright 2022 (C) MAQS, All rights Reserved
  */
 
 package io.github.maqs.playwright;
@@ -213,7 +213,7 @@ public class PlaywrightSyncElementUnitTest extends BasePlaywrightTest {
   @Test(groups = TestCategories.PLAYWRIGHT)
   public void innerHTMLTest() {
     createPlaywrightPageModel();
-    Assert.assertTrue(models.get(this.getTestObject()).getFooter().innerHTML().contains("Softvision"));
+    Assert.assertTrue(models.get(this.getTestObject()).getFooter().innerHTML().contains("MAQS"));
   }
 
   /**
@@ -222,7 +222,7 @@ public class PlaywrightSyncElementUnitTest extends BasePlaywrightTest {
   @Test(groups = TestCategories.PLAYWRIGHT)
   public void innerTextTest() {
     createPlaywrightPageModel();
-    Assert.assertTrue(models.get(this.getTestObject()).getFooter().innerText().contains("Softvision"));
+    Assert.assertTrue(models.get(this.getTestObject()).getFooter().innerText().contains("MAQS"));
   }
 
   /**

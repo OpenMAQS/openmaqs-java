@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 (C) Cognizant SoftVision, All rights Reserved
+ * Copyright 2022 (C) MAQS, All rights Reserved
  */
 
 package io.github.maqs.base;
@@ -389,7 +389,7 @@ public abstract class BaseTest {
 
     for (StackTraceElement element : Thread.currentThread().getStackTrace()) {
       // If the stack trace element is from this package (excluding this method) append the stack trace line
-      if (element.toString().startsWith("com.cognizantsoftvision")
+      if (element.toString().startsWith("com.MAQS")
           && !element.toString().contains("BaseTest.logVerbose")) {
         messages.append(element).append(System.lineSeparator());
       }

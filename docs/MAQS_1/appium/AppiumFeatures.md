@@ -49,7 +49,7 @@ Stores methods for interacting with the config.xml
 
 ## Sample code
 ```java
-package com.cognizantsoftvision.maqs.appium;
+package io.github.maqs.appium;
 
 import helper.io.github.maqs.utilities.TestCategories;
 import org.testng.Assert;

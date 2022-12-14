@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 (C) Cognizant SoftVision, All rights Reserved
+ * Copyright 2022 (C) MAQS, All rights Reserved
  */
 
 package io.github.maqs.utilities.logger;
@@ -8,7 +8,7 @@ import io.github.maqs.utilities.helper.Config;
 import io.github.maqs.utilities.helper.StringProcessor;
 import io.github.maqs.utilities.helper.TestCategories;
 import io.github.maqs.utilities.helper.exceptions.MaqsLoggingConfigException;
-import com.cognizantsoftvision.maqs.utilities.logging.*;
+import io.github.maqs.utilities.logging.*;
 import java.io.File;
 import java.util.HashMap;
 

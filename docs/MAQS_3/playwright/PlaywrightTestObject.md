@@ -5,7 +5,7 @@
 BaseTestObject
     io.github.maqs.playwright.PlaywrightTestObject
 ```
-Package: com.cognizantsoftvision.maqs.playwright;  
+Package: io.github.maqs.playwright;  
 Assembly: import io.github.maqs.playwright.PlaywrightTestObject
 
 ## Syntax

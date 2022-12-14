@@ -1,6 +1,6 @@
 
 /*
- * Copyright 2022 (C) Cognizant SoftVision, All rights Reserved
+ * Copyright 2022 (C) MAQS, All rights Reserved
  */
 
 package io.github.maqs.webservices;

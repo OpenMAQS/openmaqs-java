@@ -39,7 +39,7 @@ this.getTestObject().getLog().logMessage("I am testing with MAQS");
 
 ## Sample code
 ```java
-package com.cognizantsoftvision.maqs.webservices;
+package io.github.maqs.webservices;
 
 import helper.io.github.maqs.utilities.TestCategories;
 import io.github.maqs.webservices.BaseWebServiceTest;

@@ -56,8 +56,8 @@
         <DatabaseUser>sa</DatabaseUser>
         <DatabasePassword>globalMAQS2</DatabasePassword>
         <DatabaseConnectionString>jdbc:sqlserver://localhost</DatabaseConnectionString>
-        <EntityDirectory>./src/test/java/com/cognizantsoftvision/maqs/database/entities/</EntityDirectory>
-        <EntityPackage>com.cognizantsoftvision.maqs.database.entities</EntityPackage>
+        <EntityDirectory>./src/test/java/com/maqs/database/entities/</EntityDirectory>
+        <EntityPackage>io.github.maqs.database.entities</EntityPackage>
     </DatabaseMaqs>
     <DatabaseCaps>
         <hibernate.archive.autodetection>class</hibernate.archive.autodetection>

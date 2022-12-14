@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 (C) Cognizant SoftVision, All rights Reserved
+ * Copyright 2022 (C) MAQS, All rights Reserved
  */
 
 package io.github.maqs.database;
@@ -31,13 +31,13 @@ public class DatabaseConfigUnitTest extends BaseDatabaseTest {
   @Test(groups = TestCategories.DATABASE)
   public void testGetEntityDirectoryString() {
     Assert.assertEquals(DatabaseConfig.getEntityDirectoryString(),
-        "./src/test/java/com/cognizantsoftvision/maqs/database/entities/");
+        "./src/test/java/com/maqs/database/entities/");
   }
 
   @Test(groups = TestCategories.DATABASE)
   public void testGetEntityPackageString() {
     Assert.assertEquals(DatabaseConfig.getEntityPackageString(),
-        "com.cognizantsoftvision.maqs.database.entities");
+        "io.github.maqs.database.entities");
   }
 
   @Test(groups = TestCategories.DATABASE)

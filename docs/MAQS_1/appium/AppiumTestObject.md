@@ -5,7 +5,7 @@
 BaseTestObject
     io.github.maqs.appium.AppiumTestObject
 ```
-Package: com.cognizantsoftvision.maqs.appium;  
+Package: io.github.maqs.appium;  
 Assembly: import io.github.maqs.appium.AppiumTestObject
 
 ## Syntax

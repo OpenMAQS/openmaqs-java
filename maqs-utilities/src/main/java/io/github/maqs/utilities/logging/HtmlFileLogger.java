@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 (C) Cognizant SoftVision, All rights Reserved
+ * Copyright 2022 (C) MAQS, All rights Reserved
  */
 
 package io.github.maqs.utilities.logging;
@@ -29,7 +29,7 @@ public class HtmlFileLogger extends FileLogger implements IHtmlFileLogger {
   private static final String DEFAULT_LOG_NAME = "HtmlFileLog.html";
 
   private static final File FILE_DIRECTORY = new File(
-      "../maqs-utilities/src/main/java/com/cognizantsoftvision/maqs/utilities/logging/resources");
+      "../maqs-utilities/src/main/java/com/maqs/utilities/logging/resources");
 
   private static final String FILES = FILE_DIRECTORY.getPath() + File.separator;
 

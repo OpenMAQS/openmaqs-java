@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 (C) Cognizant SoftVision, All rights Reserved
+ * Copyright 2022 (C) MAQS, All rights Reserved
  */
 
 package io.github.maqs.playwright;
@@ -146,7 +146,7 @@ public class PageDriverUnitTest extends BasePlaywrightTest {
    */
   @Test(groups = TestCategories.PLAYWRIGHT)
   public void contentTest() {
-    Assert.assertTrue(this.getPageDriver().content().contains("Softvision"));
+    Assert.assertTrue(this.getPageDriver().content().contains("MAQS"));
   }
 
   /**
@@ -226,7 +226,7 @@ public class PageDriverUnitTest extends BasePlaywrightTest {
    */
   @Test(groups = TestCategories.PLAYWRIGHT)
   public void innerHTMLTest() {
-    Assert.assertTrue(this.getPageDriver().innerHTML(elementPageModel.footer).contains("Softvision"));
+    Assert.assertTrue(this.getPageDriver().innerHTML(elementPageModel.footer).contains("MAQS"));
   }
 
   /**
@@ -234,7 +234,7 @@ public class PageDriverUnitTest extends BasePlaywrightTest {
    */
   @Test(groups = TestCategories.PLAYWRIGHT)
   public void innerTextTest() {
-    Assert.assertTrue(this.getPageDriver().innerText(elementPageModel.footer).contains("Softvision"));
+    Assert.assertTrue(this.getPageDriver().innerText(elementPageModel.footer).contains("MAQS"));
   }
 
   /**
@@ -497,7 +497,7 @@ public class PageDriverUnitTest extends BasePlaywrightTest {
   @Test(groups = TestCategories.PLAYWRIGHT)
   public void getUrlTest() {
     Assert.assertEquals(this.getPageDriver().getUrl(),
-        "https://cognizantopensource.github.io/maqs-dotnet-templates/Static/Automation/");
+        "https://MAQS-Framework.github.io/maqs-dotnet-templates/Static/Automation/");
   }
 
   @Test(groups = TestCategories.PLAYWRIGHT)

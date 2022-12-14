@@ -56,7 +56,7 @@ DatabaseDriver dbNamed = this.getManagerStore().getDriver("NAMEDB");
 
 # Example
 ```java
-package com.cognizantsoftvision.maqs.selenium.unittestpagemodel;
+package io.github.maqs.selenium.unittestpagemodel;
 
 import io.github.maqs.database.DatabaseConfig;
 import io.github.maqs.database.DatabaseDriver;

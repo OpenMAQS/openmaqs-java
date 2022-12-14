@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 (C) Cognizant SoftVision, All rights Reserved
+ * Copyright 2022 (C) MAQS, All rights Reserved
  */
 
 package io.github.maqs.base;
@@ -26,7 +26,7 @@ public class BaseTestUnitTest extends BaseTest {
   public void fullyQualifiedTestNameTest() {
     String testName = this.getFullyQualifiedTestClassName();
     Assert.assertEquals(testName,
-        "com.cognizantsoftvision.maqs.base.BaseTestUnitTest.fullyQualifiedTestNameTest");
+        "io.github.maqs.base.BaseTestUnitTest.fullyQualifiedTestNameTest");
   }
 
   /**
@@ -149,7 +149,7 @@ public class BaseTestUnitTest extends BaseTest {
   /*
    * (non-Javadoc)
    *
-   * @see com.cognizantsoftvision.maqs.utilities.BaseTest.BaseTest#beforeLoggingTeardown(org.testng.
+   * @see io.github.maqs.utilities.BaseTest.BaseTest#beforeLoggingTeardown(org.testng.
    * ITestResult)
    */
   @Override

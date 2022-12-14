@@ -1,11 +1,14 @@
 /*
- * Copyright 2022 (C) Cognizant SoftVision, All rights Reserved
+ * Copyright 2022 (C) MAQS, All rights Reserved
  */
 
 package io.github.maqs.playwright.pageModel;
 
-import com.cognizantsoftvision.maqs.playwright.*;
-import io.github.maqs.playwright.*;
+import io.github.maqs.playwright.BasePlaywrightPageModel;
+import io.github.maqs.playwright.IPlaywrightTestObject;
+import io.github.maqs.playwright.PageDriver;
+import io.github.maqs.playwright.PlaywrightConfig;
+import io.github.maqs.playwright.PlaywrightSyncElement;
 
 /**
  * The Other Playwright page model class for testing.
