@@ -5,8 +5,8 @@
 package io.github.maqs.accessibility;
 
 import com.deque.html.axecore.results.Results;
-import com.deque.html.axecore.selenium.AxeBuilder;
 import com.deque.html.axecore.results.ResultType;
+import com.deque.html.axecore.selenium.AxeBuilder;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.EnumSet;
