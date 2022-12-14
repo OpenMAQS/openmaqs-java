@@ -4,16 +4,15 @@
 
 package io.github.maqs.selenium;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.maqs.selenium.constants.BrowserType;
 import io.github.maqs.selenium.constants.OperatingSystem;
 import io.github.maqs.selenium.constants.RemoteBrowserType;
 import io.github.maqs.selenium.exceptions.WebDriverFactoryException;
 import io.github.maqs.utilities.helper.StringProcessor;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.PageLoadStrategy;

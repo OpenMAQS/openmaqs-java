@@ -7,7 +7,6 @@ package io.github.maqs.database.providers;
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 import io.github.maqs.database.DatabaseConfig;
 import io.github.maqs.database.constants.DataProviderType;
-
 import javax.sql.DataSource;
 
 public class SQLProvider implements IDataSourceProvider {

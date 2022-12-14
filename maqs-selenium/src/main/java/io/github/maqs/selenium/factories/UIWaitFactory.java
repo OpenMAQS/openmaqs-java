@@ -9,7 +9,6 @@ import io.github.maqs.selenium.SeleniumUtilities;
 import io.github.maqs.selenium.UIWait;
 import java.time.Duration;
 import java.util.concurrent.ConcurrentHashMap;
-
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
