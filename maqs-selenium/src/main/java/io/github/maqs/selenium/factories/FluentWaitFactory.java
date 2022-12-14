@@ -6,7 +6,6 @@ package io.github.maqs.selenium.factories;
 
 import io.github.maqs.selenium.SeleniumConfig;
 import java.time.Duration;
-
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.FluentWait;
