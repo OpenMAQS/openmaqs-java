@@ -4,9 +4,9 @@
 
 package io.github.maqs.cucumber;
 
+import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.github.maqs.base.BaseTest;
 import io.github.maqs.utilities.logging.MessageType;
-import io.cucumber.testng.AbstractTestNGCucumberTests;
 import java.lang.reflect.Method;
 import org.testng.ITest;
 import org.testng.ITestContext;

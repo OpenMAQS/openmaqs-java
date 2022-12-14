@@ -4,16 +4,17 @@
 
 package io.github.maqs.accessibility;
 
-import io.github.maqs.selenium.ISeleniumTestObject;
-import io.github.maqs.utilities.logging.FileLogger;
-import io.github.maqs.utilities.logging.ILogger;
-import io.github.maqs.utilities.logging.MessageType;
+
 import com.deque.html.axecore.results.AxeRuntimeException;
 import com.deque.html.axecore.results.Results;
 import com.deque.html.axecore.results.Rule;
 import com.deque.html.axecore.selenium.AxeBuilder;
 import com.deque.html.axecore.selenium.AxeReporter;
 import com.deque.html.axecore.selenium.ResultType;
+import io.github.maqs.selenium.ISeleniumTestObject;
+import io.github.maqs.utilities.logging.FileLogger;
+import io.github.maqs.utilities.logging.ILogger;
+import io.github.maqs.utilities.logging.MessageType;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
