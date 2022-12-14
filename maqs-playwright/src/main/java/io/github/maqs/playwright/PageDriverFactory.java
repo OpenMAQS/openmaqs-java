@@ -4,8 +4,7 @@
 
 package io.github.maqs.playwright;
 
-import io.github.maqs.utilities.logging.LoggingConfig;
-import io.github.maqs.utilities.logging.LoggingEnabled;
+
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.BrowserType;
@@ -14,6 +13,8 @@ import com.microsoft.playwright.Playwright;
 import com.microsoft.playwright.Tracing;
 import com.microsoft.playwright.options.Proxy;
 import com.microsoft.playwright.options.ViewportSize;
+import io.github.maqs.utilities.logging.LoggingConfig;
+import io.github.maqs.utilities.logging.LoggingEnabled;
 import java.awt.Dimension;
 import java.io.File;
 

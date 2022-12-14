@@ -4,6 +4,10 @@
 
 package io.github.maqs.playwright;
 
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Tracing;
 import io.github.maqs.base.BaseExtendableTest;
 import io.github.maqs.utilities.helper.StringProcessor;
 import io.github.maqs.utilities.logging.IFileLogger;
@@ -11,10 +15,6 @@ import io.github.maqs.utilities.logging.ILogger;
 import io.github.maqs.utilities.logging.LoggingConfig;
 import io.github.maqs.utilities.logging.LoggingEnabled;
 import io.github.maqs.utilities.logging.MessageType;
-import com.microsoft.playwright.Browser;
-import com.microsoft.playwright.BrowserContext;
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.Tracing;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
