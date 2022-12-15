@@ -61,7 +61,7 @@ public class ListProcessorUnitTest {
    * Unit Test for comparing two lists of strings.
    */
   @Test(groups = TestCategories.UTILITIES)
-  public void listOfStringsComparerTest() {
+  public void listOfStringsToCompareTest() {
     StringBuilder results = new StringBuilder();
     ArrayList<String> expectedList = new ArrayList<>();
     expectedList.add("Maine");
@@ -90,7 +90,7 @@ public class ListProcessorUnitTest {
    * Unit Test for comparing two lists of strings by order.
    */
   @Test(groups = TestCategories.UTILITIES)
-  public void listOfStringsComparerByOrderTest() {
+  public void listOfStringsToCompareByOrderTest() {
     ArrayList<String> expectedList = new ArrayList<>();
     expectedList.add("Maine");
     expectedList.add("Massachusetts");
@@ -116,10 +116,10 @@ public class ListProcessorUnitTest {
   }
 
   /**
-   * Verify that listOfStringsComparer handles lists of unequal length as expected.
+   * Verify that listOfStringsToCompare handles lists of unequal length as expected.
    */
   @Test(groups = TestCategories.UTILITIES)
-  public void listOfStringsComparerUnequalLengths() {
+  public void listOfStringsToCompareUnequalLengths() {
     ArrayList<String> expectedList = new ArrayList<>();
     expectedList.add("A");
     expectedList.add("B");
@@ -134,10 +134,10 @@ public class ListProcessorUnitTest {
   }
 
   /**
-   * Verify that ListOfStringsComparer handles not finding an item in the expected list correctly.
+   * Verify that ListOfStringsToCompare handles not finding an item in the expected list correctly.
    */
   @Test(groups = TestCategories.UTILITIES)
-  public void listOfStringComparerItemNotFound() {
+  public void listOfStringToCompareItemNotFound() {
     ArrayList<String> expectedList = new ArrayList<>();
     expectedList.add("A");
     expectedList.add("B");
@@ -154,10 +154,10 @@ public class ListProcessorUnitTest {
   }
 
   /**
-   * Verify that listOfStringsComparer handles inequality between lists as expected.
+   * Verify that listOfStringsToCompare handles inequality between lists as expected.
    */
   @Test(groups = TestCategories.UTILITIES)
-  public void listOfStringsComparerItemNotMatching() {
+  public void listOfStringsToCompareItemNotMatching() {
     ArrayList<String> expectedList = new ArrayList<>();
     expectedList.add("A");
     expectedList.add("B");
