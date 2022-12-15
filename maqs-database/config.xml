@@ -56,7 +56,7 @@
         <DatabaseUser>sa</DatabaseUser>
         <DatabasePassword>globalMAQS2</DatabasePassword>
         <DatabaseConnectionString>jdbc:sqlserver://localhost</DatabaseConnectionString>
-        <EntityDirectory>./src/test/java/com/maqs/database/entities/</EntityDirectory>
+        <EntityDirectory>./src/test/java/io/github/maqs/database/entities/</EntityDirectory>
         <EntityPackage>io.github.maqs.database.entities</EntityPackage>
     </DatabaseMaqs>
     <DatabaseCaps>
