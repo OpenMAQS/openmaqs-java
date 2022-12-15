@@ -8,11 +8,15 @@ import io.github.maqs.utilities.helper.Config;
 import io.github.maqs.utilities.helper.StringProcessor;
 import io.github.maqs.utilities.helper.TestCategories;
 import io.github.maqs.utilities.helper.exceptions.MaqsLoggingConfigException;
-import io.github.maqs.utilities.logging.*;
+import io.github.maqs.utilities.logging.ConsoleLogger;
+import io.github.maqs.utilities.logging.FileLogger;
+import io.github.maqs.utilities.logging.HtmlFileLogger;
+import io.github.maqs.utilities.logging.Logger;
+import io.github.maqs.utilities.logging.LoggingConfig;
+import io.github.maqs.utilities.logging.LoggingEnabled;
+import io.github.maqs.utilities.logging.MessageType;
 import java.io.File;
 import java.util.HashMap;
-
-import io.github.maqs.utilities.logging.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -69,6 +73,9 @@ public class LoggingConfigUnitTest {
         newValueMap.put("Log", "INVALIDVALUE");
         Config.addGeneralTestSettingValues(newValueMap, true);
         LoggingConfig.getLoggingEnabledSetting();
+        newValueMap.clear();
+        newValueMap.put("Log", "OnFail");
+        Config.addGeneralTestSettingValues(newValueMap, true);
     }
 
     /**
