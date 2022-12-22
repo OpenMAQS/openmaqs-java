@@ -275,7 +275,7 @@
         <jacoco.version>0.8.7</jacoco.version>
         <testng.version>7.5</testng.version>
 
-        <selenium.version>4.1.1</selenium.version>
+        <selenium.version>4.7.1</selenium.version>
         <!-- TODO: delete seleniumAppium.version when appium is updated with appium java client 8.0 -->
         <seleniumAppium.version>3.141.59</seleniumAppium.version>
 

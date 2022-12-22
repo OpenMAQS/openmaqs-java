@@ -403,7 +403,7 @@ public class PageDriverUnitTest extends BasePlaywrightTest {
     this.getPageDriver().waitForURL("**/async.html");
 
     Assert.assertNotNull(this.getPageDriver().goBack());
-    this.getPageDriver().waitForURL("**/Static/Automation/");
+    this.getPageDriver().waitForURL("**/Automation/");
     Assert.assertEquals(PageModel.getUrl(), this.getPageDriver().getAsyncPage().url());
 
     Assert.assertNotNull(this.getPageDriver().goForward());
@@ -497,7 +497,7 @@ public class PageDriverUnitTest extends BasePlaywrightTest {
   @Test(groups = TestCategories.PLAYWRIGHT)
   public void getUrlTest() {
     Assert.assertEquals(this.getPageDriver().getUrl(),
-        "https://MAQS-Framework.github.io/maqs-dotnet-templates/Static/Automation/");
+        "https://maqs-framework.github.io/TestingSite/Automation/");
   }
 
   @Test(groups = TestCategories.PLAYWRIGHT)

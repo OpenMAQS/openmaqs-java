@@ -50,8 +50,8 @@ public class AccessibilityUnitTest extends BaseSeleniumTest {
     String logContent = String.valueOf(Files.readAllLines(Paths.get(filePath)));
 
     SoftAssert softAssert = new SoftAssert();
-    softAssert.assertTrue(logContent.contains("Found 13 items"), "Expected to find 15 pass matches.");
-    softAssert.assertTrue(logContent.contains("Found 71 items"), "Expected to find 66 inapplicable matches.");
+    softAssert.assertTrue(logContent.contains("Found 15 items"), "Expected to find 15 pass matches.");
+    softAssert.assertTrue(logContent.contains("Found 67 items"), "Expected to find 67 inapplicable matches.");
     softAssert.assertTrue(logContent.contains("Found 6 items"), "Expected to find 6 violations matches.");
     softAssert.assertTrue(logContent.contains("Found 0 items"), "Expected to find 0 incomplete matches.");
     softAssert.assertAll();

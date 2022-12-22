@@ -56,7 +56,7 @@ public class SeleniumConfigUnitTest {
   public void getWebsiteBase() {
     String website = SeleniumConfig.getWebSiteBase();
     Assert.assertTrue(website.equalsIgnoreCase(
-        "https://MAQS-Framework.github.io/maqs-dotnet-templates/Static/Automation/"));
+        "https://maqs-framework.github.io/TestingSite/Automation/"));
   }
 
   /**
