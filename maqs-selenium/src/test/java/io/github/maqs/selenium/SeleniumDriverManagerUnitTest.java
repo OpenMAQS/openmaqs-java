@@ -17,19 +17,6 @@ import org.testng.annotations.Test;
 public class SeleniumDriverManagerUnitTest extends BaseGenericTest {
 
   /**
-   * The Get driver.
-   */
-  private final Supplier<WebDriver> getDriver = () -> {
-    WebDriver driver = null;
-    try {
-      driver = WebDriverFactory.getDefaultBrowser();
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
-    return driver;
-  };
-
-  /**
    * Test close not initialized.
    */
   @Test(groups = TestCategories.SELENIUM)
@@ -86,4 +73,17 @@ public class SeleniumDriverManagerUnitTest extends BaseGenericTest {
       seleniumDriverManager.logVerbose("Run with new driver");
     }
   }
+
+  /**
+   * The Get driver.
+   */
+  private final Supplier<WebDriver> getDriver = () -> {
+    WebDriver driver = null;
+    try {
+      driver = WebDriverFactory.getDefaultBrowser();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return driver;
+  };
 }
