@@ -16,7 +16,6 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WrapsDriver;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -31,27 +30,14 @@ public class EventHandlerUnitTest extends BaseSeleniumTest {
   private AutomationPageModel automationPageModel;
 
   /**
-   * The web driver to be used in the unit tests.
-   */
-  private WebDriver webDriverWithHandler;
-
-  /**
-   * Navigate to test page url and wait for page to load.
-   */
-  @BeforeMethod
-  private void setUp() {
-    // Navigate to the Automation site and set up the event handler
-    automationPageModel = new AutomationPageModel(this.getTestObject());
-    getWebDriver().navigate().to(automationPageModel.testSiteAutomationUrl);
-    UIWaitFactory.getWaitDriver(getWebDriver()).waitForPageLoad();
-    webDriverWithHandler = getWebDriver();
-  }
-
-  /**
    * Test that checks if the correct messages are logged when clicking an element.
    */
   @Test(groups = TestCategories.SELENIUM)
   public void eventHandlerClickElement() {
+    // Navigate to the Automation site and set up the event handler
+    this.navigateToAutomationSiteUrl();
+    WebDriver webDriverWithHandler = getWebDriver();
+
     // Use the Event Firing Web Driver to click an element, then get the log text
     webDriverWithHandler.findElement(automationPageModel.checkbox).click();
     String logText = this.readTextFile(((FileLogger) this.getLogger()).getFilePath());
@@ -70,6 +56,10 @@ public class EventHandlerUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.SELENIUM)
   public void eventHandlerChangeValueOf() {
+    // Navigate to the Automation site and set up the event handler
+    this.navigateToAutomationSiteUrl();
+    WebDriver webDriverWithHandler = getWebDriver();
+
     // Use the Event Firing Web Driver to change the value of an element, then get the log text
     webDriverWithHandler.findElement(automationPageModel.firstNameTextBox).clear();
     webDriverWithHandler.findElement(automationPageModel.firstNameTextBox).sendKeys("Change Value");
@@ -93,6 +83,10 @@ public class EventHandlerUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.SELENIUM)
   public void eventHandlerFindBy() {
+    // Navigate to the Automation site and set up the event handler
+    this.navigateToAutomationSiteUrl();
+    WebDriver webDriverWithHandler = getWebDriver();
+
     // Use the Event Firing Web Driver to find an element, then get the log text
     webDriverWithHandler.findElement(automationPageModel.computerPartsList);
     String logText = this.readTextFile(((FileLogger) this.getLogger()).getFilePath());
@@ -112,6 +106,10 @@ public class EventHandlerUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.SELENIUM)
   public void eventHandlerNavigateBack() {
+    // Navigate to the Automation site and set up the event handler
+    this.navigateToAutomationSiteUrl();
+    WebDriver webDriverWithHandler = getWebDriver();
+
     // Use the Event Firing Web Driver to navigate back to a page, then get the log text
     webDriverWithHandler.findElement(automationPageModel.homeButton).click();
     webDriverWithHandler.navigate().back();
@@ -132,6 +130,10 @@ public class EventHandlerUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.SELENIUM)
   public void eventHandlerNavigateForward() {
+    // Navigate to the Automation site and set up the event handler
+    this.navigateToAutomationSiteUrl();
+    WebDriver webDriverWithHandler = getWebDriver();
+
     // Use the Event Firing Web Driver to navigate forward to a page, then get the log text
     webDriverWithHandler.findElement(automationPageModel.homeButton).click();
     webDriverWithHandler.navigate().back();
@@ -152,6 +154,10 @@ public class EventHandlerUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.SELENIUM)
   public void eventHandlerRefresh() {
+    // Navigate to the Automation site and set up the event handler
+    this.navigateToAutomationSiteUrl();
+    WebDriver webDriverWithHandler = getWebDriver();
+
     // Use the Event Firing Web Driver to refresh the page, then get the log text
     webDriverWithHandler.navigate().refresh();
     String logText = this.readTextFile(((FileLogger) this.getLogger()).getFilePath());
@@ -170,6 +176,10 @@ public class EventHandlerUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.SELENIUM)
   public void eventHandlerNavigateTo() {
+    // Navigate to the Automation site and set up the event handler
+    this.navigateToAutomationSiteUrl();
+    WebDriver webDriverWithHandler = getWebDriver();
+
     // Use the Event Firing Web Driver to navigate to a page, then get the log text
     webDriverWithHandler.navigate().to(automationPageModel.testSiteAutomationUrl);
     String logText = this.readTextFile(((FileLogger) this.getLogger()).getFilePath());
@@ -188,6 +198,10 @@ public class EventHandlerUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.SELENIUM)
   public void eventHandlerScript() {
+    // Navigate to the Automation site and set up the event handler
+    this.navigateToAutomationSiteUrl();
+    WebDriver webDriverWithHandler = getWebDriver();
+
     // Use the Event Firing Web Driver to execute a script, then get the log text
     JavascriptExecutor javascriptExecutor = (JavascriptExecutor) webDriverWithHandler;
     javascriptExecutor.executeScript("document.querySelector(\"#homeButton > a\");");
@@ -206,6 +220,10 @@ public class EventHandlerUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.SELENIUM)
   public void eventHandlerSwitchWindow() {
+    // Navigate to the Automation site and set up the event handler
+    this.navigateToAutomationSiteUrl();
+    WebDriver webDriverWithHandler = this.getWebDriver();
+
     // Use the Event Firing Web Driver to open a new tab, then get the log text
     ((JavascriptExecutor) webDriverWithHandler).executeScript("window.open()");
 
@@ -231,6 +249,10 @@ public class EventHandlerUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.SELENIUM, expectedExceptions = MAQSRuntimeException.class)
   public void eventHandlerSwitchInvalidWindow() {
+    // Navigate to the Automation site and set up the event handler
+    this.navigateToAutomationSiteUrl();
+    WebDriver webDriverWithHandler = this.getWebDriver();
+
     // Use the Event Firing Web Driver to open a new tab, then get the log text
     ((JavascriptExecutor) webDriverWithHandler).executeScript("window.open()");
 
@@ -243,8 +265,8 @@ public class EventHandlerUnitTest extends BaseSeleniumTest {
   @Test(groups = TestCategories.SELENIUM)
   public void eventHandlerAcceptAlert() {
     // Navigate to the Automation site and set up the event handler
-    // this.navigateToAutomationSiteUrl();
-    // WebDriver webDriverWithHandler = getWebDriver();
+    this.navigateToAutomationSiteUrl();
+    WebDriver webDriverWithHandler = getWebDriver();
 
     // Use the Event Firing Web Driver to accept an alert, then get the log text
     UIWait waitDriver = UIWaitFactory.getWaitDriver(((WrapsDriver) this.getWebDriver()).getWrappedDriver());
@@ -268,8 +290,8 @@ public class EventHandlerUnitTest extends BaseSeleniumTest {
   @Test(groups = TestCategories.SELENIUM)
   public void eventHandlerAcceptDismiss() {
     // Navigate to the Automation site and set up the event handler
-    // this.navigateToAutomationSiteUrl();
-    // WebDriver webDriverWithHandler = getWebDriver();
+    this.navigateToAutomationSiteUrl();
+    WebDriver webDriverWithHandler = getWebDriver();
 
     // Use the Event Firing Web Driver to dismiss an alert, then get the log text
     UIWait waitDriver = UIWaitFactory.getWaitDriver(((WrapsDriver)this.getWebDriver()).getWrappedDriver());
@@ -294,8 +316,8 @@ public class EventHandlerUnitTest extends BaseSeleniumTest {
   @Test(groups = TestCategories.SELENIUM)
   public void eventHandlerGetText() {
     // Navigate to the Automation site and set up the event handler
-    // this.navigateToAutomationSiteUrl();
-    // WebDriver webDriverWithHandler = getWebDriver();
+    this.navigateToAutomationSiteUrl();
+    WebDriver webDriverWithHandler = getWebDriver();
 
     // Use the Event Firing Web Driver to get the text from an element, then get the log text
     webDriverWithHandler.findElement(automationPageModel.errorLinkBy).getText();
@@ -316,7 +338,7 @@ public class EventHandlerUnitTest extends BaseSeleniumTest {
   @Test(groups = TestCategories.SELENIUM)
   public void eventHandlerScreenshot() {
     // Navigate to the Automation site and set up the event handler
-    // this.navigateToAutomationSiteUrl();
+    this.navigateToAutomationSiteUrl();
     SeleniumUtilities.captureScreenshot(this.getWebDriver(), this.getTestObject());
 
     // Use the Event Firing Web Driver to take a screenshot, then get the log text
@@ -328,6 +350,15 @@ public class EventHandlerUnitTest extends BaseSeleniumTest {
     softAssert.assertTrue(logText.contains("After screenshot capture"),
         "Expected message to be logged after taking a screenshot.");
     softAssert.assertAll();
+  }
+
+  /**
+   * Navigate to test page url and wait for page to load.
+   */
+  private void navigateToAutomationSiteUrl() {
+    automationPageModel = new AutomationPageModel(this.getTestObject());
+    getWebDriver().navigate().to(automationPageModel.testSiteAutomationUrl);
+    UIWaitFactory.getWaitDriver(getWebDriver()).waitForPageLoad();
   }
 
   /**

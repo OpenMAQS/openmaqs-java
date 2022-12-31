@@ -30,6 +30,7 @@ public class UIWaitFactoryUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.SELENIUM)
   public void getWaitDriverTest() {
+    new AutomationPageModel(this.getTestObject());
     UIWait waitDriver = UIWaitFactory.getWaitDriver(this.getWebDriver());
 
     // Error string templates for assertion failures.

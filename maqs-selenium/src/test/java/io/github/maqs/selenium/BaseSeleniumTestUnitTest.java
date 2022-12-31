@@ -40,6 +40,7 @@ public class BaseSeleniumTestUnitTest extends BaseSeleniumTest {
 
   @Test(groups = TestCategories.SELENIUM)
   public void testGetBrowser() {
+
     WebDriver driver = null;
 
     try {

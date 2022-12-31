@@ -20,6 +20,7 @@ public class SeleniumTestObjectUnitTest extends BaseGenericTest {
    */
   @Test(groups = TestCategories.SELENIUM)
   public void testSeleniumTestObjectCreationWithDriver() {
+
     WebDriver defaultBrowser = null;
     try {
       defaultBrowser = WebDriverFactory.getDefaultBrowser();
@@ -39,6 +40,7 @@ public class SeleniumTestObjectUnitTest extends BaseGenericTest {
    */
   @Test(groups = TestCategories.SELENIUM)
   public void testSeleniumTestObjectCreationWithSupplier() {
+
     try (SeleniumTestObject testObject = new SeleniumTestObject(() -> {
       try {
         return WebDriverFactory.getDefaultBrowser();
