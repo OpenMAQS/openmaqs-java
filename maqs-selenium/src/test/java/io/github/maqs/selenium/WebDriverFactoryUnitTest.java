@@ -31,6 +31,7 @@ import org.testng.annotations.Test;
  * The WebDriverFactory test class.
  */
 public class WebDriverFactoryUnitTest extends BaseGenericTest {
+
   /**
    * Tests getting the default browser.
    */
