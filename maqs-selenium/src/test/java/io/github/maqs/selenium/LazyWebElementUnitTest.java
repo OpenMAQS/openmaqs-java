@@ -189,10 +189,10 @@ public class LazyWebElementUnitTest extends BaseSeleniumTest {
 	}
 
 	/**
-	 * Setup before a test
+	 * Navigate to test page and set up for test.
 	 */
 	@BeforeMethod
-	public void navigateToTestPage() {
+	public void setUp() {
 		this.getWebDriver().navigate().to(SeleniumConfig.getWebSiteBase());
 		UIWaitFactory.getWaitDriver(this.getWebDriver()).waitForPageLoad();
 	}

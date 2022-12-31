@@ -39,7 +39,6 @@ public class ElementHandler {
    * @return Text of the selected option in dropdown
    */
   public static String getSelectedOptionFromDropdown(WebDriver webDriver, By by) {
-
     Select select = new Select(UIWaitFactory.getWaitDriver(webDriver).waitForClickableElement(by));
     return select.getFirstSelectedOption().getText();
   }
@@ -52,7 +51,6 @@ public class ElementHandler {
    * @return String array list of selected items in dropdown
    */
   public static List<String> getSelectedOptionsFromDropdown(WebDriver webDriver, By by) {
-
     ArrayList<WebElement> elements;
     ArrayList<String> selectedItems = new ArrayList<>();
     Select select = new Select(UIWaitFactory.getWaitDriver(webDriver).waitForClickableElement(by));
@@ -92,7 +90,6 @@ public class ElementHandler {
    * @return The text in the text box
    */
   public static String getElementAttribute(WebDriver webDriver, By by, String attribute) {
-
     return UIWaitFactory.getWaitDriver(webDriver).waitForVisibleElement(by).getAttribute(attribute);
   }
 

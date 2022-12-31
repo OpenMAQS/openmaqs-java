@@ -9,6 +9,7 @@ import io.github.maqs.selenium.pageModel.AutomationPageModel;
 import io.github.maqs.utilities.helper.TestCategories;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**
@@ -17,11 +18,17 @@ import org.testng.annotations.Test;
 public class ActionBuilderUnitTest extends BaseSeleniumTest {
 
   /**
-   * Navigates to the specified url test page.
-   * @param url the url to be navigated to
+   * The automation page model to use for the unit tests.
    */
-  private void navigateToUrl(String url) {
-    this.getWebDriver().navigate().to(url);
+  private AutomationPageModel automationPageModel;
+
+  /**
+   * Navigates to the specified url test page.
+   */
+  @BeforeMethod
+  private void setUp() {
+    automationPageModel = new AutomationPageModel(this.getTestObject());
+    this.getWebDriver().navigate().to(automationPageModel.testSiteAutomationUrl);
     UIWaitFactory.getWaitDriver(this.getWebDriver()).waitForPageLoad();
   }
 
@@ -30,8 +37,6 @@ public class ActionBuilderUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.SELENIUM)
   public void hoverOverTest() {
-    AutomationPageModel automationPageModel = new AutomationPageModel(this.getTestObject());
-    this.navigateToUrl(automationPageModel.testSiteAutomationUrl);
     ActionBuilder.hoverOver(this.getWebDriver(), automationPageModel.automationDropDown);
     UIWaitFactory.getWaitDriver(
         this.getWebDriver()).waitForClickableElement(automationPageModel.iFrameDropDownButton).click();
@@ -44,8 +49,6 @@ public class ActionBuilderUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.SELENIUM)
   public void pressModifierKeyTest() {
-    AutomationPageModel automationPageModel = new AutomationPageModel(this.getTestObject());
-    this.navigateToUrl(automationPageModel.testSiteAutomationUrl);
     UIWaitFactory.getWaitDriver(
         this.getWebDriver()).waitForClickableElement(automationPageModel.listBoxOption1).click();
     ActionBuilder.pressModifierKey(this.getWebDriver(), Keys.CONTROL);
@@ -63,8 +66,6 @@ public class ActionBuilderUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.SELENIUM)
   public void moveSliderTest() {
-    AutomationPageModel automationPageModel = new AutomationPageModel(this.getTestObject());
-    this.navigateToUrl(automationPageModel.testSiteAutomationUrl);
     ActionBuilder.slideElement(this.getWebDriver(), automationPageModel.slider, 50);
     Assert.assertEquals(this.getWebDriver().findElement(
             automationPageModel.sliderLabelNumber).getAttribute("value"), "4");
@@ -75,8 +76,6 @@ public class ActionBuilderUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.SELENIUM)
   public void rightClickToTriggerContextMenu() {
-    AutomationPageModel automationPageModel = new AutomationPageModel(this.getTestObject());
-    this.navigateToUrl(automationPageModel.testSiteAutomationUrl);
     ActionBuilder.rightClick(this.getWebDriver(), automationPageModel.rightClickableElementWithContextMenu);
     Assert.assertTrue(this.getWebDriver().findElement(automationPageModel.rightClickContextSaveText).isDisplayed());
   }
