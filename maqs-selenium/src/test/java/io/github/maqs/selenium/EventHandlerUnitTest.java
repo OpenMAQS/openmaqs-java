@@ -13,7 +13,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WrapsDriver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -36,7 +35,7 @@ public class EventHandlerUnitTest extends BaseSeleniumTest {
   private void setUp() {
     // Navigate to the Automation site and set up the event handler
     automationPageModel = new AutomationPageModel(this.getTestObject());
-   this.getWebDriver().navigate().to(automationPageModel.testSiteAutomationUrl);
+    this.getWebDriver().navigate().to(automationPageModel.testSiteAutomationUrl);
     UIWaitFactory.getWaitDriver(getWebDriver()).waitForPageLoad();
   }
 
@@ -63,11 +62,9 @@ public class EventHandlerUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.SELENIUM)
   public void eventHandlerChangeValueOf() {
-    WebDriver webDriverWithHandler =this.getWebDriver();
-
     // Use the Event Firing Web Driver to change the value of an element, then get the log text
-    webDriverWithHandler.findElement(automationPageModel.firstNameTextBox).clear();
-    webDriverWithHandler.findElement(automationPageModel.firstNameTextBox).sendKeys("Change Value");
+    this.getWebDriver().findElement(automationPageModel.firstNameTextBox).clear();
+    this.getWebDriver().findElement(automationPageModel.firstNameTextBox).sendKeys("Change Value");
     String logText = this.readTextFile(((FileLogger) this.getLogger()).getFilePath());
 
     // Assert the expected Event Handler logs exist.
@@ -107,11 +104,9 @@ public class EventHandlerUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.SELENIUM)
   public void eventHandlerNavigateBack() {
-    WebDriver webDriverWithHandler =this.getWebDriver();
-
     // Use the Event Firing Web Driver to navigate back to a page, then get the log text
-    webDriverWithHandler.findElement(automationPageModel.homeButton).click();
-    webDriverWithHandler.navigate().back();
+    this.getWebDriver().findElement(automationPageModel.homeButton).click();
+    this.getWebDriver().navigate().back();
     String logText = this.readTextFile(((FileLogger) this.getLogger()).getFilePath());
 
     // Assert the expected Event Handler logs exist.
@@ -129,12 +124,10 @@ public class EventHandlerUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.SELENIUM)
   public void eventHandlerNavigateForward() {
-    WebDriver webDriverWithHandler =this.getWebDriver();
-
     // Use the Event Firing Web Driver to navigate forward to a page, then get the log text
-    webDriverWithHandler.findElement(automationPageModel.homeButton).click();
-    webDriverWithHandler.navigate().back();
-    webDriverWithHandler.navigate().forward();
+    this.getWebDriver().findElement(automationPageModel.homeButton).click();
+    this.getWebDriver().navigate().back();
+    this.getWebDriver().navigate().forward();
     String logText = this.readTextFile(((FileLogger) this.getLogger()).getFilePath());
 
     // Assert the expected Event Handler logs exist.
@@ -170,7 +163,7 @@ public class EventHandlerUnitTest extends BaseSeleniumTest {
   @Test(groups = TestCategories.SELENIUM)
   public void eventHandlerNavigateTo() {
     // Use the Event Firing Web Driver to navigate to a page, then get the log text
-    this.getWebDriver().navigate().to(automationPageModel.testSiteAutomationUrl);
+//    this.getWebDriver().navigate().to(automationPageModel.testSiteAutomationUrl);
     String logText = this.readTextFile(((FileLogger) this.getLogger()).getFilePath());
 
     // Assert the expected Event Handler logs exist.
@@ -262,7 +255,7 @@ public class EventHandlerUnitTest extends BaseSeleniumTest {
   @Test(groups = TestCategories.SELENIUM)
   public void eventHandlerAcceptDismiss() {
     // Use the Event Firing Web Driver to dismiss an alert, then get the log text
-    UIWait waitDriver = UIWaitFactory.getWaitDriver(((WrapsDriver)this.getWebDriver()).getWrappedDriver());
+    UIWait waitDriver = UIWaitFactory.getWaitDriver(((WrapsDriver) this.getWebDriver()).getWrappedDriver());
     waitDriver.waitForClickableElement(automationPageModel.alertWithConfirm).click();
     Alert alert = this.getWebDriver().switchTo().alert();
     alert.dismiss();
