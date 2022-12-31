@@ -73,6 +73,7 @@ public class LoggingConfigUnitTest {
         newValueMap.put("Log", "INVALIDVALUE");
         Config.addGeneralTestSettingValues(newValueMap, true);
         LoggingConfig.getLoggingEnabledSetting();
+
         newValueMap.clear();
         newValueMap.put("Log", "OnFail");
         Config.addGeneralTestSettingValues(newValueMap, true);
@@ -184,6 +185,10 @@ public class LoggingConfigUnitTest {
         newValueMap.put("LogLevel", "INVALIDVALUE");
         Config.addGeneralTestSettingValues(newValueMap, true);
         LoggingConfig.getLoggingLevelSetting();
+
+        newValueMap.clear();
+        newValueMap.put("Log", "OnFail");
+        Config.addGeneralTestSettingValues(newValueMap, true);
     }
 
     /**
