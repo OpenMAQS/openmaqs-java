@@ -2,7 +2,7 @@
  * Copyright 2022 (C) MAQS, All rights Reserved
  */
 
-package io.github.maqs.webservices.WebServiceDriverRequestUnitTest;
+package io.github.maqs.webservices.webServiceDriverRequestUnitTest;
 
 import io.github.maqs.utilities.helper.TestCategories;
 import io.github.maqs.webservices.HttpClientFactory;
