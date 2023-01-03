@@ -39,28 +39,23 @@ public class Product {
         this.price = price;
     }
 
-    // Used to populate the product class
-    public Product() {
+    /**
+     * Used to populate the product class.
+     * Needed to populate the class object, don't delete.
+     */
+    private Product() {
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getXmlns() {
+        return xmlns;
     }
 
     public int getId() {
         return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
     }
 
     public String getCategory() {
@@ -71,14 +66,11 @@ public class Product {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
     public String toString() {
-        return String.format("%s:%d\n", "Id", this.getId()) + String
-            .format("%s:%s\n", "Name", this.getName()) + String
-            .format("%s:%s\n", "Category", this.getCategory()) + String
-            .format("%s:%s\n", "Price", this.getPrice());
+        return String.format("%s:%d\n", "Id", this.getId())
+                + String.format("%s:%s\n", "Name", this.getName())
+                + String.format("%s:%s\n", "Category", this.getCategory())
+                + String.format("%s:%s\n", "Price", this.getPrice())
+                + String.format("%s:%s\n", "XMLNS", this.getXmlns());
     }
 }

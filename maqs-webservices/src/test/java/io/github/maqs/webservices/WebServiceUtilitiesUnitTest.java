@@ -23,7 +23,6 @@ public class WebServiceUtilitiesUnitTest extends BaseWebServiceTest {
    */
   private final Product product = new Product(1, "Milk", "Diary", BigDecimal.TEN);
 
-
   /**
    * String to hold the URL.
    */
@@ -128,7 +127,7 @@ public class WebServiceUtilitiesUnitTest extends BaseWebServiceTest {
    */
   @Test(groups = TestCategories.WEB_SERVICE)
   public void testSerializeJson() throws JsonProcessingException {
-    String expectedJson = "{\"id\":1,\"name\":\"Milk\",\"category\":\"Diary\",\"price\":10}";
+    String expectedJson = "{\"xmlns\":\"http://schemas.datacontract.org/2004/07/MainTestService.Models\",\"id\":1,\"name\":\"Milk\",\"category\":\"Diary\",\"price\":10}";
     String actualJson = WebServiceUtilities.serializeJson(this.product);
     Assert.assertEquals(actualJson, expectedJson, String.format(
         "the json values compared aren't equal, expected was %s while actual was %s", expectedJson, actualJson));

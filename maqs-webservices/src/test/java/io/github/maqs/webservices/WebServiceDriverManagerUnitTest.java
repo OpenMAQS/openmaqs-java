@@ -18,7 +18,6 @@ public class WebServiceDriverManagerUnitTest extends BaseGenericTest {
 
   /**
    * Test for Getting Web Service Driver using Supplier in constructor.
-   *
    */
   @Test(groups = TestCategories.WEB_SERVICE)
   public void getWebServiceDriverWithSupplierTest() {
@@ -34,7 +33,6 @@ public class WebServiceDriverManagerUnitTest extends BaseGenericTest {
 
   /**
    * Test for Getting Web Service Driver using Web Service Driver in constructor.
-   *
    */
   @Test(groups = TestCategories.WEB_SERVICE)
   public void getWebServiceDriverTest() {
@@ -48,7 +46,6 @@ public class WebServiceDriverManagerUnitTest extends BaseGenericTest {
   /**
    * Test for Getting Web Service Driver when Driver is null and instantiates
    * default Driver.
-   *
    */
   @Test(groups = TestCategories.WEB_SERVICE)
   public void getWebServiceDriverNullDriver() {
