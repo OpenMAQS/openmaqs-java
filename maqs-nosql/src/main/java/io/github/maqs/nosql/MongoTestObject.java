@@ -1,12 +1,12 @@
 /*
- * Copyright 2022 (C) Cognizant SoftVision, All rights Reserved
+ * Copyright 2022 (C) MAQS, All rights Reserved
  */
 
-package com.cognizantsoftvision.maqs.nosql;
+package io.github.maqs.nosql;
 
-import com.cognizantsoftvision.maqs.base.BaseTestObject;
-import com.cognizantsoftvision.maqs.utilities.logging.Logger;
 import com.mongodb.client.MongoCollection;
+import io.github.maqs.base.BaseTestObject;
+import io.github.maqs.utilities.logging.ILogger;
 import java.util.function.Supplier;
 import org.bson.Document;
 
@@ -24,7 +24,7 @@ public class MongoTestObject extends BaseTestObject implements IMongoTestObject 
    * @param fullyQualifiedTestName The test's fully qualified test name
    */
   public MongoTestObject(String connectionString, String databaseString, String collectionString,
-      Logger logger, String fullyQualifiedTestName) {
+                         ILogger logger, String fullyQualifiedTestName) {
     super(logger, fullyQualifiedTestName);
     this.getManagerStore().put((MongoDriverManager.class).getCanonicalName(),
             new MongoDriverManager(connectionString,databaseString,collectionString, this));

@@ -1,10 +1,10 @@
 /*
- * Copyright 2022 (C) Cognizant SoftVision, All rights Reserved
+ * Copyright 2022 (C) MAQS, All rights Reserved
  */
 
-package com.cognizantsoftvision.maqs.nosql;
+package io.github.maqs.nosql;
 
-import com.cognizantsoftvision.maqs.utilities.helper.TestCategories;
+import io.github.maqs.utilities.helper.TestCategories;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

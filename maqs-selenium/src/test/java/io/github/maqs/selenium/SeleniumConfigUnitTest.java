@@ -55,8 +55,7 @@ public class SeleniumConfigUnitTest {
   @Test(groups = TestCategories.SELENIUM)
   public void getWebsiteBase() {
     String website = SeleniumConfig.getWebSiteBase();
-    Assert.assertTrue(website.equalsIgnoreCase(
-        "https://maqs-framework.github.io/TestingSite/Automation/"));
+    Assert.assertTrue(website.equalsIgnoreCase("https://maqs-framework.github.io/TestingSite/Automation/"));
   }
 
   /**

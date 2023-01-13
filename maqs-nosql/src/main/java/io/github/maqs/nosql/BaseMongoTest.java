@@ -1,11 +1,12 @@
 /*
- * Copyright 2022 (C) Cognizant SoftVision, All rights Reserved
+ * Copyright 2022 (C) MAQS, All rights Reserved
  */
 
-package com.cognizantsoftvision.maqs.nosql;
+package io.github.maqs.nosql;
 
-import com.cognizantsoftvision.maqs.base.BaseExtendableTest;
+
 import com.mongodb.client.MongoCollection;
+import io.github.maqs.base.BaseExtendableTest;
 import java.util.function.Supplier;
 import org.bson.Document;
 import org.testng.ITestResult;

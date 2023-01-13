@@ -1,11 +1,11 @@
 /*
- * Copyright 2022 (C) Cognizant SoftVision, All rights Reserved
+ * Copyright 2022 (C) MAQS, All rights Reserved
  */
 
-package com.cognizantsoftvision.maqs.nosql;
+package io.github.maqs.nosql;
 
-import com.cognizantsoftvision.maqs.utilities.helper.Config;
-import com.cognizantsoftvision.maqs.utilities.helper.ConfigSection;
+import io.github.maqs.utilities.helper.Config;
+import io.github.maqs.utilities.helper.ConfigSection;
 
 /**
  * The MongoDB Config class.

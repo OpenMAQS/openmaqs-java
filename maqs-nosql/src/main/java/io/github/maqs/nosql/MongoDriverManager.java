@@ -1,15 +1,15 @@
 /*
- * Copyright 2022 (C) Cognizant SoftVision, All rights Reserved
+ * Copyright 2022 (C) MAQS, All rights Reserved
  */
 
-package com.cognizantsoftvision.maqs.nosql;
+package io.github.maqs.nosql;
 
-import com.cognizantsoftvision.maqs.base.BaseTestObject;
-import com.cognizantsoftvision.maqs.base.DriverManager;
-import com.cognizantsoftvision.maqs.utilities.logging.LoggingConfig;
-import com.cognizantsoftvision.maqs.utilities.logging.LoggingEnabled;
-import com.cognizantsoftvision.maqs.utilities.logging.MessageType;
 import com.mongodb.client.MongoCollection;
+import io.github.maqs.base.BaseTestObject;
+import io.github.maqs.base.DriverManager;
+import io.github.maqs.utilities.logging.LoggingConfig;
+import io.github.maqs.utilities.logging.LoggingEnabled;
+import io.github.maqs.utilities.logging.MessageType;
 import java.util.function.Supplier;
 import org.bson.Document;
 

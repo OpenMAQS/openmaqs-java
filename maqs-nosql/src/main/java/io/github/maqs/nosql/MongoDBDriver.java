@@ -1,8 +1,8 @@
 /*
- * Copyright 2022 (C) Cognizant SoftVision, All rights Reserved
+ * Copyright 2022 (C) MAQS, All rights Reserved
  */
 
-package com.cognizantsoftvision.maqs.nosql;
+package io.github.maqs.nosql;
 
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;

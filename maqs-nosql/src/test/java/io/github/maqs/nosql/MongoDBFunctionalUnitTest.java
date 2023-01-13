@@ -1,18 +1,19 @@
 /*
- * Copyright 2022 (C) Cognizant SoftVision, All rights Reserved
+ * Copyright 2022 (C) MAQS, All rights Reserved
  */
 
-package com.cognizantsoftvision.maqs.nosql;
+package io.github.maqs.nosql;
 
-import com.cognizantsoftvision.maqs.utilities.helper.TestCategories;
+
 import com.mongodb.client.model.Filters;
+import io.github.maqs.utilities.helper.TestCategories;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 
 /**
  * The Mongo Database Functional unit test class.
