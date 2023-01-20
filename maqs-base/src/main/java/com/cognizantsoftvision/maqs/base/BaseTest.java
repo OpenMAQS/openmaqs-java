@@ -257,13 +257,13 @@ public abstract class BaseTest {
 
     // Log the test result
     if (testResult.getStatus() == ITestResult.SUCCESS) {
-      this.tryToLog(MessageType.SUCCESS, "Test Passed");
+      this.tryToLog(MessageType.SUCCESS, testResult.getTestName()+": Test Passed");
     } else if (testResult.getStatus() == ITestResult.FAILURE) {
       if (this.getLoggingEnabled() == LoggingEnabled.YES && this.getLogger() instanceof FileLogger) {
         String stackTrace = ExceptionUtils.getStackTrace(testResult.getThrowable());
         this.tryToLog(MessageType.ERROR, stackTrace, "");
       }
-      this.tryToLog(MessageType.ERROR, "Test Failed");
+      this.tryToLog(MessageType.ERROR, testResult.getTestName()+": Test Failed");
     } else if (testResult.getStatus() == ITestResult.SKIP) {
       this.tryToLog(MessageType.INFORMATION, "Test was skipped");
     } else {
