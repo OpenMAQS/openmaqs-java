@@ -250,6 +250,7 @@ public abstract class BaseTest {
   @AfterMethod(alwaysRun = true)
   public void teardown() {
     try {
+      testResult.setTestName(this.fullyQualifiedTestClassName.get());
       this.beforeLoggingTeardown(testResult);
     } catch (Exception e) {
       this.tryToLog(MessageType.WARNING, "Failed before logging teardown because: %s", e.getMessage());
