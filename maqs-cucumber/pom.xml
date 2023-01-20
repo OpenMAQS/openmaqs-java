@@ -43,6 +43,18 @@
         <dependency>
             <scope>compile</scope>
             <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-core</artifactId>
+            <version>${cucumber.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.cucumber</groupId>
+                    <artifactId>cucumber-expressions</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <scope>compile</scope>
+            <groupId>io.cucumber</groupId>
             <artifactId>cucumber-gherkin</artifactId>
             <version>${cucumber.version}</version>
         </dependency>
