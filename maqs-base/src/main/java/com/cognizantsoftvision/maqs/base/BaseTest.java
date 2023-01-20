@@ -249,8 +249,8 @@ public abstract class BaseTest {
    */
   @AfterMethod(alwaysRun = true)
   public void teardown() {
+    String fullyQualifiedTestName = this.fullyQualifiedTestClassName.get();
     try {
-      testResult.setTestName(this.fullyQualifiedTestClassName.get());
       this.beforeLoggingTeardown(testResult);
     } catch (Exception e) {
       this.tryToLog(MessageType.WARNING, "Failed before logging teardown because: %s", e.getMessage());
@@ -258,13 +258,13 @@ public abstract class BaseTest {
 
     // Log the test result
     if (testResult.getStatus() == ITestResult.SUCCESS) {
-      this.tryToLog(MessageType.SUCCESS, testResult.getTestName() + ": Test Passed");
+      this.tryToLog(MessageType.SUCCESS, fullyQualifiedTestClassName + ": Test Passed");
     } else if (testResult.getStatus() == ITestResult.FAILURE) {
       if (this.getLoggingEnabled() == LoggingEnabled.YES && this.getLogger() instanceof FileLogger) {
         String stackTrace = ExceptionUtils.getStackTrace(testResult.getThrowable());
         this.tryToLog(MessageType.ERROR, stackTrace, "");
       }
-      this.tryToLog(MessageType.ERROR, testResult.getTestName() + ": Test Failed");
+      this.tryToLog(MessageType.ERROR, fullyQualifiedTestClassName + ": Test Failed");
     } else if (testResult.getStatus() == ITestResult.SKIP) {
       this.tryToLog(MessageType.INFORMATION, "Test was skipped");
     } else {
@@ -282,7 +282,7 @@ public abstract class BaseTest {
     }
 
     // Get the Fully Qualified Test Name
-    String fullyQualifiedTestName = this.fullyQualifiedTestClassName.get();
+
 
     try {
       ITestObject baseTestObject = this.getTestObject();
