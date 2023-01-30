@@ -29,7 +29,7 @@ public class BaseAppiumTest extends BaseExtendableTest<AppiumTestObject> {
    *
    * @return the appium driver
    */
-  public AppiumDriver<WebElement> getAppiumDriver() {
+  public AppiumDriver getAppiumDriver() {
     return this.getTestObject().getAppiumDriver();
   }
 
@@ -38,7 +38,7 @@ public class BaseAppiumTest extends BaseExtendableTest<AppiumTestObject> {
    *
    * @param mobileDriver the mobile driver
    */
-  public void setAppiumDriver(AppiumDriver<WebElement> mobileDriver) {
+  public void setAppiumDriver(AppiumDriver mobileDriver) {
     this.getTestObject().setAppiumDriver(mobileDriver);
   }
 
@@ -47,7 +47,7 @@ public class BaseAppiumTest extends BaseExtendableTest<AppiumTestObject> {
    *
    * @return the mobile driver
    */
-  protected AppiumDriver<WebElement> getMobileDriver() {
+  protected AppiumDriver getMobileDriver() {
     return AppiumDriverFactory.getDefaultMobileDriver();
   }
 
