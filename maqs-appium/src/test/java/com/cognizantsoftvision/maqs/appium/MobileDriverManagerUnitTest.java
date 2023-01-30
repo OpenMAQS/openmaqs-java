@@ -21,7 +21,7 @@ public class MobileDriverManagerUnitTest extends BaseGenericTest {
    */
   @Test
   public void testGetMobileDriver() {
-    Supplier<AppiumDriver<WebElement>> supplier = AppiumDriverFactory::getDefaultMobileDriver;
+    Supplier<AppiumDriver> supplier = AppiumDriverFactory::getDefaultMobileDriver;
     AppiumTestObject appiumTestObject = new AppiumTestObject(supplier, this.getLogger(),
         this.getTestObject().getFullyQualifiedTestName());
 
@@ -35,7 +35,7 @@ public class MobileDriverManagerUnitTest extends BaseGenericTest {
    */
   @Test
   public void testClose() {
-    Supplier<AppiumDriver<WebElement>> supplier = AppiumDriverFactory::getDefaultMobileDriver;
+    Supplier<AppiumDriver> supplier = AppiumDriverFactory::getDefaultMobileDriver;
     MobileDriverManager mobileDriverManager = new MobileDriverManager(supplier, this.getTestObject());
 
     mobileDriverManager.close();
@@ -58,7 +58,7 @@ public class MobileDriverManagerUnitTest extends BaseGenericTest {
    */
   @Test
   public void testCloseNullBaseDriver() {
-    Supplier<AppiumDriver<WebElement>> supplier = AppiumDriverFactory::getDefaultMobileDriver;
+    Supplier<AppiumDriver> supplier = AppiumDriverFactory::getDefaultMobileDriver;
     MobileDriverManager mobileDriverManager = new MobileDriverManager(supplier, this.getTestObject());
 
     // Close once to make Base Driver null
