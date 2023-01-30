@@ -56,7 +56,7 @@ public class AppiumDriverFactoryUnitTest extends BaseGenericTest {
    * Test test get default mobile driver android.
    */
   @Test(groups = TestCategories.APPIUM)
-  public void testTestGetDefaultMobileDriverAndroid() {
+  public void testGetDefaultMobileDriverAndroid() {
     AppiumDriver defaultMobileDriver = AppiumDriverFactory.getDefaultMobileDriver(PlatformType.ANDROID);
     Assert.assertNotNull(defaultMobileDriver, "Checking if default driver is null");
   }
@@ -77,7 +77,7 @@ public class AppiumDriverFactoryUnitTest extends BaseGenericTest {
    * Test test get default mobile options.
    */
   @Test(groups = TestCategories.APPIUM)
-  public void testTestGetDefaultMobileOptions() {
+  public void testGetDefaultMobileOptionsUsingObjects() {
     final Map<String, Object> capabilitiesAsObjects = AppiumConfig.getCapabilitiesAsObjects();
     DesiredCapabilities capabilities = AppiumDriverFactory.getDefaultMobileOptions(capabilitiesAsObjects);
     // Consumer is used by the iterator for bulk processing and verification of the
