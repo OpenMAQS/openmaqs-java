@@ -104,6 +104,7 @@ jobs:
     needs: [ waitOld, install-modules ]
     runs-on: ubuntu-latest
     env:
+      SAUCE_HUB_URL: ${{secrets.SAUCE_HUB_URL}}
       SAUCE: ${{secrets.SAUCE}}
     strategy:
       fail-fast: false
@@ -157,8 +158,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: [test-modules, getVersion]
     env:
-      SONAR_ORG: "MAQS"
-      SONAR_PROJECT: "MAQS_maqs-java"
+      SONAR_ORG: "maqs-framework"
+      SONAR_PROJECT: "MAQS-Framework_maqs-java"
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
       VERSION: ${{ needs.getVersion.outputs.buildNumber }}
@@ -179,7 +180,7 @@ jobs:
       - name: Create settings file
         uses: InstaCode/maven-settings-xml-action@v9
         with:
-          profiles: '[{ "id": "sonar", "properties": { "sonar.organization":"${{env.SONAR_ORG}}", "sonar.host.url":"https://sonarcloud.io", "sonar.login": "${{secrets.SONAR_TOKEN}}" }}]'
+          profiles: '[{ "id": "sonar", "properties": { "sonar.organization":"${{env.SONAR_ORG}}", "sonar.host.url":"https://sonarcloud.io", "sonar.login": "${{env.SONAR_TOKEN}}" }}]'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Restore Local Maven Cache
@@ -191,7 +192,7 @@ jobs:
             ${{ runner.os }}-maven-${{github.sha}}
       - name: Run SonarCloud Analysis
         shell: bash
-        run: mvn -B -e -fae -Drevision=${{env.VERSION}} -Psonar package sonar:sonar -Dsonar.projectKey=${{env.SONAR_PROJECT}} -Dsonar.projectName=maqs-java -Dsonar.coverage.jacoco.xmlReportPaths=$(find "$(pwd)" -path '*jacoco.xml' | sed 's/.*/&/' | tr '\n' ',')
+        run: mvn -B -e -fae -Drevision=${{env.VERSION}} -Psonar package sonar:sonar -Dsonar.projectKey=${{env.SONAR_PROJECT}} -Dsonar.coverage.jacoco.xmlReportPaths=$(find "$(pwd)" -path '*jacoco.xml' | sed 's/.*/&/' | tr '\n' ',')
         working-directory: ${{github.workspace}}
         env:
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

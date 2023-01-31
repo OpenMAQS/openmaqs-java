@@ -51,7 +51,7 @@ public class AppiumUtilities {
    * @param testObject   The Test Object to associate the screenshot.
    * @return True if the image was saved successfully, otherwise false.
    */
-  public static boolean captureScreenshot(AppiumDriver<WebElement> appiumDriver,
+  public static boolean captureScreenshot(AppiumDriver appiumDriver,
       AppiumTestObject testObject) {
     return captureScreenshot(appiumDriver, testObject, "");
   }
@@ -64,7 +64,7 @@ public class AppiumUtilities {
    * @param appendName   The Name to append
    * @return True if the image was saved successfully, otherwise false.
    */
-  public static boolean captureScreenshot(AppiumDriver<WebElement> appiumDriver,
+  public static boolean captureScreenshot(AppiumDriver appiumDriver,
       AppiumTestObject testObject, String appendName) {
     try {
       // Check if we are using a file logger. If not, return false.
@@ -98,7 +98,7 @@ public class AppiumUtilities {
    * @param fileNameWithoutExtension File Name Without Extension
    * @return Path to Screenshot.
    */
-  public static String captureScreenshot(AppiumDriver<WebElement> appiumDriver,
+  public static String captureScreenshot(AppiumDriver appiumDriver,
       AppiumTestObject testObject, String directory, String fileNameWithoutExtension) {
     File tempFile = appiumDriver.getScreenshotAs(OutputType.FILE);
     String path = Paths.get(directory, fileNameWithoutExtension + ".png").normalize().toString();
@@ -134,7 +134,7 @@ public class AppiumUtilities {
    * @param testObject   The Appium Test Object
    * @return True if saving page source is successful, otherwise false
    */
-  public static boolean savePageSource(AppiumDriver<WebElement> appiumDriver,
+  public static boolean savePageSource(AppiumDriver appiumDriver,
       AppiumTestObject testObject) {
     return savePageSource(appiumDriver, testObject, "");
   }
@@ -147,7 +147,7 @@ public class AppiumUtilities {
    * @param appendName   Appends a name to the end of a filename
    * @return True if saving page source is successful, otherwise false
    */
-  public static boolean savePageSource(AppiumDriver<WebElement> appiumDriver,
+  public static boolean savePageSource(AppiumDriver appiumDriver,
       AppiumTestObject testObject, String appendName) {
     try {
       String path;
@@ -188,7 +188,7 @@ public class AppiumUtilities {
    * @param fileNameWithoutExtension File Name Without Extension
    * @return Path to the log file
    */
-  public static String savePageSource(AppiumDriver<WebElement> appiumDriver,
+  public static String savePageSource(AppiumDriver appiumDriver,
       AppiumTestObject testObject, String directory, String fileNameWithoutExtension) {
     // Save the current page source into a string
     String pageSource = appiumDriver.getPageSource();
@@ -225,7 +225,7 @@ public class AppiumUtilities {
    *
    * @param appiumDriver The Appium Driver
    */
-  public static void killDriver(AppiumDriver<WebElement> appiumDriver) {
+  public static void killDriver(AppiumDriver appiumDriver) {
     try {
       appiumDriver.close();
     } finally {

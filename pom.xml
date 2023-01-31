@@ -275,11 +275,8 @@
         <jacoco.version>0.8.7</jacoco.version>
         <testng.version>7.5</testng.version>
 
-        <selenium.version>4.7.1</selenium.version>
-        <!-- TODO: delete seleniumAppium.version when appium is updated with appium java client 8.0 -->
-        <seleniumAppium.version>3.141.59</seleniumAppium.version>
-
-        <chromedriver.version>94.0.4606.41</chromedriver.version>
+        <selenium.version>4.8.0</selenium.version>
+        <chromedriver.version>108.0.5359.71</chromedriver.version>
         <geckodriver.version>0.28.0</geckodriver.version>
         <edgedriver.version>5.16299</edgedriver.version>
     </properties>
