@@ -5,6 +5,7 @@
         <classes>
             <class name="TestRunnerSelenium"/>
             <class name="TestRunnerGeneric"/>
+            <class name="TestRunnerWebService"/>
         </classes>
     </test>
 </suite>
