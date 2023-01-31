@@ -20,7 +20,7 @@ public class BaseCucumberTestNGUnitTest extends BaseGenericTest {
     /**
      * Verifies the before method properly sets the Scenario Context
      */
-    @Test(groups = TestCategories.CUCUMBER, singleThreaded = true, priority = 0)
+    @Test(groups = TestCategories.CUCUMBER, singleThreaded = true)
     public void testBeforeMethod() {
         DummyBaseCucumberTestNG dummyCucumber = new DummyBaseCucumberTestNG();
         String[] dummyArgs = {"Dummy Arg 1", "Dummy Arg 2"};
@@ -33,7 +33,7 @@ public class BaseCucumberTestNGUnitTest extends BaseGenericTest {
     /**
      * Verifies the tear down process correctly cleans up the Scenario Context
      */
-    @Test(groups = TestCategories.CUCUMBER)
+    @Test(groups = TestCategories.CUCUMBER, priority = 1)
     public void testTearDown() throws Exception {
         DummyBaseCucumberTestNG dummyCucumber = new DummyBaseCucumberTestNG();
         BaseTest dummyTest = dummyCucumber.createSpecificBaseTest();
@@ -49,7 +49,7 @@ public class BaseCucumberTestNGUnitTest extends BaseGenericTest {
     /**
      * Verifies the test name is properly set
      */
-    @Test(groups = TestCategories.CUCUMBER)
+    @Test(groups = TestCategories.CUCUMBER, priority = 1)
     public void testGetTestName() {
         DummyBaseCucumberTestNG dummyCucumber = new DummyBaseCucumberTestNG();
         String[] dummyArgs = {"Dummy Arg 1", "Dummy Arg 2"};
@@ -63,7 +63,7 @@ public class BaseCucumberTestNGUnitTest extends BaseGenericTest {
     /**
      * Verifies the specific base test object is a BaseGeneric Object
      */
-    @Test(groups = TestCategories.CUCUMBER)
+    @Test(groups = TestCategories.CUCUMBER, priority = 1)
     public void testCreateSpecificBaseTest() {
         DummyBaseCucumberTestNG dummyCucumber = new DummyBaseCucumberTestNG();
         BaseTest testObject = dummyCucumber.createSpecificBaseTest();
@@ -73,7 +73,7 @@ public class BaseCucumberTestNGUnitTest extends BaseGenericTest {
     /**
      * Verifies the scenarios are not null
      */
-    @Test(groups = TestCategories.CUCUMBER)
+    @Test(groups = TestCategories.CUCUMBER, priority = 1)
     public void testScenarios() {
         DummyBaseCucumberTestNG dummyCucumber = new DummyBaseCucumberTestNG();
         Assert.assertNotNull(dummyCucumber.scenarios());
