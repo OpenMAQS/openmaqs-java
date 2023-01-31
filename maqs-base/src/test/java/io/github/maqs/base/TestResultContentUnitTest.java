@@ -1,3 +1,8 @@
+/*
+ *  Copyright 2023 (C) MAQS, All rights Reserved
+ *
+ */
+
 package io.github.maqs.base;
 
 import io.github.maqs.utilities.helper.TestCategories;

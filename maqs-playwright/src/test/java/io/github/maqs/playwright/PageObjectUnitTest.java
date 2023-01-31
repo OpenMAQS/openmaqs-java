@@ -1,3 +1,8 @@
+/*
+ *  Copyright 2023 (C) MAQS, All rights Reserved
+ *
+ */
+
 package io.github.maqs.playwright;
 
 import io.github.maqs.playwright.pageModel.PageModel;

@@ -1,5 +1,6 @@
 /*
- * Copyright 2021 (C) Magenic, All rights Reserved
+ *  Copyright 2023 (C) MAQS, All rights Reserved
+ *
  */
 
 import io.github.maqs.cucumber.BaseSeleniumCucumber;

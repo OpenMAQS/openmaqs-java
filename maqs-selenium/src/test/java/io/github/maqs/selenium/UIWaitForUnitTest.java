@@ -1,3 +1,8 @@
+/*
+ *  Copyright 2023 (C) MAQS, All rights Reserved
+ *
+ */
+
 package io.github.maqs.selenium;
 
 import io.github.maqs.selenium.factories.UIWaitFactory;

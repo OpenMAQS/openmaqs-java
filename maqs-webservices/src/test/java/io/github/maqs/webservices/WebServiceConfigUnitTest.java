@@ -1,6 +1,7 @@
 
 /*
- * Copyright 2022 (C) MAQS, All rights Reserved
+ *  Copyright 2023 (C) MAQS, All rights Reserved
+ *
  */
 
 package io.github.maqs.webservices;
