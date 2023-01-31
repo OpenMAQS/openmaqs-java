@@ -9,7 +9,6 @@ import com.cognizantsoftvision.maqs.utilities.logging.FileLogger;
 import com.cognizantsoftvision.maqs.utilities.logging.LoggingEnabled;
 import com.cognizantsoftvision.maqs.utilities.logging.MessageType;
 import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.ITestResult;
 
 /**
