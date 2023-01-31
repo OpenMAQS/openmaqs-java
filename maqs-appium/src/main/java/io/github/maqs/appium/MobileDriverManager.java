@@ -10,7 +10,6 @@ import io.github.maqs.base.ITestObject;
 import io.github.maqs.utilities.helper.StringProcessor;
 import io.github.maqs.utilities.logging.MessageType;
 import java.util.function.Supplier;
-import org.openqa.selenium.WebElement;
 
 /**
  * The Mobile Driver Manager class.

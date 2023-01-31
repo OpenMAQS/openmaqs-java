@@ -22,7 +22,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import org.openqa.selenium.OutputType;
-import org.openqa.selenium.WebElement;
 
 /**
  * The Appium Utilities class.

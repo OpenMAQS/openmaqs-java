@@ -7,7 +7,6 @@ package io.github.maqs.appium;
 import io.appium.java_client.AppiumDriver;
 import io.github.maqs.base.ITestObject;
 import java.util.function.Supplier;
-import org.openqa.selenium.WebElement;
 
 /**
  * The Appium Test Object interface class.

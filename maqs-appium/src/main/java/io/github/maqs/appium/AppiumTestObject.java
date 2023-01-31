@@ -8,7 +8,6 @@ import io.appium.java_client.AppiumDriver;
 import io.github.maqs.base.BaseTestObject;
 import io.github.maqs.utilities.logging.ILogger;
 import java.util.function.Supplier;
-import org.openqa.selenium.WebElement;
 
 /**
  * The Appium Test Object class.
