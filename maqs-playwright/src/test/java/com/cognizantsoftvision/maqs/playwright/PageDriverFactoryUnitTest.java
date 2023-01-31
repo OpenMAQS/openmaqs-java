@@ -16,6 +16,7 @@ import org.testng.annotations.Test;
 /**
  * Page driver factory tests.
  */
+@Test(singleThreaded = true)
 public class PageDriverFactoryUnitTest {
 
   /**

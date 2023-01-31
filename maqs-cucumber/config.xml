@@ -69,4 +69,15 @@
         <platform>OS X 10.11</platform>
         <version>54.0</version>
     </RemoteSeleniumCapsMaqs>
+
+    <WebServiceMaqs>
+        <!-- Web service root -->
+        <WebServiceUri>http://magenicautomation.azurewebsites.net</WebServiceUri>
+
+        <!-- Time-out in milliseconds -->
+        <WebServiceTimeout>10000</WebServiceTimeout>
+        <UseProxy>No</UseProxy>
+        <ProxyAddress>127.0.0.1:8001</ProxyAddress>
+        <ProxyPort>8080</ProxyPort>
+    </WebServiceMaqs>
 </configuration>
