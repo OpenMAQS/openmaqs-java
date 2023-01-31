@@ -25,6 +25,10 @@
             <artifactId>maqs-selenium</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.cognizantsoftvision.maqs.webservices</groupId>
+            <artifactId>maqs-webservices</artifactId>
+        </dependency>
+        <dependency>
             <scope>compile</scope>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-testng</artifactId>

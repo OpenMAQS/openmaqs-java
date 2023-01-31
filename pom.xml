@@ -7,8 +7,8 @@
     <artifactId>maqs-java</artifactId>
     <version>${revision}</version>
     <name>MAQS Framework</name>
-    <description>
-        A collection of testing libraries and convenience classes to accelerate startup automation efforts
+    <description>A collection of testing libraries and convenience classes to accelerate startup
+        automation efforts
     </description>
     <packaging>pom</packaging>
     <url>https://github.com/MAQS-Framework/maqs-java</url>
