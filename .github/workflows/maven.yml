@@ -104,6 +104,7 @@ jobs:
     needs: [ waitOld, install-modules ]
     runs-on: ubuntu-latest
     env:
+      SAUCE_HUB_URL: ${{secrets.SAUCE_HUB_URL}}
       SAUCE: ${{secrets.SAUCE}}
     strategy:
       fail-fast: false
