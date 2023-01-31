@@ -6,8 +6,6 @@
 |**Code Quality**| [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=MAQS-Framework_maqs-java&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=MAQS-Framework_maqs-java)                              |
 |**License**| [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://raw.githubusercontent.com/MAQS-Framework/maqs-java/main/LICENSE)                                                                                   |
 |**Latest Release**| Coming soon                                                                                                                                                                                                                      |
-|**Release**| Coming soon                                                                                                                                                                                                                      |
-|**SnapShot**| Coming soon                                                                                                                                                                                                                      |
 [![Testing Powered By Sauce Labs](https://opensource.saucelabs.com/images/opensauce/powered-by-saucelabs-badge-white.png?sanitize=true "Testing Powered By Sauce Labs")](https://saucelabs.com)
 
 ## Introduction 
@@ -26,7 +24,7 @@ Utilizing project templates, Maven, and utility libraries we are able to have a 
 [MAQS docs](https://maqs-framework.github.io/maqs-java//#/)
 
 ## License
-The MIT License (MIT) Copyright (c) 2022 MAQS
+The MIT License (MIT) Copyright (c) 2023 MAQS
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
