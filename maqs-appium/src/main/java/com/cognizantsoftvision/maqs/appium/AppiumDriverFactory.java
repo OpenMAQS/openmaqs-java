@@ -15,11 +15,9 @@ import java.net.URL;
 import java.time.Duration;
 import java.util.Map;
 import java.util.Optional;
-import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -39,7 +37,7 @@ public class AppiumDriverFactory {
    *
    * @return the default mobile driver
    */
-  public static AppiumDriver<WebElement> getDefaultMobileDriver() {
+  public static AppiumDriver getDefaultMobileDriver() {
     return getDefaultMobileDriver(AppiumConfig.getDeviceType());
   }
 
@@ -49,8 +47,8 @@ public class AppiumDriverFactory {
    * @param deviceType the device type
    * @return the default mobile driver
    */
-  public static AppiumDriver<WebElement> getDefaultMobileDriver(PlatformType deviceType) {
-    AppiumDriver<WebElement> appiumDriver;
+  public static AppiumDriver getDefaultMobileDriver(PlatformType deviceType) {
+    AppiumDriver appiumDriver;
     URL mobileHubUrl = AppiumConfig.getMobileHubUrl();
     Duration duration = AppiumConfig.getCommandTimeout();
     DesiredCapabilities capabilities = getDefaultMobileOptions();
@@ -72,7 +70,7 @@ public class AppiumDriverFactory {
 
     if (deviceType != PlatformType.WINDOWS) {
       appiumDriver.manage().timeouts()
-          .implicitlyWait(AppiumConfig.getMobileTimeout().toMillis(), TimeUnit.MILLISECONDS);
+          .implicitlyWait(AppiumConfig.getMobileTimeout());
     }
 
     return appiumDriver;
@@ -109,12 +107,12 @@ public class AppiumDriverFactory {
    * @param timeout   the timeout
    * @return the android driver
    */
-  public static AppiumDriver<WebElement> getAndroidDriver(URL mobileHub, DesiredCapabilities options,
+  public static AppiumDriver getAndroidDriver(URL mobileHub, DesiredCapabilities options,
       Duration timeout) {
 
     return createDriver(() -> {
-      AppiumDriver<WebElement> driver = new AndroidDriver<>(mobileHub, options);
-      driver.manage().timeouts().implicitlyWait(timeout.toMillis(), TimeUnit.MILLISECONDS);
+      AppiumDriver driver = new AndroidDriver(mobileHub, options);
+      driver.manage().timeouts().implicitlyWait(timeout);
       return driver;
     });
   }
@@ -127,10 +125,10 @@ public class AppiumDriverFactory {
    * @param timeout   the timeout
    * @return the ios driver
    */
-  public static AppiumDriver<WebElement> getIosDriver(URL mobileHub, DesiredCapabilities options, Duration timeout) {
+  public static AppiumDriver getIosDriver(URL mobileHub, DesiredCapabilities options, Duration timeout) {
     return createDriver(() -> {
-      AppiumDriver<WebElement> driver = new IOSDriver<>(mobileHub, options);
-      driver.manage().timeouts().implicitlyWait(timeout.toMillis(), TimeUnit.MILLISECONDS);
+      AppiumDriver driver = new IOSDriver(mobileHub, options);
+      driver.manage().timeouts().implicitlyWait(timeout);
       return driver;
     });
   }
@@ -143,11 +141,11 @@ public class AppiumDriverFactory {
    * @param timeout   the timeout
    * @return the Windows driver
    */
-  public static AppiumDriver<WebElement> getWindowsDriver(URL mobileHub, DesiredCapabilities options,
+  public static AppiumDriver getWindowsDriver(URL mobileHub, DesiredCapabilities options,
       Duration timeout) {
     return createDriver(() -> {
-      AppiumDriver<WebElement> driver = new WindowsDriver<>(mobileHub, options);
-      driver.manage().timeouts().implicitlyWait(timeout.toMillis(), TimeUnit.MILLISECONDS);
+      AppiumDriver driver = new WindowsDriver(mobileHub, options);
+      driver.manage().timeouts().implicitlyWait(timeout);
       return driver;
     });
 
@@ -175,9 +173,9 @@ public class AppiumDriverFactory {
    * @param createFunction the create function
    * @return the appium driver
    */
-  public static AppiumDriver<WebElement> createDriver(
-      Supplier<AppiumDriver<WebElement>> createFunction) {
-    AppiumDriver<WebElement> appiumDriver = null;
+  public static AppiumDriver createDriver(
+      Supplier<AppiumDriver> createFunction) {
+    AppiumDriver appiumDriver = null;
 
     try {
       appiumDriver = createFunction.get();
@@ -187,7 +185,7 @@ public class AppiumDriverFactory {
         throw e;
       } else {
         try {
-          Optional<AppiumDriver<WebElement>> driverOptional = Optional.ofNullable(appiumDriver);
+          Optional<AppiumDriver> driverOptional = Optional.ofNullable(appiumDriver);
           driverOptional.ifPresent(AppiumDriver::quit);
         } catch (Exception quitException) {
           throw new WebDriverException(

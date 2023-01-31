@@ -17,7 +17,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <appiumjavaclient.version>7.6.0</appiumjavaclient.version>
+        <appiumjavaclient.version>8.3.0</appiumjavaclient.version>
     </properties>
 
     <dependencies>
@@ -29,12 +29,12 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-api</artifactId>
-            <version>${seleniumAppium.version}</version>
+            <version>${selenium.version}</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-remote-driver</artifactId>
-            <version>${seleniumAppium.version}</version>
+            <version>${selenium.version}</version>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
@@ -63,7 +63,7 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>${seleniumAppium.version}</version>
+            <version>${selenium.version}</version>
         </dependency>
     </dependencies>
 </project>
