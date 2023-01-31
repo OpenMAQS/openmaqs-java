@@ -9,7 +9,6 @@ import io.github.maqs.base.BaseExtendableTest;
 import io.github.maqs.utilities.logging.FileLogger;
 import io.github.maqs.utilities.logging.LoggingEnabled;
 import io.github.maqs.utilities.logging.MessageType;
-import org.openqa.selenium.WebElement;
 import org.testng.ITestResult;
 
 /**

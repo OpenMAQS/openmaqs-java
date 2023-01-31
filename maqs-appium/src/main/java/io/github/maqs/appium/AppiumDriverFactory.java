@@ -15,11 +15,9 @@ import java.net.URL;
 import java.time.Duration;
 import java.util.Map;
 import java.util.Optional;
-import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -72,7 +70,7 @@ public class AppiumDriverFactory {
 
     if (deviceType != PlatformType.WINDOWS) {
       appiumDriver.manage().timeouts()
-          .implicitlyWait(AppiumConfig.getMobileTimeout().toMillis(), TimeUnit.MILLISECONDS);
+          .implicitlyWait(AppiumConfig.getMobileTimeout());
     }
 
     return appiumDriver;
@@ -114,7 +112,7 @@ public class AppiumDriverFactory {
 
     return createDriver(() -> {
       AppiumDriver driver = new AndroidDriver(mobileHub, options);
-      driver.manage().timeouts().implicitlyWait(timeout.toMillis(), TimeUnit.MILLISECONDS);
+      driver.manage().timeouts().implicitlyWait(timeout);
       return driver;
     });
   }
@@ -130,7 +128,7 @@ public class AppiumDriverFactory {
   public static AppiumDriver getIosDriver(URL mobileHub, DesiredCapabilities options, Duration timeout) {
     return createDriver(() -> {
       AppiumDriver driver = new IOSDriver(mobileHub, options);
-      driver.manage().timeouts().implicitlyWait(timeout.toMillis(), TimeUnit.MILLISECONDS);
+      driver.manage().timeouts().implicitlyWait(timeout);
       return driver;
     });
   }
@@ -147,7 +145,7 @@ public class AppiumDriverFactory {
       Duration timeout) {
     return createDriver(() -> {
       AppiumDriver driver = new WindowsDriver(mobileHub, options);
-      driver.manage().timeouts().implicitlyWait(timeout.toMillis(), TimeUnit.MILLISECONDS);
+      driver.manage().timeouts().implicitlyWait(timeout);
       return driver;
     });
 
