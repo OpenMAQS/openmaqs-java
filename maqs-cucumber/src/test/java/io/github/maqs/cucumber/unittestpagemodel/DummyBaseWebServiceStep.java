@@ -1,6 +1,10 @@
-package com.cognizantsoftvision.maqs.cucumber.unittestpagemodel;
+/*
+ * Copyright 2022 (C) MAQS, All rights Reserved
+ */
 
-import com.cognizantsoftvision.maqs.cucumber.steps.BaseWebServiceStep;
+package io.github.maqs.cucumber.unittestpagemodel;
+
+import io.github.maqs.cucumber.steps.BaseWebServiceStep;
 
 /**
  * A Dummy DummyBaseWebServiceStep class for testing

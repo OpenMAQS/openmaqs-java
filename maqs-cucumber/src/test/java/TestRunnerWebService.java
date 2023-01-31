@@ -1,6 +1,9 @@
-import com.cognizantsoftvision.maqs.cucumber.BaseWebServiceCucumber;
+/*
+ * Copyright 2022 (C) MAQS, All rights Reserved
+ */
 
 import io.cucumber.testng.CucumberOptions;
+import io.github.maqs.cucumber.BaseWebServiceCucumber;
 
 
 /**

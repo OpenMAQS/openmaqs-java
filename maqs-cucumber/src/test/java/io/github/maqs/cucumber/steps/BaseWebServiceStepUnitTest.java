@@ -1,9 +1,13 @@
-package com.cognizantsoftvision.maqs.cucumber.steps;
+/*
+ * Copyright 2022 (C) MAQS, All rights Reserved
+ */
 
-import com.cognizantsoftvision.maqs.cucumber.ScenarioContext;
-import com.cognizantsoftvision.maqs.cucumber.unittestpagemodel.DummyBaseWebServiceStep;
-import com.cognizantsoftvision.maqs.webservices.BaseWebServiceTest;
-import com.cognizantsoftvision.maqs.utilities.helper.TestCategories;
+package io.github.maqs.cucumber.steps;
+
+import io.github.maqs.cucumber.ScenarioContext;
+import io.github.maqs.cucumber.unittestpagemodel.DummyBaseWebServiceStep;
+import io.github.maqs.webservices.BaseWebServiceTest;
+import io.github.maqs.utilities.helper.TestCategories;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

@@ -1,11 +1,11 @@
 /*
- * Copyright 2022 (C) Cognizant SoftVision, All rights Reserved
+ * Copyright 2022 (C) MAQS, All rights Reserved
  */
 
-package com.cognizantsoftvision.maqs.cucumber;
+package io.github.maqs.cucumber;
 
-import com.cognizantsoftvision.maqs.base.BaseTest;
-import com.cognizantsoftvision.maqs.webservices.BaseWebServiceTest;
+import io.github.maqs.base.BaseTest;
+import io.github.maqs.webservices.BaseWebServiceTest;
 
 /**
  * The base WebService cucumber object.

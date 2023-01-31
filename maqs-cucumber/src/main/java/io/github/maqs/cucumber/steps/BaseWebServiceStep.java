@@ -2,12 +2,12 @@
  * Copyright 2022 (C) Cognizant SoftVision, All rights Reserved
  */
 
-package com.cognizantsoftvision.maqs.cucumber.steps;
+package io.github.maqs.cucumber.steps;
 
-import com.cognizantsoftvision.maqs.cucumber.ScenarioContext;
-import com.cognizantsoftvision.maqs.webservices.BaseWebServiceTest;
-import com.cognizantsoftvision.maqs.webservices.WebServiceDriver;
-import com.cognizantsoftvision.maqs.webservices.WebServiceTestObject;
+import io.github.maqs.cucumber.ScenarioContext;
+import io.github.maqs.webservices.BaseWebServiceTest;
+import io.github.maqs.webservices.WebServiceDriver;
+import io.github.maqs.webservices.WebServiceTestObject;
 
 
 /**

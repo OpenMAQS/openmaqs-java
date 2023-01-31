@@ -1,10 +1,14 @@
+/*
+ * Copyright 2022 (C) MAQS, All rights Reserved
+ */
+
 package stepdefs.webservice;
 
-import com.cognizantsoftvision.maqs.cucumber.ScenarioContext;
-import com.cognizantsoftvision.maqs.cucumber.steps.BaseWebServiceStep;
-import com.cognizantsoftvision.maqs.webservices.MediaType;
-import com.cognizantsoftvision.maqs.cucumber.datamodels.Product;
-import com.cognizantsoftvision.maqs.webservices.WebServiceConfig;
+import io.github.maqs.cucumber.ScenarioContext;
+import io.github.maqs.cucumber.steps.BaseWebServiceStep;
+import io.github.maqs.webservices.MediaType;
+import io.github.maqs.cucumber.datamodels.Product;
+import io.github.maqs.webservices.WebServiceConfig;
 import org.testng.Assert;
 import java.io.IOException;
 
