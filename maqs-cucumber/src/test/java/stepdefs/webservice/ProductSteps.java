@@ -1,6 +1,5 @@
 /*
- *  Copyright 2023 (C) MAQS, All rights Reserved
- *
+ *  Copyright 2023 (C) OpenMAQS, All rights Reserved
  */
 
 package stepdefs.webservice;

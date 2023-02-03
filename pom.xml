@@ -11,36 +11,36 @@
         automation efforts
     </description>
     <packaging>pom</packaging>
-    <url>https://github.com/MAQS-Framework/maqs-java</url>
+    <url>https://github.com/OpenMAQS/maqs-java</url>
     <inceptionYear>2017</inceptionYear>
     <organization>
         <name>MAQS</name>
-        <url>https://maqs-framework.github.io/</url>
+        <url>https://OpenMAQS.github.io/</url>
     </organization>
     <developers>
         <developer>
             <organization>MAQS Team</organization>
-            <organizationUrl>https://maqs-framework.github.io/</organizationUrl>
+            <organizationUrl>https://OpenMAQS.github.io/</organizationUrl>
         </developer>
     </developers>
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/MAQS-Framework/maqs-java/issues</url>
+        <url>https://github.com/OpenMAQS/maqs-java/issues</url>
     </issueManagement>
     <ciManagement>
         <system>GitHub Actions</system>
-        <url>https://github.com/MAQS-Framework/maqs-java/actions</url>
+        <url>https://github.com/OpenMAQS/maqs-java/actions</url>
     </ciManagement>
     <licenses>
         <license>
             <name>MIT</name>
-            <url>https://github.com/MAQS-Framework/maqs-java/blob/main/LICENSE</url>
+            <url>https://github.com/OpenMAQS/maqs-java/blob/main/LICENSE</url>
         </license>
     </licenses>
     <scm>
-        <connection>scm:git:git://github.com/MAQS-Framework/maqs-java.git</connection>
-        <developerConnection>scm:git:git@github.com:MAQS-Framework/maqs-java.git</developerConnection>
-        <url>https://github.com/MAQS-Framework/maqs-java</url>
+        <connection>scm:git:git://github.com/OpenMAQS/maqs-java.git</connection>
+        <developerConnection>scm:git:git@github.com:OpenMAQS/maqs-java.git</developerConnection>
+        <url>https://github.com/OpenMAQS/maqs-java</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -92,11 +92,11 @@
             <distributionManagement>
                 <repository>
                     <id>github</id>
-                    <url>https://maven.pkg.github.com/MAQS-Framework/maqs-java</url>
+                    <url>https://maven.pkg.github.com/OpenMAQS/maqs-java</url>
                 </repository>
                 <snapshotRepository>
                     <id>github</id>
-                    <url>https://maven.pkg.github.com/MAQS-Framework/maqs-java</url>
+                    <url>https://maven.pkg.github.com/OpenMAQS/maqs-java</url>
                     <uniqueVersion>true</uniqueVersion>
                 </snapshotRepository>
             </distributionManagement>
@@ -179,7 +179,7 @@
             <properties>
                 <maven.test.skip>true</maven.test.skip>
                 <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-                <sonar.organization>maqs-framework</sonar.organization>
+                <sonar.organization>OpenMAQS</sonar.organization>
             </properties>
             <build>
                 <plugins>
@@ -262,16 +262,20 @@
         <jdk.version>11</jdk.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
+
         <checkstyle.version>8.29</checkstyle.version>
         <checkstyle.plugin.version>2.17</checkstyle.plugin.version>
         <mvncheckstyle.plugin.version>3.1.2</mvncheckstyle.plugin.version>
         <puppycheckstyle.plugin.version>9.2.1</puppycheckstyle.plugin.version>
+
         <javadoc.plugin.version>3.3.1</javadoc.plugin.version>
         <compiler.plugin.version>3.8.1</compiler.plugin.version>
         <surefire.plugin.version>3.0.0-M6</surefire.plugin.version>
+
         <jacoco.version>0.8.7</jacoco.version>
         <testng.version>7.5</testng.version>
         <selenium.version>4.8.0</selenium.version>
+
         <chromedriver.version>108.0.5359.71</chromedriver.version>
         <geckodriver.version>0.28.0</geckodriver.version>
         <edgedriver.version>5.16299</edgedriver.version>

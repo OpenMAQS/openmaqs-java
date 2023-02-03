@@ -1,6 +1,5 @@
 /*
- *  Copyright 2023 (C) MAQS, All rights Reserved
- *
+ *  Copyright 2023 (C) OpenMAQS, All rights Reserved
  */
 
 package io.github.maqs.playwright;
@@ -498,7 +497,7 @@ public class PageDriverUnitTest extends BasePlaywrightTest {
   @Test(groups = TestCategories.PLAYWRIGHT)
   public void getUrlTest() {
     Assert.assertEquals(this.getPageDriver().getUrl(),
-        "https://maqs-framework.github.io/TestingSite/Automation/");
+        "https://OpenMAQS.github.io/TestingSite/Automation/");
   }
 
   @Test(groups = TestCategories.PLAYWRIGHT)

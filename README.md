@@ -1,10 +1,10 @@
-![MAQS Logo](https://github.com/MAQS-Framework/maqs-java/blob/main/docs/resources/maqsfull.png?raw=true)
+![MAQS Logo](https://github.com/OpenMAQS/maqs-java/blob/main/docs/resources/maqsfull.png?raw=true)
 
 | Check | Status                                                                                                                                                                                                                           |
 |-------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|**Pipeline**| [![MAQS Java Pipeline](https://img.shields.io/github/workflow/status/MAQS-Framework/maqs-java/MAQS%20Java%20Pipeline?event=push&label=Build&logo=github)](https://github.com/MAQS-Framework/maqs-java/actions/workflows/maven.yml) |
-|**Code Quality**| [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=MAQS-Framework_maqs-java&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=MAQS-Framework_maqs-java)                              |
-|**License**| [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://raw.githubusercontent.com/MAQS-Framework/maqs-java/main/LICENSE)                                                                                   |
+|**Pipeline**| [![MAQS Java Pipeline](https://img.shields.io/github/workflow/status/OpenMAQS/maqs-java/MAQS%20Java%20Pipeline?event=push&label=Build&logo=github)](https://github.com/OpenMAQS/maqs-java/actions/workflows/maven.yml) |
+|**Code Quality**| [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=OpenMAQS_maqs-java&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=OpenMAQS_maqs-java)                              |
+|**License**| [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://raw.githubusercontent.com/OpenMAQS/maqs-java/main/LICENSE)                                                                                   |
 |**Latest Release**| Coming soon                                                                                                                                                                                                                      |
 [![Testing Powered By Sauce Labs](https://opensource.saucelabs.com/images/opensauce/powered-by-saucelabs-badge-white.png?sanitize=true "Testing Powered By Sauce Labs")](https://saucelabs.com)
 
@@ -21,7 +21,7 @@ Most automation engagements have you doing the same basic steps to get a functio
 Utilizing project templates, Maven, and utility libraries we are able to have a functioning framework up and running in minutes, almost entirely removing on the initial time investment on implementating an automation solution.
 
 ## Documentation
-[MAQS docs](https://maqs-framework.github.io/maqs-java//#/)
+[MAQS docs](https://OpenMAQS.github.io/maqs-java//#/)
 
 ## License
 The MIT License (MIT) Copyright (c) 2023 MAQS

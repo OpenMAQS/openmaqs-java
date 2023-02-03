@@ -1,6 +1,5 @@
 /*
- *  Copyright 2023 (C) MAQS, All rights Reserved
- *
+ *  Copyright 2023 (C) OpenMAQS, All rights Reserved
  */
 
 package io.github.maqs.selenium;
@@ -57,7 +56,7 @@ public class SeleniumConfigUnitTest {
   public void getWebsiteBase() {
     String website = SeleniumConfig.getWebSiteBase();
     Assert.assertTrue(website.equalsIgnoreCase(
-        "https://maqs-framework.github.io/TestingSite/Automation/"));
+        "https://OpenMAQS.github.io/TestingSite/Automation/"));
   }
 
   /**

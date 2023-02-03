@@ -158,8 +158,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: [test-modules, getVersion]
     env:
-      SONAR_ORG: "maqs-framework"
-      SONAR_PROJECT: "MAQS-Framework_maqs-java"
+      SONAR_ORG: "OpenMAQS"
+      SONAR_PROJECT: "OpenMAQS_maqs-java"
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
       VERSION: ${{ needs.getVersion.outputs.buildNumber }}
