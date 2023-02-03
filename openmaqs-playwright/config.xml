@@ -33,7 +33,7 @@
     </GlobalMaqs>
     <PlaywrightMaqs>
         <!--Default base web url-->
-        <WebBase>https://OpenMAQS.github.io/TestingSite/Automation/</WebBase>
+        <WebBase>https://openmaqs.github.io/TestingSite/Automation/</WebBase>
 
         <!--Local browser settings
         <add key="Browser" value="Chrome"/>
