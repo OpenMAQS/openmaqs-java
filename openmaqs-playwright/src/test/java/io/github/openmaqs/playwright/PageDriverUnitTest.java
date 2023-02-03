@@ -497,7 +497,7 @@ public class PageDriverUnitTest extends BasePlaywrightTest {
   @Test(groups = TestCategories.PLAYWRIGHT)
   public void getUrlTest() {
     Assert.assertEquals(this.getPageDriver().getUrl(),
-        "https://OpenMAQS.github.io/TestingSite/Automation/");
+        "https://openmaqs.github.io/TestingSite/Automation/");
   }
 
   @Test(groups = TestCategories.PLAYWRIGHT)
