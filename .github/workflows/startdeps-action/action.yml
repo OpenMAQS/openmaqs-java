@@ -23,4 +23,4 @@ runs:
     - name: Build the docker-compose stack
       if: inputs.module-name == 'openmaqs-database'
       shell: bash
-      run: docker-compose -f docker/MAQSSQLServer/docker-compose.yml -p OpenMAQS/maqs-java up -d
+      run: docker-compose -f docker/MAQSSQLServer/docker-compose.yml -p OpenMAQS/openmaqs-java up -d
