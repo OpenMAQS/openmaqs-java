@@ -21,6 +21,6 @@ runs:
       #run:  docker-compose -f docker/MAQSService/docker-compose.yml -p OpenMAQS/maqs-java up -d
       run: Start-Process -FilePath "dotnet" -ArgumentList "run --project docker/MAQSService/MainTestService/MainTestService.csproj"
     - name: Build the docker-compose stack
-      if: inputs.module-name == 'maqs-database'
+      if: inputs.module-name == 'openmaqs-database'
       shell: bash
       run: docker-compose -f docker/MAQSSQLServer/docker-compose.yml -p OpenMAQS/maqs-java up -d
