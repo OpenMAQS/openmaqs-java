@@ -3,13 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>maqs-java</artifactId>
+        <artifactId>openmaqs-java</artifactId>
         <groupId>io.github.openmaqs</groupId>
         <version>${revision}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>maqs-jacoco-reporting</artifactId>
+    <artifactId>openmaqs-jacoco-reporting</artifactId>
     <name>MAQS Code Coverage Reporting Module</name>
     <version>${revision}</version>
     <packaging>pom</packaging>
@@ -56,35 +56,35 @@
     <dependencies>
         <dependency>
             <groupId>io.github.openmaqs.appium</groupId>
-            <artifactId>maqs-appium</artifactId>
+            <artifactId>openmaqs-appium</artifactId>
         </dependency>
         <dependency>
             <groupId>io.github.openmaqs.accessibility</groupId>
-            <artifactId>maqs-accessibility</artifactId>
+            <artifactId>openmaqs-accessibility</artifactId>
         </dependency>
         <dependency>
             <groupId>io.github.openmaqs.base</groupId>
-            <artifactId>maqs-base</artifactId>
+            <artifactId>openmaqs-base</artifactId>
         </dependency>
         <dependency>
             <groupId>io.github.openmaqs.utilities</groupId>
-            <artifactId>maqs-utilities</artifactId>
+            <artifactId>openmaqs-utilities</artifactId>
         </dependency>
         <dependency>
             <groupId>io.github.openmaqs.database</groupId>
-            <artifactId>maqs-database</artifactId>
+            <artifactId>openmaqs-database</artifactId>
         </dependency>
         <dependency>
             <groupId>io.github.openmaqs.selenium</groupId>
-            <artifactId>maqs-selenium</artifactId>
+            <artifactId>openmaqs-selenium</artifactId>
         </dependency>
         <dependency>
             <groupId>io.github.openmaqs.cucumber</groupId>
-            <artifactId>maqs-cucumber</artifactId>
+            <artifactId>openmaqs-cucumber</artifactId>
         </dependency>
         <dependency>
             <groupId>io.github.openmaqs.webservices</groupId>
-            <artifactId>maqs-webservices</artifactId>
+            <artifactId>openmaqs-webservices</artifactId>
         </dependency>
     </dependencies>
 </project>
