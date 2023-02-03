@@ -1,4 +1,4 @@
-name: MAQS Java Pipeline
+name: OpenMAQS Java Pipeline
 on:
   schedule:
     - cron: "13 23 * * *"
@@ -109,20 +109,20 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        module-name: [ maqs-utilities, maqs-base, maqs-appium, maqs-selenium, maqs-webservices, maqs-cucumber, maqs-accessibility, maqs-database, maqs-playwright ]
+        module-name: [ openmaqs-utilities, openmaqs-base, openmaqs-appium, openmaqs-selenium, openmaqs-webservices, openmaqs-cucumber, openmaqs-accessibility, openmaqs-database, openmaqs-playwright ]
     steps:
       - name: Check if tests can be run
-        if: matrix.module-name == 'maqs-appium' && github.actor == 'dependabot[bot]'
+        if: matrix.module-name == 'openmaqs-appium' && github.actor == 'dependabot[bot]'
         run: |
           echo Cannot run Appium tests when build was triggered by dependabot
           exit 1  
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-        if: matrix.module-name == 'maqs-playwright'
+        if: matrix.module-name == 'openmaqs-playwright'
         with:
           node-version: '14.x'
       - name: Install Playwright
-        if: matrix.module-name == 'maqs-playwright'
+        if: matrix.module-name == 'openmaqs-playwright'
         run: npx playwright install --with-deps  
       - name: Build and Start Unit Tests
         id: builder
@@ -159,7 +159,7 @@ jobs:
     needs: [test-modules, getVersion]
     env:
       SONAR_ORG: "OpenMAQS"
-      SONAR_PROJECT: "OpenMAQS_maqs-java"
+      SONAR_PROJECT: "OpenMAQS_openmaqs-java"
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
       VERSION: ${{ needs.getVersion.outputs.buildNumber }}
