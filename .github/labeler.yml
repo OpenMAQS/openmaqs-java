@@ -2,28 +2,28 @@ framework:
   - ./*
 
 base:
-  - maqs-base/*
-  - maqs-base/**/*
+  - openmaqs-base/*
+  - openmaqs-base/**/*
 
 appium:
-  - maqs-appium/*
-  - maqs-appium/**/*
+  - openmaqs-appium/*
+  - openmaqs-appium/**/*
 
 selenium:
-  - maqs-selenium/*
-  - maqs-selenium/**/*
+  - openmaqs-selenium/*
+  - openmaqs-selenium/**/*
 
 webservices:
-  - maqs-webservices/*
-  - maqs-webservices/**/*
+  - openmaqs-webservices/*
+  - openmaqs-webservices/**/*
 
 utilities:
-  - maqs-utilities/*
-  - maqs-utilities/**/*
+  - openmaqs-utilities/*
+  - openmaqs-utilities/**/*
 
 database:
-  - maqs-database/*
-  - maqs-database/**/*
+  - openmaqs-database/*
+  - openmaqs-database/**/*
 
 devops:
   - .dependabot/*
@@ -31,9 +31,9 @@ devops:
   - .github/**/*
  
 accessibility:
-  - maqs-accessibility/*
-  - maqs-accessibility/**/*
+  - openmaqs-accessibility/*
+  - openmaqs-accessibility/**/*
 
 playwright:
-  - maqs-playwright/*
-  - maqs-playwright/**/*
+  - openmaqs-playwright/*
+  - openmaqs-playwright/**/*
