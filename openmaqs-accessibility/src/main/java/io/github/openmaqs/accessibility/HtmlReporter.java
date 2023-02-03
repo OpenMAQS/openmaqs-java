@@ -44,7 +44,7 @@ public class HtmlReporter {
   /**
    * File path to resources java resources folder.
    */
-  private static final String RESOURCES_FILE = "../maqs-accessibility/src/main/resources/";
+  private static final String RESOURCES_FILE = "../openmaqs-accessibility/src/main/resources/";
 
   /**
    * Class constructor.

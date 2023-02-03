@@ -56,5 +56,4 @@ public class BaseDatabaseTest extends BaseExtendableTest<DatabaseTestObject> {
     this.setTestObject(new DatabaseTestObject(this.getConnection(), this.createLogger(),
         this.getFullyQualifiedTestClassName()));
   }
-
 }
