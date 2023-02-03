@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>openmaqs-java</artifactId>
+        <groupId>io.github.openmaqs</groupId>
+        <version>${revision}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>openmaqs-jacoco-reporting</artifactId>
+    <name>MAQS Code Coverage Reporting Module</name>
+    <version>${revision}</version>
+    <packaging>pom</packaging>
+
+    <profiles>
+        <profile>
+            <id>jacoco</id>
+            <activation>
+                <property>
+                    <name>testing</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>report-aggregate</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.github.openmaqs.appium</groupId>
+            <artifactId>openmaqs-appium</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openmaqs.accessibility</groupId>
+            <artifactId>openmaqs-accessibility</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openmaqs.base</groupId>
+            <artifactId>openmaqs-base</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openmaqs.utilities</groupId>
+            <artifactId>openmaqs-utilities</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openmaqs.database</groupId>
+            <artifactId>openmaqs-database</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openmaqs.selenium</groupId>
+            <artifactId>openmaqs-selenium</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openmaqs.cucumber</groupId>
+            <artifactId>openmaqs-cucumber</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openmaqs.webservices</groupId>
+            <artifactId>openmaqs-webservices</artifactId>
+        </dependency>
+    </dependencies>
+</project>
