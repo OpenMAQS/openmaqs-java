@@ -29,7 +29,7 @@ public class HtmlFileLogger extends FileLogger implements IHtmlFileLogger {
   private static final String DEFAULT_LOG_NAME = "HtmlFileLog.html";
 
   private static final File FILE_DIRECTORY = new File(
-      "../maqs-utilities/src/main/java/io/github/maqs/utilities/logging/resources");
+      "../openmaqs-utilities/src/main/java/io/github/openmaqs/utilities/logging/resources");
 
   private static final String FILES = FILE_DIRECTORY.getPath() + File.separator;
 
