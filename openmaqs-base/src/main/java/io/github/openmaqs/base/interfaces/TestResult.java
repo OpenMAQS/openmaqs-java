@@ -2,9 +2,9 @@
  * Copyright 2022 (C) Cognizant SoftVision, All rights Reserved
  */
 
-package com.cognizantsoftvision.maqs.base.interfaces;
+package io.github.openmaqs.base.interfaces;
 
-import com.cognizantsoftvision.maqs.utilities.logging.TestResultType;
+import io.github.openmaqs.utilities.logging.TestResultType;
 
 public interface TestResult {
   TestResultType getStatus();

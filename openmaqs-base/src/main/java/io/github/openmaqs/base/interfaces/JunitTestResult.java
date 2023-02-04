@@ -2,9 +2,9 @@
  * Copyright 2022 (C) Cognizant SoftVision, All rights Reserved
  */
 
-package com.cognizantsoftvision.maqs.base.interfaces;
+package io.github.openmaqs.base.interfaces;
 
-import com.cognizantsoftvision.maqs.utilities.logging.TestResultType;
+import io.github.openmaqs.utilities.logging.TestResultType;
 
 public class JunitTestResult implements TestResult {
   private final TestResultType currentStatus;
@@ -13,11 +13,13 @@ public class JunitTestResult implements TestResult {
     this.currentStatus = status;
   }
 
-  @Override public TestResultType getStatus() {
+  @Override
+  public TestResultType getStatus() {
     return this.currentStatus;
   }
 
-  @Override public boolean isSuccess() {
+  @Override
+  public boolean isSuccess() {
     return currentStatus == TestResultType.PASS;
   }
 }

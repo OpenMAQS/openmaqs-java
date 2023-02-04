@@ -2,11 +2,11 @@
  * Copyright 2022 (C) Cognizant SoftVision, All rights Reserved
  */
 
-package com.cognizantsoftvision.maqs.base.watcher;
+package io.github.openmaqs.base.watcher;
 
-import com.cognizantsoftvision.maqs.base.BaseTest;
-import com.cognizantsoftvision.maqs.base.interfaces.JunitTestResult;
-import com.cognizantsoftvision.maqs.utilities.logging.TestResultType;
+import io.github.openmaqs.base.BaseTest;
+import io.github.openmaqs.base.interfaces.JunitTestResult;
+import io.github.openmaqs.utilities.logging.TestResultType;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.TestWatcher;
 
