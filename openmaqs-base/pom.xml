@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.github.openmaqs</groupId>
+        <artifactId>openmaqs-java</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <groupId>io.github.openmaqs.base</groupId>
+    <artifactId>openmaqs-base</artifactId>
+    <name>MAQS Base Testing Module</name>
+    <version>${revision}</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <junit.version>5.8.1</junit.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.github.openmaqs.utilities</groupId>
+            <artifactId>openmaqs-utilities</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+    </dependencies>
+</project>
