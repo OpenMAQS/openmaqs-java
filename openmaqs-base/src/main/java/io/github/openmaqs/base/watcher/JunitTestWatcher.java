@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 (C) OpenMAQS, All rights Reserved
+ *  Copyright 2023 (C) OpenMAQS, All rights Reserved
  */
 
 package io.github.openmaqs.base.watcher;
