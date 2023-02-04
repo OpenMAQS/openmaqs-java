@@ -38,6 +38,13 @@ runs:
               $element.InnerText = "${{env.SAUCE}}"
               $xml.Save($filePathToTask)
             }
+            
+            $mobileHubElement =  $xml.SelectSingleNode("//configuration/AppiumMaqs/MobileHubUrl")
+            if ($mobileHubElement)
+            {
+              $mobileHubElement.InnerText = "${{env.SAUCE_HUB_URL}}"
+              $xml.Save($filePathToTask)
+            }
     - name: Restore Local Maven Cache
       uses: actions/cache@v2.1.6
       with:
