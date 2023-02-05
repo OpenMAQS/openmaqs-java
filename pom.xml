@@ -58,30 +58,6 @@
 
     <profiles>
         <profile>
-            <id>deploy</id>
-            <activation>
-                <property>
-                    <name>deploy</name>
-                </property>
-            </activation>
-            <properties>
-                <maven.test.skip>true</maven.test.skip>
-            </properties>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-deploy-plugin</artifactId>
-                        <version>3.0.0-M2</version>
-                        <configuration>
-                            <deployAtEnd>true</deployAtEnd>
-                            <uniqueVersion>true</uniqueVersion>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
             <id>github</id>
             <activation>
                 <property>
@@ -92,64 +68,50 @@
             <distributionManagement>
                 <repository>
                     <id>github</id>
-                    <url>https://maven.pkg.github.com/OpenMAQS/openmaqs-java</url>
+                    <url>https://maven.pkg.github.com/jason-edstrom/maqs-java-oss</url>
                 </repository>
                 <snapshotRepository>
                     <id>github</id>
-                    <url>https://maven.pkg.github.com/OpenMAQS/openmaqs-java</url>
+                    <url>https://maven.pkg.github.com/jason-edstrom/maqs-java-oss</url>
                     <uniqueVersion>true</uniqueVersion>
                 </snapshotRepository>
             </distributionManagement>
         </profile>
         <profile>
-            <id>ossrh</id>
-            <activation>
-                <property>
-                    <name>deploy</name>
-                    <value>ossrh</value>
-                </property>
-            </activation>
-            <distributionManagement>
-                <repository>
-                    <id>ossrh</id>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-                </repository>
-                <snapshotRepository>
-                    <id>ossrh</id>
-                    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-                    <uniqueVersion>true</uniqueVersion>
-                </snapshotRepository>
-            </distributionManagement>
-        </profile>
-        <profile>
-            <id>release-github</id>
-            <activation>
-                <property>
-                    <name>release</name>
-                    <value>github</value>
-                </property>
-            </activation>
-        </profile>
-        <profile>
-            <id>release-ossrh</id>
-            <activation>
-                <property>
-                    <name>release</name>
-                    <value>ossrh</value>
-                </property>
-            </activation>
+            <id>release</id>
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.sonatype.plugins</groupId>
-                        <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.6.8</version>
-                        <extensions>true</extensions>
-                        <configuration>
-                            <serverId>ossrh</serverId>
-                            <nexusUrl>https://oss.sonatype.org</nexusUrl>
-                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                        </configuration>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>2.2.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>2.9.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                                <configuration>
+                                    <source>${jdk.version}</source>
+                                    <doclint>none</doclint>
+                                    <additionalparam>-Xdoclint:none</additionalparam>
+                                    <workingDirectory>target/</workingDirectory>
+                                </configuration>
+                            </execution>
+                        </executions>
                     </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
@@ -226,35 +188,35 @@
                 </plugins>
             </build>
         </profile>
-        <profile>
-            <id>testing</id>
-            <activation>
-                <property>
-                    <name>testing</name>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>${surefire.plugin.version}</version>
-                        <configuration>
-                            <parallel>methods</parallel>
-                            <threadCount>5</threadCount>
-                            <argLine>${argLine}</argLine>
-                        </configuration>
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.apache.maven.surefire</groupId>
-                                <artifactId>surefire-testng</artifactId>
-                                <version>${surefire.plugin.version}</version>
-                            </dependency>
-                        </dependencies>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
+<!--        <profile>-->
+<!--            <id>testing</id>-->
+<!--            <activation>-->
+<!--                <property>-->
+<!--                    <name>testing</name>-->
+<!--                </property>-->
+<!--            </activation>-->
+<!--            <build>-->
+<!--                <plugins>-->
+<!--                    <plugin>-->
+<!--                        <groupId>org.apache.maven.plugins</groupId>-->
+<!--                        <artifactId>maven-surefire-plugin</artifactId>-->
+<!--                        <version>${surefire.plugin.version}</version>-->
+<!--                        <configuration>-->
+<!--                            <parallel>methods</parallel>-->
+<!--                            <threadCount>5</threadCount>-->
+<!--                            <argLine>${argLine}</argLine>-->
+<!--                        </configuration>-->
+<!--                        <dependencies>-->
+<!--                            <dependency>-->
+<!--                                <groupId>org.apache.maven.surefire</groupId>-->
+<!--                                <artifactId>surefire-testng</artifactId>-->
+<!--                                <version>${surefire.plugin.version}</version>-->
+<!--                            </dependency>-->
+<!--                        </dependencies>-->
+<!--                    </plugin>-->
+<!--                </plugins>-->
+<!--            </build>-->
+<!--        </profile>-->
     </profiles>
 
     <properties>
@@ -406,57 +368,12 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>${javadoc.plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                        <configuration>
-                            <source>${jdk.version}</source>
-                            <doclint>none</doclint>
-                            <additionalparam>-Xdoclint:none</additionalparam>
-                            <workingDirectory>target/</workingDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>3.2.1</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.2.0</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>properties</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M6</version>
                 <configuration>
                     <parallel>methods</parallel>
                     <threadCount>5</threadCount>
+                    <argLine>${argLine}</argLine>
                 </configuration>
                 <dependencies>
                     <dependency>
@@ -465,6 +382,17 @@
                         <version>3.0.0-M6</version>
                     </dependency>
                 </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <useReleaseProfile>false</useReleaseProfile>
+                    <releaseProfiles>release</releaseProfiles>
+                    <goals>deploy</goals>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -495,17 +423,6 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>2.5.3</version>
-                <configuration>
-                    <autoVersionSubmodules>true</autoVersionSubmodules>
-                    <useReleaseProfile>false</useReleaseProfile>
-                    <releaseProfiles>release</releaseProfiles>
-                    <goals>deploy</goals>
-                </configuration>
             </plugin>
         </plugins>
     </build>
