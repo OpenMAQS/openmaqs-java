@@ -6,41 +6,41 @@
     <groupId>io.github.openmaqs</groupId>
     <artifactId>openmaqs-java</artifactId>
     <version>${revision}</version>
-    <name>MAQS Framework</name>
+    <name>OpenMAQS Framework</name>
     <description>A collection of testing libraries and convenience classes to accelerate startup
         automation efforts
     </description>
     <packaging>pom</packaging>
-    <url>https://github.com/OpenMAQS/maqs-java</url>
+    <url>https://github.com/OpenMAQS/openmaqs-java</url>
     <inceptionYear>2017</inceptionYear>
     <organization>
-        <name>MAQS</name>
-        <url>https://OpenMAQS.github.io/</url>
+        <name>OpenMAQS</name>
+        <url>https://openmaqs.github.io/</url>
     </organization>
     <developers>
         <developer>
-            <organization>MAQS Team</organization>
-            <organizationUrl>https://OpenMAQS.github.io/</organizationUrl>
+            <organization>OpenMAQS Team</organization>
+            <organizationUrl>https://openmaqs.github.io/</organizationUrl>
         </developer>
     </developers>
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/OpenMAQS/maqs-java/issues</url>
+        <url>https://github.com/OpenMAQS/openmaqs-java/issues</url>
     </issueManagement>
     <ciManagement>
         <system>GitHub Actions</system>
-        <url>https://github.com/OpenMAQS/maqs-java/actions</url>
+        <url>https://github.com/OpenMAQS/openmaqs-java/actions</url>
     </ciManagement>
     <licenses>
         <license>
             <name>MIT</name>
-            <url>https://github.com/OpenMAQS/maqs-java/blob/main/LICENSE</url>
+            <url>https://github.com/OpenMAQS/openmaqs-java/blob/main/LICENSE</url>
         </license>
     </licenses>
     <scm>
-        <connection>scm:git:git://github.com/OpenMAQS/maqs-java.git</connection>
-        <developerConnection>scm:git:git@github.com:OpenMAQS/maqs-java.git</developerConnection>
-        <url>https://github.com/OpenMAQS/maqs-java</url>
+        <connection>scm:git:git://github.com/OpenMAQS/openmaqs-java.git</connection>
+        <developerConnection>scm:git:git@github.com:OpenMAQS/openmaqs-java.git</developerConnection>
+        <url>https://github.com/OpenMAQS/openmaqs-java</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -92,11 +92,11 @@
             <distributionManagement>
                 <repository>
                     <id>github</id>
-                    <url>https://maven.pkg.github.com/OpenMAQS/maqs-java</url>
+                    <url>https://maven.pkg.github.com/OpenMAQS/openmaqs-java</url>
                 </repository>
                 <snapshotRepository>
                     <id>github</id>
-                    <url>https://maven.pkg.github.com/OpenMAQS/maqs-java</url>
+                    <url>https://maven.pkg.github.com/OpenMAQS/openmaqs-java</url>
                     <uniqueVersion>true</uniqueVersion>
                 </snapshotRepository>
             </distributionManagement>
@@ -495,6 +495,17 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <useReleaseProfile>false</useReleaseProfile>
+                    <releaseProfiles>release</releaseProfiles>
+                    <goals>deploy</goals>
+                </configuration>
             </plugin>
         </plugins>
     </build>

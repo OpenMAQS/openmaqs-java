@@ -9,7 +9,7 @@
     <groupId>io.github.openmaqs.cucumber</groupId>
     <artifactId>openmaqs-cucumber</artifactId>
     <version>${revision}</version>
-    <name>MAQS Cucumber Module</name>
+    <name>OpenMAQS Cucumber Module</name>
 
     <packaging>jar</packaging>
 

@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>openmaqs-jacoco-reporting</artifactId>
-    <name>MAQS Code Coverage Reporting Module</name>
+    <name>OpenMAQS Code Coverage Reporting Module</name>
     <version>${revision}</version>
     <packaging>pom</packaging>
 
