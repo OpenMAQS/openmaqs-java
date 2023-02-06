@@ -4,13 +4,13 @@
     <parent>
         <groupId>io.github.openmaqs</groupId>
         <artifactId>openmaqs-java</artifactId>
-        <version>${revision}</version>
+        <version>3.0.1</version>
     </parent>
 
     <groupId>io.github.openmaqs.selenium</groupId>
     <artifactId>openmaqs-selenium</artifactId>
     <name>OpenMAQS Selenium Testing Module</name>
-    <version>${revision}</version>
+    <version>3.0.1</version>
     <packaging>jar</packaging>
 
     <properties>

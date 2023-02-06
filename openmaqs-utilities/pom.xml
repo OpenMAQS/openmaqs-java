@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>io.github.openmaqs</groupId>
         <artifactId>openmaqs-java</artifactId>
-        <version>${revision}</version>
+        <version>3.0.1</version>
     </parent>
 
     <groupId>io.github.openmaqs.utilities</groupId>
     <artifactId>openmaqs-utilities</artifactId>
     <name>OpenMAQS Utilities Testing Module</name>
-    <version>${revision}</version>
+    <version>3.0.1</version>
 
     <properties>
         <commons-io.version>2.11.0</commons-io.version>

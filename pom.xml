@@ -1,11 +1,9 @@
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.openmaqs</groupId>
     <artifactId>openmaqs-java</artifactId>
-    <version>${revision}</version>
+    <version>3.0.1</version>
     <name>OpenMAQS Framework</name>
     <description>A collection of testing libraries and convenience classes to accelerate startup
         automation efforts
@@ -41,7 +39,7 @@
         <connection>scm:git:git://github.com/OpenMAQS/openmaqs-java.git</connection>
         <developerConnection>scm:git:git@github.com:OpenMAQS/openmaqs-java.git</developerConnection>
         <url>https://github.com/OpenMAQS/openmaqs-java</url>
-        <tag>HEAD</tag>
+        <tag>openmaqs-java-3.0.1</tag>
     </scm>
 
     <modules>
@@ -374,7 +372,7 @@
                     <parallel>methods</parallel>
                     <threadCount>5</threadCount>
                     <argLine>${argLine}</argLine>
-                    <forkNode implementation="org.apache.maven.plugin.surefire.extensions.SurefireForkNodeFactory"/>
+                    <forkNode implementation="org.apache.maven.plugin.surefire.extensions.SurefireForkNodeFactory" />
                 </configuration>
                 <dependencies>
                     <dependency>
