@@ -413,7 +413,7 @@
                             <goal>check</goal>
                         </goals>
                         <id>checkstyle</id>
-                        <phase>validate</phase>
+                        <phase>verify</phase>
                         <configuration>
                             <failOnWarnings>false</failOnWarnings>
                             <failOnError>true</failOnError>
