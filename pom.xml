@@ -392,6 +392,7 @@
                     <autoVersionSubmodules>true</autoVersionSubmodules>
                     <useReleaseProfile>false</useReleaseProfile>
                     <releaseProfiles>release</releaseProfiles>
+                    <preparationGoals>clean checkstyle:check</preparationGoals>
                     <goals>deploy</goals>
                 </configuration>
             </plugin>
