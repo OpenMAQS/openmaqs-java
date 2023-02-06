@@ -394,6 +394,7 @@
                     <releaseProfiles>release</releaseProfiles>
 <!--                    <preparationGoals>clean</preparationGoals>-->
                     <goals>deploy</goals>
+                    <pushChanges>false</pushChanges>
                 </configuration>
             </plugin>
             <plugin>
