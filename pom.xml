@@ -374,6 +374,7 @@
                     <parallel>methods</parallel>
                     <threadCount>5</threadCount>
                     <argLine>${argLine}</argLine>
+                    <forkNode implementation="org.apache.maven.plugin.surefire.extensions.SurefireForkNodeFactory"/>
                 </configuration>
                 <dependencies>
                     <dependency>
