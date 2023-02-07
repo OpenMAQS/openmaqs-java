@@ -337,7 +337,7 @@ public abstract class BaseTest {
    */
   public void teardownJunit() {
     // Log the test result
-    if (junitTestResult.getStatus() == TestResultType.PASS) {
+    if (junitTestResult.isSuccess()) {
       this.tryToLog(MessageType.SUCCESS, "Test Passed");
     } else if (junitTestResult.getStatus() == TestResultType.FAIL) {
       this.tryToLog(MessageType.ERROR, "Test Failed");

@@ -292,20 +292,6 @@ class JUnitBaseTestObjectUnitTest extends BaseGenericTest {
         Assertions.assertTrue(testObject.containsAssociatedFile(path), "Checking if array contains file");
     }
 
-    // Test Setup Objects
-    /*
-     * private Logger getLogger() { return new Logger() {
-     *
-     * @Override public void logMessage(MessageType messageType, String message,
-     * Object... args) {
-     *
-     * }
-     *
-     * @Override public void logMessage(String message, Object... args) {
-     *
-     * } }; }
-     */
-
     private DriverManager<String> getDriverManager(ITestObject testObject, Supplier<String> supplier) {
         return new DriverManager<>(supplier, testObject) {
             @Override public void close() {
