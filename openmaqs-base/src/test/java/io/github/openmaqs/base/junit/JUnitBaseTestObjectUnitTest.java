@@ -1,15 +1,15 @@
 /*
- * Copyright 2022 (C) Cognizant SoftVision, All rights Reserved
+ *  Copyright 2023 (C) OpenMAQS, All rights Reserved
  */
 
-package com.cognizantsoftvision.maqs.base.junit;
+package io.github.openmaqs.base.junit;
 
-import com.cognizantsoftvision.maqs.base.BaseGenericTest;
-import com.cognizantsoftvision.maqs.base.BaseTestObject;
-import com.cognizantsoftvision.maqs.base.DriverManager;
-import com.cognizantsoftvision.maqs.base.ITestObject;
-import com.cognizantsoftvision.maqs.utilities.logging.ILogger;
-import com.cognizantsoftvision.maqs.utilities.performance.PerfTimerCollection;
+import io.github.openmaqs.base.BaseGenericTest;
+import io.github.openmaqs.base.BaseTestObject;
+import io.github.openmaqs.base.DriverManager;
+import io.github.openmaqs.base.ITestObject;
+import io.github.openmaqs.utilities.logging.ILogger;
+import io.github.openmaqs.utilities.performance.PerfTimerCollection;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 import java.io.File;

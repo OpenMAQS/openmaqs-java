@@ -1,13 +1,12 @@
 /*
- * Copyright 2022 (C) Cognizant SoftVision, All rights Reserved
+ *  Copyright 2023 (C) OpenMAQS, All rights Reserved
  */
 
-package com.cognizantsoftvision.maqs.base.junit;
+package io.github.openmaqs.base.junit;
 
-import com.cognizantsoftvision.maqs.base.BaseGenericTest;
+import io.github.openmaqs.base.BaseGenericTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtensionContext;
 
 class JUnitBaseGenericTestUnitTest extends BaseGenericTest {
 
