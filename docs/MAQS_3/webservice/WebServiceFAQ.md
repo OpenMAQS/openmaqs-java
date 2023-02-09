@@ -2,4 +2,4 @@
 
 To Run the web services properly, navigate to this file and run the specified command:
 
-    ..\maqs-java\docker\MAQSService\MainTestService>dotnet run
+    ..\openmaqs-java\docker\MAQSService\MainTestService>dotnet run

@@ -49,9 +49,9 @@ Stores methods for interacting with the config.xml
 
 ## Sample code
 ```java
-package com.cognizantsoftvision.maqs.appium;
+package io.github.openmaqs.appium;
 
-import com.cognizantsoftvision.maqs.utilities.helper.TestCategories;
+import helper.io.github.openmaqs.utilities.TestCategories;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
