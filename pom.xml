@@ -389,8 +389,8 @@
                     <tagNameFormat>v@{project.version}</tagNameFormat>
                     <scmCommentPrefix>[skip ci]</scmCommentPrefix>
                     <goals>${release.plugin.goals}</goals>
-                    <developmentVersion>@{parsedVersion.nextIncrementalVersion}</developmentVersion>
-                    <releaseVersion>@{project.version}</releaseVersion>
+                    <developmentVersion>@{parsedVersion.nextMajorVersion}.@{parsedVersion.nextMinorVersion}.@{parsedVersion.nextIncrementalVersion}</developmentVersion>
+                    <releaseVersion>@{parsedVersion.majorVersion}.@{parsedVersion.minorVersion}.@{parsedVersion.incrementalVersion}</releaseVersion>
                 </configuration>
             </plugin>
             <plugin>
