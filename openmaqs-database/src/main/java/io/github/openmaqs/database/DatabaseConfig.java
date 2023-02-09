@@ -11,7 +11,6 @@ import io.github.openmaqs.database.providers.SQLiteProvider;
 import io.github.openmaqs.utilities.helper.Config;
 import io.github.openmaqs.utilities.helper.ConfigSection;
 import io.github.openmaqs.utilities.helper.ConfigValidation;
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;

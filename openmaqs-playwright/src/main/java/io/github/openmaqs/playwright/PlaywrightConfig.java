@@ -7,7 +7,6 @@ package io.github.openmaqs.playwright;
 import io.github.openmaqs.utilities.helper.Config;
 import io.github.openmaqs.utilities.helper.ConfigSection;
 import io.github.openmaqs.utilities.helper.ConfigValidation;
-
 import java.awt.Dimension;
 import java.util.Collections;
 
