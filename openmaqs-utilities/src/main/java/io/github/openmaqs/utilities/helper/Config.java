@@ -22,8 +22,6 @@ import org.apache.commons.configuration2.builder.fluent.Configurations;
 import org.apache.commons.configuration2.ex.ConfigurationException;
 import org.apache.commons.configuration2.sync.ReadWriteSynchronizer;
 
-import javax.sql.rowset.spi.XmlReader;
-
 /**
  * The Configuration class.
  */
@@ -80,10 +78,6 @@ public final class Config {
       throw new MaqsConfigException(StringProcessor.safeFormatter(
           "Exception creating the xml configuration object from the file : %s", exception));
     }
-  }
-
-  private static boolean checkFileExists(String fileName) {
-    return new File(fileName).exists();
   }
 
   protected static void getConfigFile(String configName) throws ConfigurationException {
@@ -179,8 +173,8 @@ public final class Config {
     }
 
     // Check if we have any one of required fields
-    if (configValidation.getRequiredOneOfFields() != null && configValidation.getRequiredOneOfFields().size() > 0) {
-        // && !configValidation.getRequiredOneOfFields().Any(x -> configSectionPassed.containsKey(x))){
+    if (configValidation.getRequiredOneOfFields() != null && !configValidation.getRequiredOneOfFields().isEmpty()
+    && configValidation.requiredOneOfFields.stream().noneMatch(configSectionPassed::containsKey)) {
       // We have one of fields and didn't find any of them
       exceptions.add("Need at least one of the following keys: " + String.join(", ", configValidation.getRequiredOneOfFields()));
     }

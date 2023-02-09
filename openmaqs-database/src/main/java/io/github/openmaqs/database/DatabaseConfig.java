@@ -29,7 +29,7 @@ public class DatabaseConfig {
   }
 
   /**
-   * Ensure required fields are in the config
+   * Ensure required fields are in the config.
    */
   private static void checkConfig() {
     var validator = new ConfigValidation();
