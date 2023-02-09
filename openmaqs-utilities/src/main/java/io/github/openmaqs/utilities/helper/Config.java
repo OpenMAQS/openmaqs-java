@@ -172,7 +172,7 @@ public class Config {
 
     // Check if we have any one of required fields
     if (configValidation.getRequiredOneOfFields() != null && !configValidation.getRequiredOneOfFields().isEmpty()
-      && configValidation.requiredOneOfFields.stream().noneMatch(configSectionPassed::containsKey)) {
+        && configValidation.requiredOneOfFields.stream().noneMatch(configSectionPassed::containsKey)) {
       // We have one of fields and didn't find any of them
       exceptions.add("Need at least one of the following keys: "
               + String.join(", ", configValidation.getRequiredOneOfFields()));
