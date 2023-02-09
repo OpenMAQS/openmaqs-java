@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 (C) OpenMAQS, All rights Reserved
+ *  Copyright 2022 (C) OpenMAQS, All rights Reserved
  */
 
 package io.github.openmaqs.utilities.helper.exceptions;

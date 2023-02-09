@@ -25,7 +25,7 @@ import org.apache.commons.configuration2.sync.ReadWriteSynchronizer;
 /**
  * The Configuration class.
  */
-public final class Config {
+public class Config {
 
   private Config() {
     // Private constructor
@@ -44,13 +44,11 @@ public final class Config {
   /**
    * The configuration containing values loaded in from the config.xml file.
    */
-//  private static XMLConfiguration configValues;
   private static Configuration configValues;
 
   /**
    * The configuration containing values that were added to the configuration.
    */
-//  private static XMLConfiguration overrideConfig;
   private static Configuration overrideConfig;
 
   /**
@@ -81,7 +79,6 @@ public final class Config {
   }
 
   protected static void getConfigFile(String configName) throws ConfigurationException {
-//      return PropertyManager.get("maqs.config.location", "config.xml");
     configValues = null;
     overrideConfig = null;
 
@@ -108,7 +105,8 @@ public final class Config {
   }
 
   private static void initializeJsonConfig() throws ConfigurationException {
-    FileBasedConfigurationBuilder<JSONConfiguration> builder = configs.fileBasedBuilder(JSONConfiguration.class, "appsettings.json");
+    FileBasedConfigurationBuilder<JSONConfiguration> builder = configs.fileBasedBuilder(
+            JSONConfiguration.class, "appsettings.json");
     configValues = builder.getConfiguration();
     configValues.setSynchronizer(new ReadWriteSynchronizer());
 
@@ -165,7 +163,7 @@ public final class Config {
 
     // Check if we have any required fields
     if (configValidation.getRequiredFields() != null && !configValidation.getRequiredFields().isEmpty()) {
-      for(var requiredField : configValidation.getRequiredFields()) {
+      for (var requiredField : configValidation.getRequiredFields()) {
         if (!configSectionPassed.containsKey(requiredField)) {
           exceptions.add("Key missing: " + requiredField);
         }
@@ -174,9 +172,10 @@ public final class Config {
 
     // Check if we have any one of required fields
     if (configValidation.getRequiredOneOfFields() != null && !configValidation.getRequiredOneOfFields().isEmpty()
-    && configValidation.requiredOneOfFields.stream().noneMatch(configSectionPassed::containsKey)) {
+      && configValidation.requiredOneOfFields.stream().noneMatch(configSectionPassed::containsKey)) {
       // We have one of fields and didn't find any of them
-      exceptions.add("Need at least one of the following keys: " + String.join(", ", configValidation.getRequiredOneOfFields()));
+      exceptions.add("Need at least one of the following keys: "
+              + String.join(", ", configValidation.getRequiredOneOfFields()));
     }
 
     if (!exceptions.isEmpty()) {
