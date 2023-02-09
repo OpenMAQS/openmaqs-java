@@ -386,7 +386,7 @@
                     <useReleaseProfile>false</useReleaseProfile>
                     <releaseProfiles>${release.plugin.profiles}</releaseProfiles>
                     <arguments>-Dmaven.test.skip=true</arguments>
-                    <tagNameFormat>v@{project.version}</tagNameFormat>
+                    <tagNameFormat>v@{parsedVersion.majorVersion}.@{parsedVersion.minorVersion}.@{parsedVersion.incrementalVersion}</tagNameFormat>
                     <scmCommentPrefix>[skip ci]</scmCommentPrefix>
                     <goals>${release.plugin.goals}</goals>
                     <developmentVersion>@{parsedVersion.nextMajorVersion}.@{parsedVersion.nextMinorVersion}.@{parsedVersion.nextIncrementalVersion}</developmentVersion>
