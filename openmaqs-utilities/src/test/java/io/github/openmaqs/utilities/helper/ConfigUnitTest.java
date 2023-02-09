@@ -4,10 +4,17 @@
 
 package io.github.openmaqs.utilities.helper;
 
+import java.io.File;
+import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import org.apache.commons.configuration2.ex.ConfigurationException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 /**
  * The Configuration unit test class.
@@ -120,5 +127,65 @@ public class ConfigUnitTest {
     Assert.assertTrue(Config.doesGeneralKeyExist("TimeoutOverride"));
     Assert.assertTrue(Config.doesKeyExist("HubAddress", ConfigSection.SELENIUM_MAQS));
     Assert.assertFalse(Config.doesKeyExist("HubAddress", ConfigSection.GLOBAL_MAQS));
+  }
+
+  @Test(groups = TestCategories.UTILITIES)
+  public void checkForAllFiles() {
+    List<String> fileTypes = Arrays.asList(".json", ".ini", ".properties", ".xml", ".yml");
+    SoftAssert softAssert = new SoftAssert();
+
+      for (String types : fileTypes) {
+        String fileName;
+
+        if (types.contains("json")) {
+          fileName = "appsettings";
+        } else {
+          fileName = "config";
+        }
+
+        String file = PropertyManager.get("maqs.config.location", fileName + types);
+        softAssert.assertTrue(Paths.get(file).toFile().exists());
+      }
+      softAssert.assertAll();
+  }
+
+  @Test(groups = TestCategories.UTILITIES)
+  public void useJsonConfigFile() throws ConfigurationException {
+    Config.getConfigFile("appsettings.json");
+    Map<String, String> testSection = Config.getSection(ConfigSection.SELENIUM_MAQS);
+    Assert.assertEquals(testSection.get("TestKey"), "testValueTwo");
+    Assert.assertEquals(testSection.get("Browser"), "Internet Explorer");
+  }
+
+  @Test(groups = TestCategories.UTILITIES)
+  public void useIniConfigFile() throws ConfigurationException {
+    Config.getConfigFile("config.ini");
+    Map<String, String> testSection = Config.getSection(ConfigSection.SELENIUM_MAQS);
+    Assert.assertEquals(testSection.get("TestKey"), "testValueTwo");
+    Assert.assertEquals(testSection.get("Browser"), "Internet Explorer");
+  }
+
+  @Test(groups = TestCategories.UTILITIES)
+  public void usePropertiesConfigFile() throws ConfigurationException {
+    Config.getConfigFile("config.properties");
+    Map<String, String> testSection = Config.getSection(ConfigSection.SELENIUM_MAQS);
+    Assert.assertEquals(testSection.get("TestKey"), "testValueTwo");
+    Assert.assertEquals(testSection.get("Browser"), "Internet Explorer");
+  }
+
+  @Test(groups = TestCategories.UTILITIES)
+  public void useXmlConfigFile() throws ConfigurationException {
+    Config.getConfigFile("config.xml");
+    Map<String, String> testSection = Config.getSection(ConfigSection.SELENIUM_MAQS);
+    Assert.assertEquals(testSection.get("TestKey"), "testValueTwo");
+    Assert.assertEquals(testSection.get("Browser"), "Internet Explorer");
+  }
+
+  @Test(groups = TestCategories.UTILITIES)
+  public void useYmlConfigFile() throws ConfigurationException {
+    Config.getConfigFile("config.yml");
+    Map<String, String> testSection = Config.getSection(ConfigSection.SELENIUM_MAQS);
+    Assert.assertEquals(testSection.get("TestKey"), "testValueTwo");
+    Assert.assertEquals(testSection.get("Browser"), "Internet Explorer");
   }
 }

@@ -8,8 +8,10 @@ import io.github.openmaqs.selenium.constants.BrowserType;
 import io.github.openmaqs.selenium.constants.RemoteBrowserType;
 import io.github.openmaqs.utilities.helper.Config;
 import io.github.openmaqs.utilities.helper.ConfigSection;
+import io.github.openmaqs.utilities.helper.ConfigValidation;
 import io.github.openmaqs.utilities.helper.StringProcessor;
 import java.time.Duration;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 

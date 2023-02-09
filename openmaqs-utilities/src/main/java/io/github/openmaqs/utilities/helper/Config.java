@@ -4,16 +4,25 @@
 
 package io.github.openmaqs.utilities.helper;
 
-import io.github.openmaqs.utilities.helper.exceptions.FrameworkConfigurationException;
+import io.github.openmaqs.utilities.helper.exceptions.MaqsConfigException;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import org.apache.commons.configuration2.Configuration;
+import org.apache.commons.configuration2.INIConfiguration;
+import org.apache.commons.configuration2.JSONConfiguration;
+import org.apache.commons.configuration2.PropertiesConfiguration;
 import org.apache.commons.configuration2.XMLConfiguration;
+import org.apache.commons.configuration2.YAMLConfiguration;
 import org.apache.commons.configuration2.builder.FileBasedConfigurationBuilder;
 import org.apache.commons.configuration2.builder.fluent.Configurations;
 import org.apache.commons.configuration2.ex.ConfigurationException;
 import org.apache.commons.configuration2.sync.ReadWriteSynchronizer;
+
+import javax.sql.rowset.spi.XmlReader;
 
 /**
  * The Configuration class.
@@ -37,12 +46,14 @@ public final class Config {
   /**
    * The configuration containing values loaded in from the config.xml file.
    */
-  private static XMLConfiguration configValues;
+//  private static XMLConfiguration configValues;
+  private static Configuration configValues;
 
   /**
    * The configuration containing values that were added to the configuration.
    */
-  private static final XMLConfiguration overrideConfig;
+//  private static XMLConfiguration overrideConfig;
+  private static Configuration overrideConfig;
 
   /**
    * The base configs object.
@@ -53,17 +64,91 @@ public final class Config {
   static {
     try {
       if ((new File(CONFIG_FILE).exists())) {
-        FileBasedConfigurationBuilder<XMLConfiguration> builder = configs.xmlBuilder(CONFIG_FILE);
-        configValues = builder.getConfiguration();
-        configValues.setSynchronizer(new ReadWriteSynchronizer());
+        if (CONFIG_FILE.contains(".xml")) {
+          initializeXmlConfig();
+        } else if (CONFIG_FILE.contains(".json")) {
+          initializeJsonConfig();
+        } else if (CONFIG_FILE.contains(".properties")) {
+          initializePropertiesConfig();
+        } else if (CONFIG_FILE.contains(".yml")) {
+          initializeYmlConfig();
+        } else if (CONFIG_FILE.contains(".ini")) {
+          initializeIniConfig();
+        }
       }
-
-      overrideConfig = new XMLConfiguration();
-      overrideConfig.setSynchronizer(new ReadWriteSynchronizer());
     } catch (ConfigurationException exception) {
       throw new MaqsConfigException(StringProcessor.safeFormatter(
           "Exception creating the xml configuration object from the file : %s", exception));
     }
+  }
+
+  private static boolean checkFileExists(String fileName) {
+    return new File(fileName).exists();
+  }
+
+  protected static void getConfigFile(String configName) throws ConfigurationException {
+//      return PropertyManager.get("maqs.config.location", "config.xml");
+    configValues = null;
+    overrideConfig = null;
+
+    if (configName.contains(".xml")) {
+      initializeXmlConfig();
+    } else if (configName.contains(".json")) {
+      initializeJsonConfig();
+    } else if (configName.contains(".properties")) {
+      initializePropertiesConfig();
+    } else if (configName.contains(".yml")) {
+      initializeYmlConfig();
+    } else if (configName.contains(".ini")) {
+      initializeIniConfig();
+    }
+  }
+
+  private static void initializeXmlConfig() throws ConfigurationException {
+    FileBasedConfigurationBuilder<XMLConfiguration> builder = configs.xmlBuilder(CONFIG_FILE);
+    configValues = builder.getConfiguration();
+    configValues.setSynchronizer(new ReadWriteSynchronizer());
+
+    overrideConfig = new XMLConfiguration();
+    overrideConfig.setSynchronizer(new ReadWriteSynchronizer());
+  }
+
+  private static void initializeJsonConfig() throws ConfigurationException {
+    FileBasedConfigurationBuilder<JSONConfiguration> builder = configs.fileBasedBuilder(JSONConfiguration.class, "appsettings.json");
+    configValues = builder.getConfiguration();
+    configValues.setSynchronizer(new ReadWriteSynchronizer());
+
+    overrideConfig = new JSONConfiguration();
+    overrideConfig.setSynchronizer(new ReadWriteSynchronizer());
+  }
+
+  private static void initializePropertiesConfig() throws ConfigurationException {
+    FileBasedConfigurationBuilder<PropertiesConfiguration> builder = configs.propertiesBuilder("config.properties");
+    configValues = builder.getConfiguration();
+    configValues.setSynchronizer(new ReadWriteSynchronizer());
+
+    overrideConfig = new PropertiesConfiguration();
+    overrideConfig.setSynchronizer(new ReadWriteSynchronizer());
+  }
+
+  private static void initializeYmlConfig() throws ConfigurationException {
+    FileBasedConfigurationBuilder<XMLConfiguration> builder = configs.xmlBuilder("config.yml");
+    XMLConfiguration configuration = builder.getConfiguration();
+
+    configValues = new YAMLConfiguration(configuration);
+    configValues.setSynchronizer(new ReadWriteSynchronizer());
+
+    overrideConfig = new YAMLConfiguration(configuration);
+    overrideConfig.setSynchronizer(new ReadWriteSynchronizer());
+  }
+
+  private static void initializeIniConfig() throws ConfigurationException {
+    FileBasedConfigurationBuilder<INIConfiguration> builder = configs.iniBuilder("config.ini");
+    configValues = builder.getConfiguration();
+    configValues.setSynchronizer(new ReadWriteSynchronizer());
+
+    overrideConfig = new INIConfiguration();
+    overrideConfig.setSynchronizer(new ReadWriteSynchronizer());
   }
 
   /**
@@ -320,9 +405,5 @@ public final class Config {
    */
   public static boolean doesGeneralKeyExist(String key) {
     return doesKeyExist(key, DEFAULT_MAQS_SECTION);
-  }
-
-  private static String getConfigFile() {
-    PropertyManager.get("maqs.config.location", "config.xml");
   }
 }
