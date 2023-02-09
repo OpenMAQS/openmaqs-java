@@ -32,7 +32,7 @@ public class DatabaseConfig {
    */
   private static void checkConfig() {
     var validator = new ConfigValidation();
-    validator.setRequiredOneOfFields(Arrays.asList("DataBaseConnectionString", "DataBaseProviderType"));
+    validator.setRequiredOneOfFields(Arrays.asList("DatabaseConnectionString", "DatabaseProviderType"));
     Config.validate(ConfigSection.DATABASE_MAQS, validator);
   }
 
