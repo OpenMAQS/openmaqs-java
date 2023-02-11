@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 (C) MAQS, All rights Reserved
+ *  Copyright 2022 (C) OpenMAQSMAQS, All rights Reserved
  */
 
 package io.github.openmaqs.nosql;
