@@ -51,6 +51,7 @@
         <module>openmaqs-appium</module>
         <module>openmaqs-webservices</module>
         <module>openmaqs-database</module>
+        <module>openmaqs-nosql</module>
         <module>openmaqs-cucumber</module>
         <module>openmaqs-accessibility</module>
         <module>openmaqs-playwright</module>

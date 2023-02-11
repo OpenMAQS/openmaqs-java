@@ -74,7 +74,7 @@ public class AppiumConfigUnitTest {
 
     SoftAssert softAssert = new SoftAssert();
     softAssert.assertTrue(capabilitiesAsStrings.containsKey(username));
-    softAssert.assertEquals(capabilitiesAsStrings.get(username), "JMAQS");
+    softAssert.assertEquals(capabilitiesAsStrings.get(username), "maqs-Framework<");
     softAssert.assertTrue(capabilitiesAsStrings.containsKey(accessKey));
     softAssert
         .assertNotEquals(capabilitiesAsStrings.get(accessKey), "");
@@ -94,7 +94,7 @@ public class AppiumConfigUnitTest {
 
     SoftAssert softAssert = new SoftAssert();
     softAssert.assertTrue(capabilitiesAsObjects.containsKey(username));
-    softAssert.assertEquals(capabilitiesAsObjects.get(username), "JMAQS");
+    softAssert.assertEquals(capabilitiesAsObjects.get(username), "maqs-Framework<");
     softAssert.assertTrue(capabilitiesAsObjects.containsKey(accessKey));
     softAssert
         .assertNotEquals(capabilitiesAsObjects.get(accessKey), "");
