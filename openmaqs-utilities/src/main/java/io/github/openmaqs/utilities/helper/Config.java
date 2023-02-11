@@ -59,18 +59,19 @@ public class Config {
   // initialize the config object.
   static {
     try {
-         CONFIG_FILE = checkForConfigFile();
-        if (CONFIG_FILE.contains(".xml")) {
-          initializeXmlConfig();
-        } else if (CONFIG_FILE.contains(".json")) {
-          initializeJsonConfig();
-        } else if (CONFIG_FILE.contains(".properties")) {
-          initializePropertiesConfig();
-        } else if (CONFIG_FILE.contains(".yml")) {
-          initializeYmlConfig();
-        } else if (CONFIG_FILE.contains(".ini")) {
-          initializeIniConfig();
-        }
+      CONFIG_FILE = checkForConfigFile();
+
+      if (CONFIG_FILE.contains(".xml")) {
+        initializeXmlConfig();
+      } else if (CONFIG_FILE.contains(".json")) {
+        initializeJsonConfig();
+      } else if (CONFIG_FILE.contains(".properties")) {
+        initializePropertiesConfig();
+      } else if (CONFIG_FILE.contains(".yml")) {
+        initializeYmlConfig();
+      } else if (CONFIG_FILE.contains(".ini")) {
+        initializeIniConfig();
+      }
     } catch (ConfigurationException exception) {
       throw new MaqsConfigException(StringProcessor.safeFormatter(
           "Exception creating the xml configuration object from the file : %s", exception));
