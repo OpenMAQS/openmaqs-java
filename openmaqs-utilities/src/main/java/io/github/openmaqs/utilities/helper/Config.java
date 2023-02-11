@@ -5,7 +5,7 @@
 package io.github.openmaqs.utilities.helper;
 
 import io.github.openmaqs.utilities.helper.exceptions.MaqsConfigException;
-import java.io.File;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -39,7 +39,7 @@ public class Config {
   /**
    * The default config.xml file name.
    */
-  public static final String CONFIG_FILE = PropertyManager.get("maqs.config.location", "config.xml");
+  public static String CONFIG_FILE = PropertyManager.get("maqs.config.location", "config.xml");
 
   /**
    * The configuration containing values loaded in from the config.xml file.
@@ -59,7 +59,7 @@ public class Config {
   // initialize the config object.
   static {
     try {
-      if ((new File(CONFIG_FILE).exists())) {
+         CONFIG_FILE = checkForConfigFile();
         if (CONFIG_FILE.contains(".xml")) {
           initializeXmlConfig();
         } else if (CONFIG_FILE.contains(".json")) {
@@ -71,10 +71,25 @@ public class Config {
         } else if (CONFIG_FILE.contains(".ini")) {
           initializeIniConfig();
         }
-      }
     } catch (ConfigurationException exception) {
       throw new MaqsConfigException(StringProcessor.safeFormatter(
           "Exception creating the xml configuration object from the file : %s", exception));
+    }
+  }
+
+  private static String checkForConfigFile() {
+    if (Paths.get("config.xml").toFile().exists()) {
+      return "config.xml";
+    } else if (Paths.get("appsettings.json").toFile().exists()) {
+      return "appsettings.json";
+    } else if (Paths.get("config.properties").toFile().exists()) {
+      return "config.properties";
+    } else if (Paths.get("config.yml").toFile().exists()) {
+      return "config.yml";
+    } else if (Paths.get("config.ini").toFile().exists()) {
+      return "config.ini";
+    } else {
+      throw new MaqsConfigException("The file config is not supported");
     }
   }
 
