@@ -41,6 +41,11 @@ public enum ConfigSection {
   GLOBAL_MAQS("GlobalMaqs"),
 
   /**
+   * The default no sql maqs section.
+   */
+  NOSQL_MAQS("NoSQLMaqs"),
+
+  /**
    * The default playwright maqs section.
    */
   PLAYWRIGHT_MAQS("PlaywrightMaqs"),

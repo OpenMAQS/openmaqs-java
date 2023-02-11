@@ -2,9 +2,9 @@
  * Copyright 2022 (C) MAQS, All rights Reserved
  */
 
-package io.github.maqs.nosql;
+package io.github.openmaqs.nosql;
 
-import io.github.maqs.utilities.helper.TestCategories;
+import io.github.openmaqs.utilities.helper.TestCategories;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -16,7 +16,7 @@ public class BaseMongoUnitTest extends BaseMongoTest {
   /**
    * Test the get mongo db driver.
    */
-  @Test(groups = TestCategories.MONGO)
+  @Test(groups = TestCategories.NOSQL)
   public void testGetMongoDBDriver() {
     this.setMongoDBDriver(new MongoDBDriver(
             MongoDBConfig.getConnectionString(), MongoDBConfig.getDatabaseString(), MongoDBConfig.getCollectionString()));
@@ -28,7 +28,7 @@ public class BaseMongoUnitTest extends BaseMongoTest {
   /**
    * Test the set mongo db driver.
    */
-  @Test(groups = TestCategories.MONGO)
+  @Test(groups = TestCategories.NOSQL)
   public void testSetMongoDBDriver() {
     this.setMongoDBDriver(new MongoDBDriver());
     int hashCode = this.getMongoDBDriver().hashCode();
@@ -44,7 +44,7 @@ public class BaseMongoUnitTest extends BaseMongoTest {
   /**
    * Test the override connection driver with the mongo db driver.
    */
-  @Test(groups = TestCategories.MONGO)
+  @Test(groups = TestCategories.NOSQL)
   public void testOverrideConnectionDriverWithMongoDBDriver() {
     this.setMongoDBDriver(new MongoDBDriver());
     overrideConnectionDriver(this.getMongoDBDriver());
@@ -57,7 +57,7 @@ public class BaseMongoUnitTest extends BaseMongoTest {
   /**
    * Test getting the connection string.
    */
-  @Test(groups = TestCategories.MONGO)
+  @Test(groups = TestCategories.NOSQL)
   public void testGetBaseMongoConnectionStringTest() {
     String connection = this.getBaseConnectionString();
     Assert.assertEquals(connection, "mongodb://localhost:27017", "connection strings do not match");
@@ -66,7 +66,7 @@ public class BaseMongoUnitTest extends BaseMongoTest {
   /**
    * Test getting the database string.
    */
-  @Test(groups = TestCategories.MONGO)
+  @Test(groups = TestCategories.NOSQL)
   public void testGetBaseMongoStringTest() {
     String databaseString = this.getBaseDatabaseString();
     Assert.assertEquals(databaseString, "MongoDatabaseTest", "database string do not match");
@@ -75,7 +75,7 @@ public class BaseMongoUnitTest extends BaseMongoTest {
   /**
    * Test getting the connection string.
    */
-  @Test(groups = TestCategories.MONGO)
+  @Test(groups = TestCategories.NOSQL)
   public void testGetBaseMongoCollectionStringTest() {
     String collection = this.getBaseCollectionString();
     Assert.assertEquals(collection, "MongoTestCollection", "collection strings do not match");

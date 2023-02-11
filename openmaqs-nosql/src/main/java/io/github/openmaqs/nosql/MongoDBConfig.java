@@ -2,10 +2,10 @@
  * Copyright 2022 (C) MAQS, All rights Reserved
  */
 
-package io.github.maqs.nosql;
+package io.github.openmaqs.nosql;
 
-import io.github.maqs.utilities.helper.Config;
-import io.github.maqs.utilities.helper.ConfigSection;
+import io.github.openmaqs.utilities.helper.Config;
+import io.github.openmaqs.utilities.helper.ConfigSection;
 
 /**
  * The MongoDB Config class.
@@ -18,14 +18,14 @@ public class MongoDBConfig {
   /**
    * The MongoDB configuration section.
    */
-  private static final ConfigSection MONGO_SECTION = ConfigSection.MONGO_MAQS;
+  private static final ConfigSection NOSQL_MAQS = ConfigSection.NOSQL_MAQS;
 
   /**
    * Get the client connection string.
    * @return The connection type
    */
   public static String getConnectionString() {
-    return Config.getValueForSection(MONGO_SECTION, "MongoConnectionString");
+    return Config.getValueForSection(NOSQL_MAQS, "MongoConnectionString");
   }
 
   /**
@@ -33,7 +33,7 @@ public class MongoDBConfig {
    * @return The database name
    */
   public static String getDatabaseString() {
-    return Config.getValueForSection(MONGO_SECTION, "MongoDatabase");
+    return Config.getValueForSection(NOSQL_MAQS, "MongoDatabase");
   }
 
   /**
@@ -41,7 +41,7 @@ public class MongoDBConfig {
    * @return The mongo collection string
    */
   public static String getCollectionString() {
-    return Config.getValueForSection(MONGO_SECTION, "MongoCollection");
+    return Config.getValueForSection(NOSQL_MAQS, "MongoCollection");
   }
 
   /**
@@ -50,6 +50,6 @@ public class MongoDBConfig {
    *     of 30 seconds when no config.xml key is found
    */
   public static int getQueryTimeout() {
-    return Integer.parseInt(Config.getValueForSection(MONGO_SECTION, "MongoTimeout", "30"));
+    return Integer.parseInt(Config.getValueForSection(NOSQL_MAQS, "MongoTimeout", "30"));
   }
 }

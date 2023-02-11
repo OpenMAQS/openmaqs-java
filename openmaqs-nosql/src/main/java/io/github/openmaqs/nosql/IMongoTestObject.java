@@ -2,10 +2,10 @@
  * Copyright 2022 (C) MAQS, All rights Reserved
  */
 
-package io.github.maqs.nosql;
+package io.github.openmaqs.nosql;
 
 import com.mongodb.client.MongoCollection;
-import io.github.maqs.base.ITestObject;
+import io.github.openmaqs.base.ITestObject;
 import java.util.function.Supplier;
 import org.bson.Document;
 

@@ -2,10 +2,10 @@
  * Copyright 2022 (C) MAQS, All rights Reserved
  */
 
-package io.github.maqs.nosql;
+package io.github.openmaqs.nosql;
 
 import com.mongodb.client.MongoCollection;
-import io.github.maqs.utilities.helper.TestCategories;
+import io.github.openmaqs.utilities.helper.TestCategories;
 import org.bson.Document;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -18,7 +18,7 @@ public class MongoDriverManagerUnitTest extends BaseMongoTest{
   /**
    * Test overriding the default driver.
    */
-  @Test(groups = TestCategories.MONGO)
+  @Test(groups = TestCategories.NOSQL)
   public void respectDefaultDriverOverride() {
     MongoDBDriver mongoDriver = new MongoDBDriver();
     this.getTestObject().getMongoDBManager().overrideDriver(mongoDriver);
@@ -30,7 +30,7 @@ public class MongoDriverManagerUnitTest extends BaseMongoTest{
   /**
    * Override driver with the collection string.
    */
-  @Test(groups = TestCategories.MONGO)
+  @Test(groups = TestCategories.NOSQL)
   public void respectCollectionDriverOverride() {
     // MongoDBConfig.GetConnectionString(), MongoDBConfig.GetDatabaseString(), collectionString
     MongoDBDriver mongoDriver = new MongoDBDriver(MongoDBConfig.getCollectionString());
@@ -41,7 +41,7 @@ public class MongoDriverManagerUnitTest extends BaseMongoTest{
   /**
    * Override drive with all 3 connection parameters.
    */
-  @Test(groups = TestCategories.MONGO)
+  @Test(groups = TestCategories.NOSQL)
   public void respectDriverConnectionsOverride() {
     MongoDBDriver mongoDriver = new MongoDBDriver(MongoDBConfig.getConnectionString(),
         MongoDBConfig.getDatabaseString(), MongoDBConfig.getCollectionString());
@@ -52,7 +52,7 @@ public class MongoDriverManagerUnitTest extends BaseMongoTest{
   /**
    * Override driver directly.
    */
-  @Test(groups = TestCategories.MONGO)
+  @Test(groups = TestCategories.NOSQL)
   public void respectDirectDriverOverride() {
     MongoDBDriver mongoDriver = new MongoDBDriver(MongoDBConfig.getCollectionString());
     this.setMongoDBDriver(mongoDriver);
@@ -62,7 +62,7 @@ public class MongoDriverManagerUnitTest extends BaseMongoTest{
   /**
    * Override driver with new driver.
    */
-  @Test(groups = TestCategories.MONGO)
+  @Test(groups = TestCategories.NOSQL)
   public void respectNewDriverOverride() {
     MongoDBDriver mongoDriver = new MongoDBDriver(MongoDBConfig.getCollectionString());
     this.getTestObject().overrideMongoDBDriver(mongoDriver);
@@ -72,7 +72,7 @@ public class MongoDriverManagerUnitTest extends BaseMongoTest{
   /**
    * Override drive with collection function.
    */
-  @Test(groups = TestCategories.MONGO)
+  @Test(groups = TestCategories.NOSQL)
   public void respectCollectionOverride() {
     MongoCollection<Document> collection = MongoFactory.getDefaultCollection();
     this.getTestObject().overrideMongoDBDriver(() -> collection);
@@ -82,7 +82,7 @@ public class MongoDriverManagerUnitTest extends BaseMongoTest{
   /**
    * Override drive with all 3 connection strings.
    */
-  @Test(groups = TestCategories.MONGO)
+  @Test(groups = TestCategories.NOSQL)
   public void respectDriverConnectionStingsOverride() {
     MongoCollection<Document> collection = this.getMongoDBDriver().getCollection();
     this.getTestObject().overrideMongoDBDriver(MongoDBConfig.getConnectionString(),
@@ -93,7 +93,7 @@ public class MongoDriverManagerUnitTest extends BaseMongoTest{
   /**
    * Override in base with collection function.
    */
-  @Test(groups = TestCategories.MONGO)
+  @Test(groups = TestCategories.NOSQL)
   public void respectCollectionOverrideInBase() {
     MongoCollection<Document> collection = MongoFactory.getDefaultCollection();
     this.overrideConnectionDriver(() -> collection);
@@ -103,7 +103,7 @@ public class MongoDriverManagerUnitTest extends BaseMongoTest{
   /**
    * Override in base with new driver.
    */
-  @Test(groups = TestCategories.MONGO)
+  @Test(groups = TestCategories.NOSQL)
   public void RespectDriverOverrideInBase() {
     MongoCollection<Document> collection = MongoFactory.getDefaultCollection();
     this.overrideConnectionDriver(new MongoDBDriver(collection));
@@ -113,7 +113,7 @@ public class MongoDriverManagerUnitTest extends BaseMongoTest{
   /**
    * Override drive with strings in base.
    */
-  @Test(groups = TestCategories.MONGO)
+  @Test(groups = TestCategories.NOSQL)
   public void RespectConnectionStingsOverrideInBase() {
     MongoCollection<Document> collection = this.getMongoDBDriver().getCollection();
     this.overrideConnectionDriver(MongoDBConfig.getConnectionString(),

@@ -2,14 +2,14 @@
  * Copyright 2022 (C) MAQS, All rights Reserved
  */
 
-package io.github.maqs.nosql;
+package io.github.openmaqs.nosql;
 
 import com.mongodb.client.MongoCollection;
-import io.github.maqs.base.BaseTestObject;
-import io.github.maqs.base.DriverManager;
-import io.github.maqs.utilities.logging.LoggingConfig;
-import io.github.maqs.utilities.logging.LoggingEnabled;
-import io.github.maqs.utilities.logging.MessageType;
+import io.github.openmaqs.base.BaseTestObject;
+import io.github.openmaqs.base.DriverManager;
+import io.github.openmaqs.utilities.logging.LoggingConfig;
+import io.github.openmaqs.utilities.logging.LoggingEnabled;
+import io.github.openmaqs.utilities.logging.MessageType;
 import java.util.function.Supplier;
 import org.bson.Document;
 

@@ -2,11 +2,10 @@
  * Copyright 2022 (C) MAQS, All rights Reserved
  */
 
-package io.github.maqs.nosql;
-
+package io.github.openmaqs.nosql;
 
 import com.mongodb.client.model.Filters;
-import io.github.maqs.utilities.helper.TestCategories;
+import io.github.openmaqs.utilities.helper.TestCategories;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -23,7 +22,7 @@ public class MongoDBFunctionalUnitTest extends BaseMongoTest {
   /**
    * Test the collection works as expected when getting the login id.
    */
-  @Test(groups = TestCategories.MONGO)
+  @Test(groups = TestCategories.NOSQL)
   public void testMongoGetLoginID() {
     Bson filter = Filters.eq("lid", "test3");
     //String value = this.getMongoDBDriver().getCollection().find(filter).ToList()[0]["lid"].ToString();
@@ -34,7 +33,7 @@ public class MongoDBFunctionalUnitTest extends BaseMongoTest {
   /**
    * Test the collection works as expected when running a query and returning the first result.
    */
-  @Test(groups = TestCategories.MONGO)
+  @Test(groups = TestCategories.NOSQL)
   public void testMongoQueryAndReturnFirst() {
     Bson filter = Filters.eq("lid", "test3");
     // MongoCollection<Document> document = this.getMongoDBDriver().getCollection().find(filter).ToList().First();
@@ -45,7 +44,7 @@ public class MongoDBFunctionalUnitTest extends BaseMongoTest {
   /**
    * Test the collection works as expected when finding a list with a key.
    */
-  @Test(groups = TestCategories.MONGO)
+  @Test(groups = TestCategories.NOSQL)
   public void testMongoFindListWithKey() {
     //var filter = Builders<Document>.Filter.Exists("lid");
     Bson filter = Filters.exists("lid");
@@ -60,7 +59,7 @@ public class MongoDBFunctionalUnitTest extends BaseMongoTest {
   /**
    * Test the collection works as expected.
    */
-  @Test(groups = TestCategories.MONGO)
+  @Test(groups = TestCategories.NOSQL)
   public void testMongoLinqQuery() {
     /*
     QueryBuilder queries =

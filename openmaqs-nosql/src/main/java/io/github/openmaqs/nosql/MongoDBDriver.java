@@ -2,7 +2,7 @@
  * Copyright 2022 (C) MAQS, All rights Reserved
  */
 
-package io.github.maqs.nosql;
+package io.github.openmaqs.nosql;
 
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;

@@ -32,10 +32,10 @@
         <!-- Log file path - Defaults to build location if no value is defined -->
         <FileLoggerPath>./target/logs</FileLoggerPath>
     </ModualMaqs>
-    <MongoMaqs>
+    <NoSQLMaqs>
         <MongoConnectionString>mongodb://localhost:27017</MongoConnectionString>
         <MongoDatabase>MongoDatabaseTest</MongoDatabase>
         <MongoCollection>MongoTestCollection</MongoCollection>
         <MongoTimeout>30</MongoTimeout>
-    </MongoMaqs>
+    </NoSQLMaqs>
 </configuration>

@@ -10,8 +10,8 @@
         <version>3.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>io.github.maqs.noSQL</groupId>
-    <artifactId>maqs-noSQL</artifactId>
+    <groupId>io.github.openmaqsnoSQL</groupId>
+    <artifactId>openmaqs-noSQL</artifactId>
     <name>MAQS NoSQL Testing Module</name>
     <version>${revision}</version>
 
