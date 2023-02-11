@@ -36,9 +36,9 @@ this.getTestObject().getLogger().logMessage("I am testing with MAQS");
 
 ## Sample code
 ```java
-import io.github.maqs.database.BaseDatabaseTest;
-import io.github.maqs.utilites.helper.logger;
-import helper.io.github.maqs.utilities.TestCategories;
+import io.github.openmaqs.database.BaseDatabaseTest;
+import io.github.openmaqs.utilites.helper.logger;
+import helper.io.github.openmaqs.utilities.TestCategories;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

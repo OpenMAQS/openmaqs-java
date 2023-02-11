@@ -49,9 +49,9 @@ Stores methods for interacting with the config.xml
 
 ## Sample code
 ```java
-package io.github.maqs.appium;
+package io.github.openmaqs.appium;
 
-import helper.io.github.maqs.utilities.TestCategories;
+import helper.io.github.openmaqs.utilities.TestCategories;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

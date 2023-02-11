@@ -3,58 +3,57 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.github.maqs</groupId>
-    <artifactId>maqs-java</artifactId>
+    <groupId>io.github.openmaqs</groupId>
+    <artifactId>openmaqs-java</artifactId>
     <version>${revision}</version>
     <name>MAQS Framework</name>
-    <description>
-        A collection of testing libraries and convenience classes to accelerate startup automation efforts
+    <description>A collection of testing libraries and convenience classes to accelerate startup
+        automation efforts
     </description>
     <packaging>pom</packaging>
-    <url>https://github.com/MAQS-Framework/maqs-java</url>
+    <url>https://github.com/OpenMAQS/maqs-java</url>
     <inceptionYear>2017</inceptionYear>
     <organization>
         <name>MAQS</name>
-        <url>https://maqs-framework.github.io/</url>
+        <url>https://OpenMAQS.github.io/</url>
     </organization>
     <developers>
         <developer>
             <organization>MAQS Team</organization>
-            <organizationUrl>https://maqs-framework.github.io/</organizationUrl>
+            <organizationUrl>https://OpenMAQS.github.io/</organizationUrl>
         </developer>
     </developers>
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/MAQS-Framework/maqs-java/issues</url>
+        <url>https://github.com/OpenMAQS/maqs-java/issues</url>
     </issueManagement>
     <ciManagement>
         <system>GitHub Actions</system>
-        <url>https://github.com/MAQS-Framework/maqs-java/actions</url>
+        <url>https://github.com/OpenMAQS/maqs-java/actions</url>
     </ciManagement>
     <licenses>
         <license>
             <name>MIT</name>
-            <url>https://github.com/MAQS-Framework/maqs-java/blob/main/LICENSE</url>
+            <url>https://github.com/OpenMAQS/maqs-java/blob/main/LICENSE</url>
         </license>
     </licenses>
     <scm>
-        <connection>scm:git:git://github.com/MAQS-Framework/maqs-java.git</connection>
-        <developerConnection>scm:git:git@github.com:MAQS-Framework/maqs-java.git</developerConnection>
-        <url>https://github.com/MAQS-Framework/maqs-java</url>
+        <connection>scm:git:git://github.com/OpenMAQS/maqs-java.git</connection>
+        <developerConnection>scm:git:git@github.com:OpenMAQS/maqs-java.git</developerConnection>
+        <url>https://github.com/OpenMAQS/maqs-java</url>
         <tag>HEAD</tag>
     </scm>
 
     <modules>
-        <module>maqs-utilities</module>
-        <module>maqs-base</module>
-        <module>maqs-selenium</module>
-        <module>maqs-appium</module>
-        <module>maqs-webservices</module>
-        <module>maqs-database</module>
-        <module>maqs-nosql</module>
-        <module>maqs-cucumber</module>
-        <module>maqs-accessibility</module>
-        <module>maqs-playwright</module>
+        <module>openmaqs-utilities</module>
+        <module>openmaqs-base</module>
+        <module>openmaqs-selenium</module>
+        <module>openmaqs-appium</module>
+        <module>openmaqs-webservices</module>
+        <module>openmaqs-database</module>
+        <module>openmaqs-cucumber</module>
+        <module>openmaqs-accessibility</module>
+        <module>openmaqs-playwright</module>
     </modules>
 
     <profiles>
@@ -93,11 +92,11 @@
             <distributionManagement>
                 <repository>
                     <id>github</id>
-                    <url>https://maven.pkg.github.com/MAQS-Framework/maqs-java</url>
+                    <url>https://maven.pkg.github.com/OpenMAQS/maqs-java</url>
                 </repository>
                 <snapshotRepository>
                     <id>github</id>
-                    <url>https://maven.pkg.github.com/MAQS-Framework/maqs-java</url>
+                    <url>https://maven.pkg.github.com/OpenMAQS/maqs-java</url>
                     <uniqueVersion>true</uniqueVersion>
                 </snapshotRepository>
             </distributionManagement>
@@ -180,7 +179,7 @@
             <properties>
                 <maven.test.skip>true</maven.test.skip>
                 <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-                <sonar.organization>maqs-framework</sonar.organization>
+                <sonar.organization>openmaqs</sonar.organization>
             </properties>
             <build>
                 <plugins>
@@ -200,7 +199,7 @@
                 </property>
             </activation>
             <modules>
-                <module>maqs-jacoco-reporting</module>
+                <module>openmaqs-jacoco-reporting</module>
             </modules>
             <build>
                 <plugins>
@@ -275,12 +274,9 @@
 
         <jacoco.version>0.8.7</jacoco.version>
         <testng.version>7.5</testng.version>
+        <selenium.version>4.8.0</selenium.version>
 
-        <selenium.version>4.7.1</selenium.version>
-        <!-- TODO: delete seleniumAppium.version when appium is updated with appium java client 8.0 -->
-        <seleniumAppium.version>3.141.59</seleniumAppium.version>
-
-        <chromedriver.version>94.0.4606.41</chromedriver.version>
+        <chromedriver.version>108.0.5359.71</chromedriver.version>
         <geckodriver.version>0.28.0</geckodriver.version>
         <edgedriver.version>5.16299</edgedriver.version>
     </properties>
@@ -298,53 +294,48 @@
                 <version>${testng.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.github.maqs.accessibility</groupId>
-                <artifactId>maqs-accessibility</artifactId>
+                <groupId>io.github.openmaqs.accessibility</groupId>
+                <artifactId>openmaqs-accessibility</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.github.maqs.appium</groupId>
-                <artifactId>maqs-appium</artifactId>
+                <groupId>io.github.openmaqs.appium</groupId>
+                <artifactId>openmaqs-appium</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.github.maqs.base</groupId>
-                <artifactId>maqs-base</artifactId>
+                <groupId>io.github.openmaqs.base</groupId>
+                <artifactId>openmaqs-base</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.github.maqs.cucumber</groupId>
-                <artifactId>maqs-cucumber</artifactId>
+                <groupId>io.github.openmaqs.cucumber</groupId>
+                <artifactId>openmaqs-cucumber</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.github.maqs.database</groupId>
-                <artifactId>maqs-database</artifactId>
+                <groupId>io.github.openmaqs.database</groupId>
+                <artifactId>openmaqs-database</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.github.maqs.selenium</groupId>
-                <artifactId>maqs-selenium</artifactId>
+                <groupId>io.github.openmaqs.selenium</groupId>
+                <artifactId>openmaqs-selenium</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.github.maqs.utilities</groupId>
-                <artifactId>maqs-utilities</artifactId>
+                <groupId>io.github.openmaqs.utilities</groupId>
+                <artifactId>openmaqs-utilities</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.github.maqs.webservices</groupId>
-                <artifactId>maqs-webservices</artifactId>
+                <groupId>io.github.openmaqs.webservices</groupId>
+                <artifactId>openmaqs-webservices</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.cognizantsoftvision.maqs.nosql</groupId>
-                <artifactId>maqs-nosql</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.maqs.playwright</groupId>
-                <artifactId>maqs-playwright</artifactId>
+                <groupId>io.github.openmaqs.playwright</groupId>
+                <artifactId>openmaqs-playwright</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

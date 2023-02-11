@@ -2,9 +2,11 @@ name-template: 'v$RESOLVED_VERSION'
 tag-template: 'v$RESOLVED_VERSION'
 change-template: "* $TITLE (#$NUMBER)"
 categories:
-  - title: 'Feature'
+  - title: 'Breaking Changes'
+    label: 'breaking change'
+  - title: 'Features'
     label: 'feature'
-  - title: 'Enhancement'
+  - title: 'Enhancements'
     label: 'enhancement'
   - title: 'Bug Fixes'
     label: 'bug'

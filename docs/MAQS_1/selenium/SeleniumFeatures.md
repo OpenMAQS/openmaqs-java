@@ -41,7 +41,7 @@ this.getTestObject().getLog().logMessage("I am testing with MAQS");
 
 ## Sample code
 ```java
-package io.github.maqs.selenium;
+package io.github.openmaqs.selenium;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;

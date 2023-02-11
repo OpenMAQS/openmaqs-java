@@ -50,9 +50,9 @@ Gets a database connection based on configuration values
 
 ## Sample code
 ```java
-import io.github.maqs.base.BaseGenericTest;
-import entities.io.github.maqs.database.StatesEntity;
-import helper.io.github.maqs.utilities.TestCategories;
+import io.github.openmaqs.base.BaseGenericTest;
+import entities.io.github.openmaqs.database.StatesEntity;
+import helper.io.github.openmaqs.utilities.TestCategories;
 import java.util.List;
 import org.testng.Assert;
 import org.testng.annotations.Test;

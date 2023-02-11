@@ -3,10 +3,10 @@
 ## Inheritance Hierarchy
 ```java
 BaseTestObject
-    io.github.maqs.playwright.PlaywrightTestObject
+    io.github.openmaqs.playwright.PlaywrightTestObject
 ```
-Package: io.github.maqs.playwright;  
-Assembly: import io.github.maqs.playwright.PlaywrightTestObject
+Package: io.github.openmaqs.playwright;  
+Assembly: import io.github.openmaqs.playwright.PlaywrightTestObject
 
 ## Syntax
 java

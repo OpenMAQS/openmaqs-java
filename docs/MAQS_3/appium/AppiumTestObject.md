@@ -3,10 +3,10 @@
 ## Inheritance Hierarchy
 ```java
 BaseTestObject
-    io.github.maqs.appium.AppiumTestObject
+    io.github.openmaqs.appium.AppiumTestObject
 ```
-Package: io.github.maqs.appium;  
-Assembly: import io.github.maqs.appium.AppiumTestObject
+Package: io.github.openmaqs.appium;  
+Assembly: import io.github.openmaqs.appium.AppiumTestObject
 
 ## Syntax
 java
