@@ -172,6 +172,7 @@ public class ConfigUnitTest {
     Map<String, String> testSection = Config.getSection(ConfigSection.SELENIUM_MAQS);
     Assert.assertEquals(testSection.get("TestKey"), "testValueTwo");
     Assert.assertEquals(testSection.get("Browser"), "Internet Explorer");
+    Assert.assertEquals(testSection.get("HubAddress"), "132.15.12");
   }
 
   @Test(groups = TestCategories.UTILITIES)
@@ -201,6 +202,7 @@ public class ConfigUnitTest {
 //      Map<String, String> testSection = Config.getSection(ConfigSection.SELENIUM_MAQS);
 //      softAssert.assertEquals(testSection.get("TestKey"), "testValueTwo");
 //      softAssert.assertEquals(testSection.get("Browser"), "Internet Explorer");
+//      softAssert.assertEquals(testSection.get("HubAddress"), "132.15.12");
 //    }
 //
 //    softAssert.assertAll();
