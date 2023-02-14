@@ -106,10 +106,9 @@ public class Config {
   }
 
   private static void initializeJsonConfig() throws ConfigurationException {
-    //    FileBasedConfigurationBuilder<JSONConfiguration> builder = configs.fileBasedBuilder(
-    //            JSONConfiguration.class, "appsettings.json");
-    //    configValues = builder.getConfiguration();
-
+    // FileBasedConfigurationBuilder<JSONConfiguration> builder = configs.fileBasedBuilder(
+    // JSONConfiguration.class, "appsettings.json");
+    // configValues = builder.getConfiguration();
     configValues = configs.fileBased(JSONConfiguration.class, "appsettings.json");
     configValues.setSynchronizer(new ReadWriteSynchronizer());
 
@@ -137,7 +136,6 @@ public class Config {
   }
 
   private static void initializeIniConfig() throws ConfigurationException {
-    //  INIConfiguration configuration = configs.ini("config.ini");
     FileBasedConfigurationBuilder<INIConfiguration> builder = configs.iniBuilder("config.ini");
     configValues = builder.getConfiguration();
     configValues.setSynchronizer(new ReadWriteSynchronizer());
