@@ -60,21 +60,10 @@ public class Config {
   static {
     try {
       CONFIG_FILE = checkForConfigFile();
-
-      if (CONFIG_FILE.contains(".xml")) {
-        initializeXmlConfig();
-      } else if (CONFIG_FILE.contains(".json")) {
-        initializeJsonConfig();
-      } else if (CONFIG_FILE.contains(".properties")) {
-        initializePropertiesConfig();
-      } else if (CONFIG_FILE.contains(".yml")) {
-        initializeYmlConfig();
-      } else if (CONFIG_FILE.contains(".ini")) {
-        initializeIniConfig();
-      }
+      getConfigFile(CONFIG_FILE);
     } catch (ConfigurationException exception) {
       throw new MaqsConfigException(StringProcessor.safeFormatter(
-          "Exception creating the xml configuration object from the file : %s", exception));
+          "Exception creating the configuration object from the file : %s", exception));
     }
   }
 
@@ -95,9 +84,6 @@ public class Config {
   }
 
   protected static void getConfigFile(String configName) throws ConfigurationException {
-    configValues = null;
-    overrideConfig = null;
-
     if (configName.contains(".xml")) {
       initializeXmlConfig();
     } else if (configName.contains(".json")) {
@@ -112,8 +98,7 @@ public class Config {
   }
 
   private static void initializeXmlConfig() throws ConfigurationException {
-    FileBasedConfigurationBuilder<XMLConfiguration> builder = configs.xmlBuilder(CONFIG_FILE);
-    configValues = builder.getConfiguration();
+    configValues = configs.xml(CONFIG_FILE);
     configValues.setSynchronizer(new ReadWriteSynchronizer());
 
     overrideConfig = new XMLConfiguration();
@@ -121,9 +106,11 @@ public class Config {
   }
 
   private static void initializeJsonConfig() throws ConfigurationException {
-    FileBasedConfigurationBuilder<JSONConfiguration> builder = configs.fileBasedBuilder(
-            JSONConfiguration.class, "appsettings.json");
-    configValues = builder.getConfiguration();
+//    FileBasedConfigurationBuilder<JSONConfiguration> builder = configs.fileBasedBuilder(
+//            JSONConfiguration.class, "appsettings.json");
+//    configValues = builder.getConfiguration();
+
+    configValues = configs.fileBased(JSONConfiguration.class, "appsettings.json");
     configValues.setSynchronizer(new ReadWriteSynchronizer());
 
     overrideConfig = new JSONConfiguration();
@@ -131,8 +118,7 @@ public class Config {
   }
 
   private static void initializePropertiesConfig() throws ConfigurationException {
-    FileBasedConfigurationBuilder<PropertiesConfiguration> builder = configs.propertiesBuilder("config.properties");
-    configValues = builder.getConfiguration();
+    configValues = configs.properties("config.properties");
     configValues.setSynchronizer(new ReadWriteSynchronizer());
 
     overrideConfig = new PropertiesConfiguration();
@@ -140,17 +126,18 @@ public class Config {
   }
 
   private static void initializeYmlConfig() throws ConfigurationException {
-    FileBasedConfigurationBuilder<XMLConfiguration> builder = configs.xmlBuilder("config.yml");
-    XMLConfiguration configuration = builder.getConfiguration();
+//    FileBasedConfigurationBuilder<YAMLConfiguration> builder = configs.fileBasedBuilder(YAMLConfiguration.class,"config.yml");
+    YAMLConfiguration configuration = configs.fileBased(YAMLConfiguration.class, "config.yml");
 
     configValues = new YAMLConfiguration(configuration);
-    configValues.setSynchronizer(new ReadWriteSynchronizer());
+//    configValues.setSynchronizer(new ReadWriteSynchronizer());
 
     overrideConfig = new YAMLConfiguration(configuration);
-    overrideConfig.setSynchronizer(new ReadWriteSynchronizer());
+//    overrideConfig.setSynchronizer(new ReadWriteSynchronizer());
   }
 
   private static void initializeIniConfig() throws ConfigurationException {
+    INIConfiguration configuration = configs.ini("config.ini");
     FileBasedConfigurationBuilder<INIConfiguration> builder = configs.iniBuilder("config.ini");
     configValues = builder.getConfiguration();
     configValues.setSynchronizer(new ReadWriteSynchronizer());
