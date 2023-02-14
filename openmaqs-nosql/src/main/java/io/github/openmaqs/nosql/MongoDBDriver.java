@@ -17,7 +17,7 @@ import org.bson.Document;
  * The MongoDB Driver class.
  * Wraps the MongoCollection and related helper functions.
  */
-public class MongoDBDriver implements AutoCloseable {
+public class MongoDBDriver {
 
   /**
    * Initializes a new instance of the MongoDBDriver class.
@@ -165,18 +165,5 @@ public class MongoDBDriver implements AutoCloseable {
    */
   public boolean isCollectionEmpty() {
     return this.getCollection().countDocuments() == 0;
-  }
-
-  /**
-   * Counts all the items in the collection.
-   * @return Number of items in the collection
-   */
-  public int countAllItemsInCollection() {
-    return (int) this.getCollection().countDocuments();
-  }
-
-  @Override
-  public void close() {
-    this.getMongoClient().close();
   }
 }

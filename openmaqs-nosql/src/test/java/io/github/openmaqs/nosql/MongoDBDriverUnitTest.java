@@ -79,6 +79,6 @@ public class MongoDBDriverUnitTest extends BaseMongoTest {
    */
   @Test(groups = TestCategories.NOSQL)
   public void testCountAllItemsInCollection() {
-    Assert.assertEquals(this.getMongoDBDriver().countAllItemsInCollection(), 4);
+    Assert.assertEquals(this.getMongoDBDriver().getCollection().countDocuments(), 4);
   }
 }
