@@ -125,7 +125,8 @@ public class Config {
   }
 
   private static void initializeYmlConfig() throws ConfigurationException {
-    // FileBasedConfigurationBuilder<YAMLConfiguration> builder = configs.fileBasedBuilder(YAMLConfiguration.class,"config.yml");
+    // FileBasedConfigurationBuilder<YAMLConfiguration> builder =
+    // configs.fileBasedBuilder(YAMLConfiguration.class,"config.yml");
     YAMLConfiguration configuration = configs.fileBased(YAMLConfiguration.class, "config.yml");
 
     configValues = new YAMLConfiguration(configuration);
