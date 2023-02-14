@@ -19,6 +19,7 @@ import org.testng.asserts.SoftAssert;
 /**
  * The Configuration unit test class.
  */
+@Test(singleThreaded = true)
 public class ConfigUnitTest {
 
   /**
@@ -188,4 +189,20 @@ public class ConfigUnitTest {
     Assert.assertEquals(testSection.get("TestKey"), "testValueTwo");
     Assert.assertEquals(testSection.get("Browser"), "Internet Explorer");
   }
+
+  // TODO: this test simplifies the five tests above. Replace when those tests pass
+//  @Test(groups = TestCategories.UTILITIES)
+//  public void useConfigFiles() throws ConfigurationException {
+//    List<String> files = Arrays.asList("config.xml", "appsettings.json", "config.ini", "config.properties", "config.yml");
+//    SoftAssert softAssert = new SoftAssert();
+//
+//    for (String file : files) {
+//      Config.getConfigFile(file);
+//      Map<String, String> testSection = Config.getSection(ConfigSection.SELENIUM_MAQS);
+//      softAssert.assertEquals(testSection.get("TestKey"), "testValueTwo");
+//      softAssert.assertEquals(testSection.get("Browser"), "Internet Explorer");
+//    }
+//
+//    softAssert.assertAll();
+//  }
 }
