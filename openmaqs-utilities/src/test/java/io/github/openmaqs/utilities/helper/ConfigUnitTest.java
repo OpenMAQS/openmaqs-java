@@ -4,15 +4,14 @@
 
 package io.github.openmaqs.utilities.helper;
 
-import java.io.File;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.apache.commons.configuration2.ex.ConfigurationException;
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -192,19 +191,21 @@ public class ConfigUnitTest {
   }
 
   // TODO: this test simplifies the five tests above. Replace when those tests pass
-//  @Test(groups = TestCategories.UTILITIES)
-//  public void useConfigFiles() throws ConfigurationException {
-//    List<String> files = Arrays.asList("config.xml", "appsettings.json", "config.ini", "config.properties", "config.yml");
-//    SoftAssert softAssert = new SoftAssert();
-//
-//    for (String file : files) {
-//      Config.getConfigFile(file);
-//      Map<String, String> testSection = Config.getSection(ConfigSection.SELENIUM_MAQS);
-//      softAssert.assertEquals(testSection.get("TestKey"), "testValueTwo");
-//      softAssert.assertEquals(testSection.get("Browser"), "Internet Explorer");
-//      softAssert.assertEquals(testSection.get("HubAddress"), "132.15.12");
-//    }
-//
-//    softAssert.assertAll();
-//  }
+  @Ignore
+  @Test(groups = TestCategories.UTILITIES)
+  public void useConfigFiles() throws ConfigurationException {
+    List<String> files = Arrays.asList("config.xml", "appsettings.json", "config.ini", "config.properties", "config.yml");
+    SoftAssert softAssert = new SoftAssert();
+
+
+      for (String file : files) {
+        Config.getConfigFile(file);
+        Map<String, String> testSection = Config.getSection(ConfigSection.SELENIUM_MAQS);
+        softAssert.assertEquals(testSection.get("TestKey"), "testValueTwo");
+        softAssert.assertEquals(testSection.get("Browser"), "Internet Explorer");
+        softAssert.assertEquals(testSection.get("HubAddress"), "132.15.12");
+      }
+
+    softAssert.assertAll();
+  }
 }
