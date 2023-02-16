@@ -94,6 +94,7 @@
                         <configuration>
                             <serverId>ossrh</serverId>
                             <nexusUrl>https://s01.oss.sonatype.org</nexusUrl>
+                            <autoReleaseAfterClose>false</autoReleaseAfterClose>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -101,12 +102,15 @@
         </profile>
         <profile>
             <id>release</id>
+            <properties>
+                <maven.test.skip>true</maven.test.skip>
+            </properties>
             <build>
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
-                        <version>2.2.1</version>
+                        <version>3.2.1</version>
                         <executions>
                             <execution>
                                 <id>attach-sources</id>
@@ -119,7 +123,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>2.9.1</version>
+                        <version>3.5.0</version>
                         <executions>
                             <execution>
                                 <id>attach-javadocs</id>
@@ -151,6 +155,9 @@
                                         <arg>--pinentry-mode</arg>
                                         <arg>loopback</arg>
                                     </gpgArguments>
+                                    <passphraseServerId>gpg</passphraseServerId>
+                                    <keyname>${gpg.keyname}</keyname>
+                                    <passphrase>${gpg.passphrase}</passphrase>
                                 </configuration>
                             </execution>
                         </executions>
@@ -225,7 +232,7 @@
     </profiles>
 
     <properties>
-        <revision>3.0.1-SNAPSHOT</revision>
+        <revision>3.0.0-SNAPSHOT</revision>
         <jdk.version>11</jdk.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
@@ -386,11 +393,8 @@
                     <useReleaseProfile>false</useReleaseProfile>
                     <releaseProfiles>${release.plugin.profiles}</releaseProfiles>
                     <arguments>-Dmaven.test.skip=true</arguments>
-                    <tagNameFormat>v@{project.version}</tagNameFormat>
                     <scmCommentPrefix>[skip ci]</scmCommentPrefix>
                     <goals>${release.plugin.goals}</goals>
-                    <developmentVersion>@{parsedVersion.nextIncrementalVersion}</developmentVersion>
-                    <releaseVersion>@{project.version}</releaseVersion>
                 </configuration>
             </plugin>
             <plugin>
