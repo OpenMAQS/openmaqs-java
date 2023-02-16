@@ -96,7 +96,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Preload packages into cache
         id: builder
-        uses: ./.github/workflows/preinstall
+        uses: ./.github/actions/preinstall
         with:
           bt-param: '-fae -B -e -T 1C -Psonar'
           version: ${{ github.sha }}
