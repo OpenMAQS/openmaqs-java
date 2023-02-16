@@ -81,11 +81,9 @@ jobs:
             $endPoint = "https://api.github.com/repos/${{github.repository}}/releases"
             $info = Invoke-RestMethod -Uri $endPoint -Headers $header
             $version = $info.name[0].Trim("v")
-            $tag = $info.name[0]
           }
 
           Write-Host "::set-output name=BUILD_NUMBER::$($version)"
-          Write Host "::set-output name=TAG_NAME::$($tag)"
 
   install-modules:
     name: Pre-compile packages
