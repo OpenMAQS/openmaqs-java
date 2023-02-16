@@ -54,7 +54,7 @@ runs:
             ${{ runner.os }}-maven-${{inputs.version}}
     - name: Start Test Dependencies
       id: test-dependencies
-      uses: ./.github/workflows/startdeps-action
+      uses: ./.github/actions/startdeps
       with:
         module-name: ${{inputs.module-name}}
     - name: Run Unit Tests
