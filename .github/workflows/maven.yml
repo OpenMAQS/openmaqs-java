@@ -257,9 +257,9 @@ jobs:
       - name: Import GPG key
         id: import_gpg
         uses: crazy-max/ghaction-import-gpg@v5.2.0
-        env:
-          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
-          PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.GPG_PASSPHRASE }}
       - name: Deploy Release v${{ needs.getVersion.outputs.buildNumber }} to OSSRH
         run: mvn -Drevision=${{ needs.getVersion.outputs.buildNumber }} deploy
       - name: Publish GitHub release v${{ needs.getVersion.outputs.buildNumber }}
