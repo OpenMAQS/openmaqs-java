@@ -246,7 +246,6 @@ jobs:
         with:
           distribution: zulu
           java-version: 11
-          cache: maven
       - name: Restore Local Maven Cache
         uses: actions/cache@v3.2.4
         with:
@@ -256,7 +255,7 @@ jobs:
         uses: whelk-io/maven-settings-xml-action@v20
         with:
           profiles: '[{"id": "gpg", "properties": { "gpg.keyname": "${{secrets.GPG_KEYNAME_ID}}", "gpg.passphrase": "${{secrets.GPG_PASSPHRASE}}" }}]'
-          servers: '[{"id": "ossrh", "username": "${{secrets.DEPLOY_PACKAGE_USERNAME}}", "password": "${{secrets.DEPLOY_PACKAGE_PASSWORD}}"}]'
+          servers: '[{"id": "ossrh", "username": "${{vars.DEPLOY_PACKAGE_USERNAME}}", "password": "${{secrets.DEPLOY_PACKAGE_PASSWORD}}"}]'
           active_profiles: >
             [ "ossrh", "release", "gpg" ]
       - name: Import GPG key
