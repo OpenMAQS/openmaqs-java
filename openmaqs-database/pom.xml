@@ -11,7 +11,7 @@
     <groupId>io.github.openmaqs.database</groupId>
     <artifactId>openmaqs-database</artifactId>
     <version>${revision}</version>
-    <name>MAQS Database Testing Module</name>
+    <name>OpenMAQS Database Testing Module</name>
 
     <properties>
         <hibernate-core.version>5.6.3.Final</hibernate-core.version>

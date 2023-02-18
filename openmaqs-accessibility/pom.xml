@@ -11,7 +11,7 @@
 
     <groupId>io.github.openmaqs.accessibility</groupId>
     <artifactId>openmaqs-accessibility</artifactId>
-    <name>MAQS Accessibility Testing Module</name>
+    <name>OpenMAQS Accessibility Testing Module</name>
     <version>${revision}</version>
 
     <properties>

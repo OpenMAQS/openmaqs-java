@@ -12,7 +12,7 @@
 
     <groupId>io.github.openmaqs.playwright</groupId>
     <artifactId>openmaqs-playwright</artifactId>
-    <name>MAQS Playwright Testing Module</name>
+    <name>OpenMAQS Playwright Testing Module</name>
     <version>${revision}</version>
 
     <properties>
