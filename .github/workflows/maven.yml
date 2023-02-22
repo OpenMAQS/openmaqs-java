@@ -119,7 +119,7 @@ jobs:
           exit 1  
       - uses: actions/checkout@v3
       - name: BrowserStack Env Setup
-        uses: browserstack/github-actions/setup-env@master'
+        uses: browserstack/github-actions/setup-env@master
         with:
           username: ${{ secrets.BROWSERSTACK_USERNAME }}
           access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
