@@ -1,0 +1,12 @@
+framework: testng
+platforms:
+  - deviceName: Google Pixel 7 Pro
+    osVersion: 13.0
+    browserName: android
+    deviceOrientation: portrait
+parallelsPerPlatform: 5
+browserstackLocal: false
+buildIdentifier: ${BUILD_NUMBER}
+debug: true
+networkLogs: false
+consoleLogs: errors

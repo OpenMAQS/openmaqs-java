@@ -49,7 +49,7 @@
                             <parallel>methods</parallel>
                             <threadCount>5</threadCount>
                             <argLine>
-                                ${argLine} -javaagent:${com.browserstack:browserstack-java-sdk:jar}
+                                ${argLine} -javaagent:@{com.browserstack:browserstack-java-sdk:jar}
                             </argLine>
                         </configuration>
                         <dependencies>
