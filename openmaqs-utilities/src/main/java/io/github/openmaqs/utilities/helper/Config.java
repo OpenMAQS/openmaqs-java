@@ -5,7 +5,6 @@
 package io.github.openmaqs.utilities.helper;
 
 import io.github.openmaqs.utilities.helper.exceptions.MaqsConfigException;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
