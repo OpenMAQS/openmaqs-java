@@ -108,13 +108,13 @@ public class Config {
   }
 
   private static void initializeJsonConfig() throws ConfigurationException, FileNotFoundException {
-//    FileBasedConfigurationBuilder<JSONConfiguration> builder = configs.fileBasedBuilder(
-//           JSONConfiguration.class, "appsettings.json");
+    //    FileBasedConfigurationBuilder<JSONConfiguration> builder = configs.fileBasedBuilder(
+    //           JSONConfiguration.class, "appsettings.json");
 
     JSONConfiguration configuration = new JSONConfiguration();
     configuration.read(new FileReader("appsettings.json"));
 
-//    configValues = builder.configure().getConfiguration();
+    //    configValues = builder.configure().getConfiguration();
     configValues = configs.fileBased(JSONConfiguration.class, "appsettings.json");
     configValues.setSynchronizer(new ReadWriteSynchronizer());
 
@@ -142,7 +142,7 @@ public class Config {
 
     // FileBasedConfigurationBuilder<YAMLConfiguration> builder =
     // configs.fileBasedBuilder(YAMLConfiguration.class,"config.yml");
-//    YAMLConfiguration configuration = configs.fileBased(YAMLConfiguration.class, "config.yml");
+    //    YAMLConfiguration configuration = configs.fileBased(YAMLConfiguration.class, "config.yml");
 
     configValues = new YAMLConfiguration(configuration);
     configValues.setSynchronizer(new ReadWriteSynchronizer());
