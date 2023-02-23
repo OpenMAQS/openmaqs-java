@@ -11,7 +11,7 @@
 
     <groupId>io.github.openmaqs.base</groupId>
     <artifactId>openmaqs-base</artifactId>
-    <name>MAQS Base Testing Module</name>
+    <name>OpenMAQS Base Testing Module</name>
     <version>${revision}</version>
     <packaging>jar</packaging>
 

@@ -13,7 +13,7 @@
     <groupId>io.github.openmaqs.appium</groupId>
     <artifactId>openmaqs-appium</artifactId>
     <version>${revision}</version>
-    <name>MAQS Appium Testing Module</name>
+    <name>OpenMAQS Appium Testing Module</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
