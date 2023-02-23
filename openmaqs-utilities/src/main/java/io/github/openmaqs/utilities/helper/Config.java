@@ -5,6 +5,10 @@
 package io.github.openmaqs.utilities.helper;
 
 import io.github.openmaqs.utilities.helper.exceptions.MaqsConfigException;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,12 +16,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.apache.commons.configuration2.Configuration;
-import org.apache.commons.configuration2.INIConfiguration;
 import org.apache.commons.configuration2.JSONConfiguration;
 import org.apache.commons.configuration2.PropertiesConfiguration;
 import org.apache.commons.configuration2.XMLConfiguration;
 import org.apache.commons.configuration2.YAMLConfiguration;
-import org.apache.commons.configuration2.builder.FileBasedConfigurationBuilder;
 import org.apache.commons.configuration2.builder.fluent.Configurations;
 import org.apache.commons.configuration2.ex.ConfigurationException;
 import org.apache.commons.configuration2.sync.ReadWriteSynchronizer;
@@ -64,6 +66,8 @@ public class Config {
     } catch (ConfigurationException exception) {
       throw new MaqsConfigException(StringProcessor.safeFormatter(
           "Exception creating the configuration object from the file : %s", exception));
+    } catch (FileNotFoundException notFoundException) {
+      throw new MaqsConfigException(StringProcessor.safeFormatter("The file was not found: %s", notFoundException));
     }
   }
 
@@ -83,7 +87,7 @@ public class Config {
     }
   }
 
-  protected static void getConfigFile(String configName) throws ConfigurationException {
+  protected static void getConfigFile(String configName) throws ConfigurationException, FileNotFoundException {
     if (configName.contains(".xml")) {
       initializeXmlConfig();
     } else if (configName.contains(".json")) {
@@ -92,8 +96,6 @@ public class Config {
       initializePropertiesConfig();
     } else if (configName.contains(".yml")) {
       initializeYmlConfig();
-    } else if (configName.contains(".ini")) {
-      initializeIniConfig();
     }
   }
 
@@ -105,10 +107,14 @@ public class Config {
     overrideConfig.setSynchronizer(new ReadWriteSynchronizer());
   }
 
-  private static void initializeJsonConfig() throws ConfigurationException {
-    // FileBasedConfigurationBuilder<JSONConfiguration> builder = configs.fileBasedBuilder(
-    // JSONConfiguration.class, "appsettings.json");
-    // configValues = builder.getConfiguration();
+  private static void initializeJsonConfig() throws ConfigurationException, FileNotFoundException {
+//    FileBasedConfigurationBuilder<JSONConfiguration> builder = configs.fileBasedBuilder(
+//           JSONConfiguration.class, "appsettings.json");
+
+    JSONConfiguration configuration = new JSONConfiguration();
+    configuration.read(new FileReader("appsettings.json"));
+
+//    configValues = builder.configure().getConfiguration();
     configValues = configs.fileBased(JSONConfiguration.class, "appsettings.json");
     configValues.setSynchronizer(new ReadWriteSynchronizer());
 
@@ -124,24 +130,24 @@ public class Config {
     overrideConfig.setSynchronizer(new ReadWriteSynchronizer());
   }
 
-  private static void initializeYmlConfig() throws ConfigurationException {
+  private static void initializeYmlConfig() throws ConfigurationException, FileNotFoundException {
+    YAMLConfiguration configuration = new YAMLConfiguration();
+
+    try {
+      configuration.read(new FileReader(new File("config.yml").getAbsolutePath()));
+
+    } catch (FileNotFoundException e) {
+      throw new FileNotFoundException(e.getMessage());
+    }
+
     // FileBasedConfigurationBuilder<YAMLConfiguration> builder =
     // configs.fileBasedBuilder(YAMLConfiguration.class,"config.yml");
-    YAMLConfiguration configuration = configs.fileBased(YAMLConfiguration.class, "config.yml");
+//    YAMLConfiguration configuration = configs.fileBased(YAMLConfiguration.class, "config.yml");
 
     configValues = new YAMLConfiguration(configuration);
     configValues.setSynchronizer(new ReadWriteSynchronizer());
 
     overrideConfig = new YAMLConfiguration(configuration);
-    overrideConfig.setSynchronizer(new ReadWriteSynchronizer());
-  }
-
-  private static void initializeIniConfig() throws ConfigurationException {
-    FileBasedConfigurationBuilder<INIConfiguration> builder = configs.iniBuilder("config.ini");
-    configValues = builder.getConfiguration();
-    configValues.setSynchronizer(new ReadWriteSynchronizer());
-
-    overrideConfig = new INIConfiguration();
     overrideConfig.setSynchronizer(new ReadWriteSynchronizer());
   }
 
