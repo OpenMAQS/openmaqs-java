@@ -18,7 +18,6 @@ import io.github.openmaqs.utilities.logging.MessageType;
 import java.io.File;
 import java.util.HashMap;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 /**
@@ -27,18 +26,6 @@ import org.testng.annotations.Test;
  */
 @Test(singleThreaded = true)
 public class LoggingConfigUnitTest {
-
-    /**
-     * Revert the config back to what it was before.
-     */
-    @AfterMethod
-    private void cleanUp() {
-        HashMap<String, String> newValueMap = new HashMap<>();
-        newValueMap.put("Log", "OnFail");
-        newValueMap.put("LogLevel", "VERBOSE");
-        newValueMap.put("LogType", "TXT");
-        Config.addGeneralTestSettingValues(newValueMap, true);
-    }
 
     /**
      * Test getting Logging Enabled Setting. Override Config to 'YES'
@@ -86,6 +73,10 @@ public class LoggingConfigUnitTest {
         newValueMap.put("Log", "INVALIDVALUE");
         Config.addGeneralTestSettingValues(newValueMap, true);
         LoggingConfig.getLoggingEnabledSetting();
+
+        newValueMap.clear();
+        newValueMap.put("Log", "OnFail");
+        Config.addGeneralTestSettingValues(newValueMap, true);
     }
 
     /**
@@ -194,6 +185,10 @@ public class LoggingConfigUnitTest {
         newValueMap.put("LogLevel", "INVALIDVALUE");
         Config.addGeneralTestSettingValues(newValueMap, true);
         LoggingConfig.getLoggingLevelSetting();
+
+        newValueMap.clear();
+        newValueMap.put("LogLevel", "OnFail");
+        Config.addGeneralTestSettingValues(newValueMap, true);
     }
 
     /**
