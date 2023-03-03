@@ -31,13 +31,9 @@ public class LoggerFactoryUnitTest {
    */
   @Test(groups = TestCategories.UTILITIES)
   public void testGetLogger() {
-    HashMap<String, String> newValueMap = new HashMap<>();
-    newValueMap.put("LogLevel", "VERBOSE");
-    Config.addGeneralTestSettingValues(newValueMap, true);
-
     Assert.assertNotNull(LoggerFactory.getLogger("Test Name"));
 
-    newValueMap = new HashMap<>();
+    HashMap<String, String> newValueMap = new HashMap<>();
     newValueMap.put("Log", "NO");
     newValueMap.put("LogType", "TXT");
     Config.addGeneralTestSettingValues(newValueMap, true);
