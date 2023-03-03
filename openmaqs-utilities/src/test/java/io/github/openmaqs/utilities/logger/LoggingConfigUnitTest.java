@@ -187,7 +187,7 @@ public class LoggingConfigUnitTest {
         LoggingConfig.getLoggingLevelSetting();
 
         newValueMap.clear();
-        newValueMap.put("Log", "OnFail");
+        newValueMap.put("LogLevel", "OnFail");
         Config.addGeneralTestSettingValues(newValueMap, true);
     }
 
