@@ -16,7 +16,6 @@ import io.github.openmaqs.utilities.logging.MessageType;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

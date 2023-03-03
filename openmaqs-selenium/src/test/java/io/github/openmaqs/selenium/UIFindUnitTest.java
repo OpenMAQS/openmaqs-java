@@ -113,8 +113,8 @@ public class UIFindUnitTest extends BaseSeleniumTest {
    */
   @Test(groups = TestCategories.SELENIUM)
   public void findElementWithText() {
-    String text = find.findElement(automationPageModel.automationShowDialog1).getText();
-    Assert.assertNotNull(find.findElementWithText(automationPageModel.automationShowDialog1, text),
+    String text = find.findElement(automationPageModel.automationPageHeader).getText();
+    Assert.assertNotNull(find.findElementWithText(automationPageModel.automationPageHeader, text),
         "Element was not found");
   }
 
