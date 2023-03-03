@@ -54,7 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Drafts your next Release notes as Pull Requests are merged into "master"
-      - uses: release-drafter/release-drafter@v5.22.0
+      - uses: release-drafter/release-drafter@v5.23.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -185,7 +185,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Restore Local Maven Cache
-        uses: actions/cache@v3.2.4
+        uses: actions/cache@v3.2.6
         with:
           path: ~/.m2
           key: ${{ runner.os }}-maven-${{github.sha}}.${{github.run_number}}
@@ -211,7 +211,7 @@ jobs:
           java-version: 11
           cache: maven
       - name: Restore Local Maven Cache
-        uses: actions/cache@v3.2.4
+        uses: actions/cache@v3.2.6
         with:
           path: ~/.m2
           key: ${{runner.os}}-m2
@@ -243,7 +243,7 @@ jobs:
           java-version: 11
           cache: maven
       - name: Restore Local Maven Cache
-        uses: actions/cache@v3.2.4
+        uses: actions/cache@v3.2.6
         with:
           path: ~/.m2
           key: ${{runner.os}}-m2
