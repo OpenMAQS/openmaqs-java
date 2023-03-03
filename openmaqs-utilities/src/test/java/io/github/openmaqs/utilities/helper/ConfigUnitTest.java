@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 /**
  * The Configuration unit test class.
  */
+@Test(singleThreaded = true)
 public class ConfigUnitTest {
 
   /**
