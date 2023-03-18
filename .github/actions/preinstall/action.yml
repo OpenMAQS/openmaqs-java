@@ -22,7 +22,6 @@ runs:
       with:
         distribution: zulu
         java-version: 11
-        cache: maven
     - name: Restore Local Maven Cache
       uses: actions/cache@v2.1.6
       with:
