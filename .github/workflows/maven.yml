@@ -267,7 +267,7 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const result = await github.repos.listReleases({
+            const result = await github.rest.repos.listReleases({
               owner: context.repo.owner,
               repo: context.repo.repo
             })
@@ -276,7 +276,7 @@ jobs:
             for(var key in data){ 
                 if(data[key].tag_name == "v${{ needs.getVersion.outputs.buildNumber }}" && data[key].draft == true)
                 {
-                    github.repos.updateRelease({
+                    github.rest.repos.updateRelease({
                     release_id: data[key].id,
                     "draft": false,
                     owner: context.repo.owner,
