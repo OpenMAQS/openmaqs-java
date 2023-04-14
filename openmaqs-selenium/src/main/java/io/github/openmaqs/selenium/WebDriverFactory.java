@@ -98,6 +98,7 @@ public class WebDriverFactory {
     chromeOptions.addArguments("--disable-web-security");
     chromeOptions.addArguments("--allow-running-insecure-content");
     chromeOptions.addArguments("--disable-extensions");
+    chromeOptions.addArguments("--remote-allow-origins=*");
 
     if (OperatingSystem.getOperatingSystem() == OperatingSystem.LINUX) {
       chromeOptions.addArguments("--no-sandbox");
@@ -130,6 +131,7 @@ public class WebDriverFactory {
     headlessChromeOptions.addArguments("--disable-extensions");
     headlessChromeOptions.addArguments("--no-sandbox");
     headlessChromeOptions.addArguments("--headless");
+    headlessChromeOptions.addArguments("--remote-allow-origins=*");
     headlessChromeOptions.addArguments(getHeadlessWindowSizeString(size));
 
     return headlessChromeOptions;
@@ -166,6 +168,7 @@ public class WebDriverFactory {
    */
   public static EdgeOptions getDefaultEdgeOptions() {
     EdgeOptions edgeOptions = new EdgeOptions();
+    edgeOptions.addArguments("--remote-allow-origins=*");
     edgeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
     return edgeOptions;
   }
