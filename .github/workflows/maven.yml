@@ -280,7 +280,7 @@ jobs:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.GPG_PASSPHRASE }}
       - name: Deploy Release v${{ needs.getVersion.outputs.buildNumber }} to OSSRH
-        run: mvn -Drevision=${{ needs.getVersion.outputs.buildNumber }} deploy
+        run: mvn -B -e -Drevision=${{ needs.getVersion.outputs.buildNumber }} deploy
       - name: Publish GitHub release v${{ needs.getVersion.outputs.buildNumber }}
         uses: actions/github-script@v6
         with:
