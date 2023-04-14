@@ -9,7 +9,7 @@
 
     <groupId>io.github.openmaqs.selenium</groupId>
     <artifactId>openmaqs-selenium</artifactId>
-    <name>MAQS Selenium Testing Module</name>
+    <name>OpenMAQS Selenium Testing Module</name>
     <version>${revision}</version>
     <packaging>jar</packaging>
 
