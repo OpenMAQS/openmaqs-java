@@ -247,7 +247,7 @@
         <surefire.plugin.version>3.0.0-M6</surefire.plugin.version>
 
         <jacoco.version>0.8.7</jacoco.version>
-        <testng.version>7.5</testng.version>
+        <testng.version>7.7.0</testng.version>
         <selenium.version>4.8.0</selenium.version>
 
         <chromedriver.version>108.0.5359.71</chromedriver.version>
