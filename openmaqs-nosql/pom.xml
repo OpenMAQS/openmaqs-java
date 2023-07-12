@@ -12,11 +12,11 @@
 
     <groupId>io.github.openmaqs.nosql</groupId>
     <artifactId>openmaqs-nosql</artifactId>
-    <name>MAQS NoSQL Testing Module</name>
+    <name>OpenMAQS NoSQL Testing Module</name>
     <version>${revision}</version>
 
     <properties>
-        <mongoDB.version>4.5.0</mongoDB.version>
+        <mongoDB.version>4.10.2</mongoDB.version>
     </properties>
 
     <dependencies>
