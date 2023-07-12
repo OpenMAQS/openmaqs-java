@@ -5,7 +5,7 @@
 |**Pipeline**| [![OpenMAQS Java Pipeline](https://github.com/OpenMAQS/openmaqs-java/actions/workflows/maven.yml/badge.svg)](https://github.com/OpenMAQS/openmaqs-java/actions/workflows/maven.yml) |
 |**Code Quality**| [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=OpenMAQS_openmaqs-java&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=OpenMAQS_openmaqs-java)                              |
 |**License**| [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://raw.githubusercontent.com/OpenMAQS/maqs-java/main/LICENSE)                                                                                   |
-|**Latest Release**| Coming soon                                                                                                                                                                                                                      |
+|**Latest Release**| [![Maven Central](https://img.shields.io/maven-central/v/io.github.openmaqs/openmaqs-java?style=plastic)]()                                                                                                                                                                                                                 |
 [![Testing Powered By Sauce Labs](https://opensource.saucelabs.com/images/opensauce/powered-by-saucelabs-badge-white.png?sanitize=true "Testing Powered By Sauce Labs")](https://saucelabs.com)
 
 ## Introduction 

@@ -6,7 +6,7 @@
     <groupId>io.github.openmaqs</groupId>
     <artifactId>openmaqs-java</artifactId>
     <version>${revision}</version>
-    <name>MAQS Framework</name>
+    <name>OpenMAQS Framework</name>
     <description>A collection of testing libraries and convenience classes to accelerate startup
         automation efforts
     </description>
@@ -14,32 +14,32 @@
     <url>https://github.com/OpenMAQS/maqs-java</url>
     <inceptionYear>2017</inceptionYear>
     <organization>
-        <name>MAQS</name>
-        <url>https://OpenMAQS.github.io/</url>
+        <name>OpenMAQS</name>
+        <url>https://openmaqs.github.io/</url>
     </organization>
     <developers>
         <developer>
-            <organization>MAQS Team</organization>
-            <organizationUrl>https://OpenMAQS.github.io/</organizationUrl>
+            <organization>OpenMAQS Team</organization>
+            <organizationUrl>https://openmaqs.github.io/</organizationUrl>
         </developer>
     </developers>
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/OpenMAQS/maqs-java/issues</url>
+        <url>https://github.com/OpenMAQS/openmaqs-java/issues</url>
     </issueManagement>
     <ciManagement>
         <system>GitHub Actions</system>
-        <url>https://github.com/OpenMAQS/maqs-java/actions</url>
+        <url>https://github.com/OpenMAQS/openmaqs-java/actions</url>
     </ciManagement>
     <licenses>
         <license>
             <name>MIT</name>
-            <url>https://github.com/OpenMAQS/maqs-java/blob/main/LICENSE</url>
+            <url>https://github.com/OpenMAQS/openmaqs-java/blob/main/LICENSE</url>
         </license>
     </licenses>
     <scm>
-        <connection>scm:git:git://github.com/OpenMAQS/maqs-java.git</connection>
-        <developerConnection>scm:git:git@github.com:OpenMAQS/maqs-java.git</developerConnection>
+        <connection>scm:git:https://github.com/OpenMAQS/maqs-java.git</connection>
+        <developerConnection>scm:git:https://github.com/OpenMAQS/maqs-java.git</developerConnection>
         <url>https://github.com/OpenMAQS/maqs-java</url>
         <tag>HEAD</tag>
     </scm>
@@ -59,37 +59,7 @@
 
     <profiles>
         <profile>
-            <id>deploy</id>
-            <activation>
-                <property>
-                    <name>deploy</name>
-                </property>
-            </activation>
-            <properties>
-                <maven.test.skip>true</maven.test.skip>
-            </properties>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-deploy-plugin</artifactId>
-                        <version>3.0.0-M2</version>
-                        <configuration>
-                            <deployAtEnd>true</deployAtEnd>
-                            <uniqueVersion>true</uniqueVersion>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
             <id>github</id>
-            <activation>
-                <property>
-                    <name>deploy</name>
-                    <value>github</value>
-                </property>
-            </activation>
             <distributionManagement>
                 <repository>
                     <id>github</id>
@@ -104,41 +74,17 @@
         </profile>
         <profile>
             <id>ossrh</id>
-            <activation>
-                <property>
-                    <name>deploy</name>
-                    <value>ossrh</value>
-                </property>
-            </activation>
             <distributionManagement>
                 <repository>
                     <id>ossrh</id>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                    <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
                 </repository>
                 <snapshotRepository>
                     <id>ossrh</id>
-                    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+                    <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
                     <uniqueVersion>true</uniqueVersion>
                 </snapshotRepository>
             </distributionManagement>
-        </profile>
-        <profile>
-            <id>release-github</id>
-            <activation>
-                <property>
-                    <name>release</name>
-                    <value>github</value>
-                </property>
-            </activation>
-        </profile>
-        <profile>
-            <id>release-ossrh</id>
-            <activation>
-                <property>
-                    <name>release</name>
-                    <value>ossrh</value>
-                </property>
-            </activation>
             <build>
                 <plugins>
                     <plugin>
@@ -148,9 +94,51 @@
                         <extensions>true</extensions>
                         <configuration>
                             <serverId>ossrh</serverId>
-                            <nexusUrl>https://oss.sonatype.org</nexusUrl>
-                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                            <nexusUrl>https://s01.oss.sonatype.org</nexusUrl>
+                            <autoReleaseAfterClose>false</autoReleaseAfterClose>
                         </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>release</id>
+            <properties>
+                <maven.test.skip>true</maven.test.skip>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>3.2.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>3.5.0</version>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                                <configuration>
+                                    <source>${jdk.version}</source>
+                                    <doclint>none</doclint>
+                                    <additionalparam>-Xdoclint:none</additionalparam>
+                                    <workingDirectory>target/</workingDirectory>
+                                </configuration>
+                            </execution>
+                        </executions>
                     </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
@@ -168,6 +156,9 @@
                                         <arg>--pinentry-mode</arg>
                                         <arg>loopback</arg>
                                     </gpgArguments>
+                                    <passphraseServerId>gpg</passphraseServerId>
+                                    <keyname>${gpg.keyname}</keyname>
+                                    <passphrase>${gpg.passphrase}</passphrase>
                                 </configuration>
                             </execution>
                         </executions>
@@ -193,15 +184,10 @@
             </build>
         </profile>
         <profile>
-            <id>jacoco</id>
+            <id>testing</id>
             <activation>
-                <property>
-                    <name>testing</name>
-                </property>
+                <activeByDefault>true</activeByDefault>
             </activation>
-            <modules>
-                <module>openmaqs-jacoco-reporting</module>
-            </modules>
             <build>
                 <plugins>
                     <plugin>
@@ -224,18 +210,6 @@
                             </execution>
                         </executions>
                     </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>testing</id>
-            <activation>
-                <property>
-                    <name>testing</name>
-                </property>
-            </activation>
-            <build>
-                <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
@@ -259,7 +233,7 @@
     </profiles>
 
     <properties>
-        <revision>3.0.1-SNAPSHOT</revision>
+        <revision>3.0.0-SNAPSHOT</revision>
         <jdk.version>11</jdk.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
@@ -280,6 +254,9 @@
         <chromedriver.version>108.0.5359.71</chromedriver.version>
         <geckodriver.version>0.28.0</geckodriver.version>
         <edgedriver.version>5.16299</edgedriver.version>
+
+        <release.plugin.profiles>release</release.plugin.profiles>
+        <release.plugin.goals>deploy</release.plugin.goals>
     </properties>
 
     <dependencyManagement>
@@ -356,17 +333,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
     <build>
-        <pluginManagement>
-            <plugins>
-                <!--<plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-deploy-plugin</artifactId>
-                    <version>${maven-deploy-plugin.version}</version>
-                </plugin>-->
-            </plugins>
-        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -406,66 +373,30 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>${javadoc.plugin.version}</version>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.3.0</version>
                 <executions>
                     <execution>
-                        <id>attach-javadocs</id>
-                        <phase>package</phase>
+                        <id>parse-version</id>
                         <goals>
-                            <goal>jar</goal>
-                        </goals>
-                        <configuration>
-                            <source>${jdk.version}</source>
-                            <doclint>none</doclint>
-                            <additionalparam>-Xdoclint:none</additionalparam>
-                            <workingDirectory>target/</workingDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>3.2.1</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>jar</goal>
+                            <goal>parse-version</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.2.0</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>properties</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M6</version>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
                 <configuration>
-                    <parallel>methods</parallel>
-                    <threadCount>5</threadCount>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <useReleaseProfile>false</useReleaseProfile>
+                    <releaseProfiles>${release.plugin.profiles}</releaseProfiles>
+                    <arguments>-Dmaven.test.skip=true</arguments>
+                    <scmCommentPrefix>[skip ci]</scmCommentPrefix>
+                    <goals>${release.plugin.goals}</goals>
                 </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.apache.maven.surefire</groupId>
-                        <artifactId>surefire-testng</artifactId>
-                        <version>3.0.0-M6</version>
-                    </dependency>
-                </dependencies>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

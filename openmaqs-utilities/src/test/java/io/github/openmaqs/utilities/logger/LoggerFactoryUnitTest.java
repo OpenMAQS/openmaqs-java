@@ -16,7 +16,6 @@ import io.github.openmaqs.utilities.logging.MessageType;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -31,9 +30,13 @@ public class LoggerFactoryUnitTest {
    */
   @Test(groups = TestCategories.UTILITIES)
   public void testGetLogger() {
+    HashMap<String, String> newValueMap = new HashMap<>();
+    newValueMap.put("LogLevel", "VERBOSE");
+    Config.addGeneralTestSettingValues(newValueMap, true);
+
     Assert.assertNotNull(LoggerFactory.getLogger("Test Name"));
 
-    HashMap<String, String> newValueMap = new HashMap<>();
+    newValueMap = new HashMap<>();
     newValueMap.put("Log", "NO");
     newValueMap.put("LogType", "TXT");
     Config.addGeneralTestSettingValues(newValueMap, true);

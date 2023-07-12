@@ -12,7 +12,7 @@
 
     <groupId>io.github.openmaqs.webservices</groupId>
     <artifactId>openmaqs-webservices</artifactId>
-    <name>MAQS WebServices Testing Module</name>
+    <name>OpenMAQS WebServices Testing Module</name>
     <version>${revision}</version>
 
     <properties>
