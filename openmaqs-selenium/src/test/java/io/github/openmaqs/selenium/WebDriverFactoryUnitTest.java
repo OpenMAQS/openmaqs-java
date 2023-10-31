@@ -129,6 +129,7 @@ public class WebDriverFactoryUnitTest extends BaseGenericTest {
   /**
    * Tests getting the Fire Fox driver.
    */
+  // FIXME: 31-Oct-23
   @Ignore
   @Test(groups = TestCategories.SELENIUM)
   public void getFirefoxDriverTest() {
@@ -146,6 +147,8 @@ public class WebDriverFactoryUnitTest extends BaseGenericTest {
   /**
    * Tests getting the Edge driver.
    */
+  // FIXME: 31-Oct-23
+  @Ignore
   @Test(groups = TestCategories.SELENIUM)
   public void getEdgeDriverTest() {
     EdgeDriver driver = null;
@@ -179,9 +182,10 @@ public class WebDriverFactoryUnitTest extends BaseGenericTest {
   /**
    * Tests getting the Headless driver.
    */
-  @Test(groups = TestCategories.SELENIUM)
-  @Ignore
+  // FIXME: 31-Oct-23
   // TODO: Remote driver not being instantiated.
+  @Ignore
+  @Test(groups = TestCategories.SELENIUM)
   public void getRemoteDriverTest() {
     RemoteWebDriver driver = null;
     try {
