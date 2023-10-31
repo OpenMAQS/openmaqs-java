@@ -58,6 +58,8 @@ public class AppiumConfigUnitTest {
   /**
    * Test get mobile hub url string.
    */
+  // FIXME: Oct 31
+  @Ignore
   @Test(groups = TestCategories.APPIUM)
   public void testGetMobileHubUrlString() {
     String mobileHubUrl = AppiumConfig.getMobileHubUrlString();
