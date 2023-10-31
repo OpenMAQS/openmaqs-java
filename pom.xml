@@ -247,12 +247,9 @@
         <surefire.plugin.version>3.0.0-M6</surefire.plugin.version>
 
         <jacoco.version>0.8.7</jacoco.version>
-        <testng.version>7.5</testng.version>
-        <selenium.version>4.8.0</selenium.version>
-
-        <chromedriver.version>108.0.5359.71</chromedriver.version>
-        <geckodriver.version>0.28.0</geckodriver.version>
-        <edgedriver.version>5.16299</edgedriver.version>
+        <testng.version>7.8.0</testng.version>
+        <selenium.version>4.14.1</selenium.version>
+        <webdrivermanager.version>5.6.0</webdrivermanager.version>
 
         <release.plugin.profiles>release</release.plugin.profiles>
         <release.plugin.goals>deploy</release.plugin.goals>
@@ -263,7 +260,7 @@
             <dependency>
                 <groupId>io.github.bonigarcia</groupId>
                 <artifactId>webdrivermanager</artifactId>
-                <version>5.1.0</version>
+                <version>${webdrivermanager.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.testng</groupId>
