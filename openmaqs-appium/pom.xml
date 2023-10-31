@@ -17,7 +17,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <appiumjavaclient.version>8.3.0</appiumjavaclient.version>
+        <appiumjavaclient.version>8.6.0</appiumjavaclient.version>
         <appium.selenium.version>4.13.0</appium.selenium.version>
     </properties>
 
