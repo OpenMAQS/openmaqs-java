@@ -341,7 +341,7 @@ public class PageDriverUnitTest extends BasePlaywrightTest {
    */
   @Test(groups = TestCategories.PLAYWRIGHT)
   public void titleTest() {
-    Assert.assertEquals(this.getPageDriver().title(), "Automation - Magenic Automation Test Site");
+    Assert.assertEquals(this.getPageDriver().title(), "Automation - MAQS Test Site");
   }
 
   /**
