@@ -61,8 +61,8 @@ public class AppiumConfigUnitTest {
   @Test(groups = TestCategories.APPIUM)
   public void testGetMobileHubUrlString() {
     String mobileHubUrl = AppiumConfig.getMobileHubUrlString();
-    Assert.assertTrue(mobileHubUrl.contains("https://")
-        && mobileHubUrl.contains("ondemand.us-west-1.saucelabs.com:443/wd/hub"));
+    Assert.assertTrue(mobileHubUrl.contains("http://"));
+    Assert.assertTrue(mobileHubUrl.contains("ondemand.saucelabs.com:80/wd/hub"));
   }
 
   /**
