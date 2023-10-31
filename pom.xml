@@ -248,8 +248,8 @@
 
         <jacoco.version>0.8.7</jacoco.version>
         <testng.version>7.8.0</testng.version>
-        <selenium.version>4.14.0</selenium.version>
-        <webdrivermanager.version>5.5.3</webdrivermanager.version>
+        <selenium.version>4.14.1</selenium.version>
+        <webdrivermanager.version>5.6.0</webdrivermanager.version>
 
         <release.plugin.profiles>release</release.plugin.profiles>
         <release.plugin.goals>deploy</release.plugin.goals>
