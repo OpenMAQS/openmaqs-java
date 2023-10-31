@@ -53,7 +53,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Drafts your next Release notes as Pull Requests are merged into "master"
-      - uses: release-drafter/release-drafter@v5.23.0
+      - uses: release-drafter/release-drafter@v5.24.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -159,7 +159,7 @@ jobs:
       - name: Test Reporting
         if: always() && github.actor != 'dependabot[bot]'
         id: test-report
-        uses: phoenix-actions/test-reporting@v10
+        uses: phoenix-actions/test-reporting@v12
         with:
           name: ${{matrix.module-name}} Test Results
           path: '**/junitreports/TEST-**.xml'
@@ -279,7 +279,7 @@ jobs:
             [ "ossrh", "release", "gpg" ]
       - name: Import GPG key
         id: import_gpg
-        uses: crazy-max/ghaction-import-gpg@v5.2.0
+        uses: crazy-max/ghaction-import-gpg@v5.3.0
         with:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.GPG_PASSPHRASE }}
