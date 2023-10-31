@@ -248,7 +248,7 @@
 
         <jacoco.version>0.8.7</jacoco.version>
         <testng.version>7.7.0</testng.version>
-        <selenium.version>4.14.1</selenium.version>
+        <selenium.version>4.13</selenium.version>
 
         <release.plugin.profiles>release</release.plugin.profiles>
         <release.plugin.goals>deploy</release.plugin.goals>
