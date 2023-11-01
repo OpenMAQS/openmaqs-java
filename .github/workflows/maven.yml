@@ -70,7 +70,7 @@ jobs:
           java-version: 11
           cache: maven
       - name: Restore Local Maven Cache
-        uses: actions/cache@v3.3.1
+        uses: actions/cache@v3.3.2
         with:
           path: ~/.m2
           key: ${{runner.os}}-m2
@@ -204,7 +204,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Restore Local Maven Cache
-        uses: actions/cache@v3.3.1
+        uses: actions/cache@v3.3.2
         with:
           path: ~/.m2
           key: ${{ runner.os }}-maven-${{github.sha}}.${{github.run_number}}
@@ -230,7 +230,7 @@ jobs:
           java-version: 11
           cache: maven
       - name: Restore Local Maven Cache
-        uses: actions/cache@v3.3.1
+        uses: actions/cache@v3.3.2
         with:
           path: ~/.m2
           key: ${{runner.os}}-m2
@@ -262,7 +262,7 @@ jobs:
           java-version: 11
           cache: maven
       - name: Restore Local Maven Cache
-        uses: actions/cache@v3.3.1
+        uses: actions/cache@v3.3.2
         with:
           path: ~/.m2
           key: ${{runner.os}}-m2
