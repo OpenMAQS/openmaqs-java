@@ -23,6 +23,23 @@ The main idea behind MAQS is to avoid **reinventing the wheel**.
 Most automation engagements have you doing the same basic steps to get a functioning framework implemented. 
 Utilizing project templates, Maven, and utility libraries we are able to have a functioning framework up and running in minutes, almost entirely removing on the initial time investment on implementating an automation solution.
 
+## Where can I get the Latest release?
+
+You can pull it from the Maven Central repositories:
+```xml
+<dependency>
+    <groupId>io.github.openmaqs</groupId>
+    <artifactId>openmaqs-java</artifactId>
+    <version>3.0.1</version>
+</dependency>
+```
+
+And with gradle:
+```properties
+implementation group: 'io.github.openmaqs', name: 'openmaqs-java', version: '3.0.0'
+```
+
+
 ## Documentation
 [MAQS docs](https://openmaqs.github.io/openmaqs-java/#/)
 
