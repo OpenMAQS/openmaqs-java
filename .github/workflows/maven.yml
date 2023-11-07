@@ -137,7 +137,7 @@ jobs:
           echo Cannot run Appium tests when build was triggered by dependabot
           exit 1  
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         if: matrix.module-name == 'openmaqs-playwright'
         with:
           node-version: '14.x'
