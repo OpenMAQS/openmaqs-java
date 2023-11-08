@@ -64,7 +64,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 11
-        uses: actions/setup-java@v3.11.0
+        uses: actions/setup-java@v3.13.0
         with:
           distribution: zulu
           java-version: 11
@@ -137,7 +137,7 @@ jobs:
           echo Cannot run Appium tests when build was triggered by dependabot
           exit 1  
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         if: matrix.module-name == 'openmaqs-playwright'
         with:
           node-version: '14.x'
@@ -192,7 +192,7 @@ jobs:
         with:
           path: ${{github.workspace}}/artifacts/
       - name: Set up JDK 11
-        uses: actions/setup-java@v3.11.0
+        uses: actions/setup-java@v3.13.0
         with:
           distribution: zulu
           java-version: 11
@@ -224,7 +224,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 11
-        uses: actions/setup-java@v3.11.0
+        uses: actions/setup-java@v3.13.0
         with:
           distribution: zulu
           java-version: 11
@@ -256,7 +256,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 11
-        uses: actions/setup-java@v3.11.0
+        uses: actions/setup-java@v3.13.0
         with:
           distribution: zulu
           java-version: 11
@@ -275,7 +275,7 @@ jobs:
             [ "ossrh", "release", "gpg" ]
       - name: Import GPG key
         id: import_gpg
-        uses: crazy-max/ghaction-import-gpg@v5.3.0
+        uses: crazy-max/ghaction-import-gpg@v6.0.0
         with:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.GPG_PASSPHRASE }}
