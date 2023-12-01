@@ -282,7 +282,7 @@ jobs:
       - name: Deploy Release v${{ needs.getVersion.outputs.buildNumber }} to OSSRH
         run: mvn -B -e -Drevision=${{ needs.getVersion.outputs.buildNumber }} deploy
       - name: Publish GitHub release v${{ needs.getVersion.outputs.buildNumber }}
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
