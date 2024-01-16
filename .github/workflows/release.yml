@@ -24,8 +24,8 @@ jobs:
         id: bash_v
         run: |
           version=${release_info_v//v}
-#          echo "::set-output name=version::${version}"
-          echo "version=${version}" >> $GITHUB_OUTPUT
+          echo "::set-output name=version::${version}"
+#          echo "version=${version}" >> $GITHUB_OUTPUT
         env:
           release_info_v: ${{steps.get_release.outputs.tag_name}}
   release_build:

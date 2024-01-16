@@ -32,7 +32,7 @@ runs:
     - run: mvn -Drevision=${{inputs.version}} compile install ${{inputs.bt-param}} -Dtesting=multiple -Dmaven.test.skip=true
       shell: bash
     - id: random-number-generator
-#      run: echo "::set-output name=random-id::123"
-      run: echo "random-id=123" >> GITHUB_OUTPUT
+      run: echo "::set-output name=random-id::123"
+#      run: echo "random-id=123" >> GITHUB_OUTPUT
       shell: bash
       
