@@ -60,5 +60,6 @@ runs:
       shell: bash
       run: xvfb-run mvn test -Drevision=${{inputs.version}} -f ./${{inputs.module-name}}/${{inputs.pom-file}} ${{ inputs.bt-param }}
     - id: random-number-generator
-      run: echo "::set-output name=random-id::123"
+#      run: echo "::set-output name=random-id::123"
+      run: echo "random-id=123" >> GITHUB_OUTPUT
       shell: bash
