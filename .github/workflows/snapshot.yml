@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: update_release_draft
     env:
-      JDK: 11
+      JDK: 17
       VERSION: ${{needs.update_release_draft.outputs.version}}
     steps:
       - uses: actions/checkout@v3
