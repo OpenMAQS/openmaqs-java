@@ -20,4 +20,4 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD:
 
     # Run a custom bash script that bootstraps the database after it is started.
-#    command: [ '/bin/bash', '/mnt/host/initialize_and_start_sqlserver.sh' ]
+    command: [ '/bin/bash', '/mnt/host/initialize_and_start_sqlserver.sh' ]
