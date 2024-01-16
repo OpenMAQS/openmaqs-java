@@ -43,6 +43,11 @@ public class TestCategories {
   public static final String FRAMEWORK = "Base Framework Unit Tests";
 
   /**
+   * String for no sql unit test category.
+   */
+  public static final String NOSQL = "No SQL Framework Unit Tests";
+
+  /**
    * String for playwright unit test category.
    */
   public static final String PLAYWRIGHT = "Base Framework Unit Tests";

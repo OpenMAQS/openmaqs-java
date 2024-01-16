@@ -25,6 +25,10 @@ database:
   - openmaqs-database/*
   - openmaqs-database/**/*
 
+nosql:
+      - openmaqs-nosql/*
+      - openmaqs-nosql/**/*
+
 devops:
   - .dependabot/*
   - .github/*

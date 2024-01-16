@@ -129,7 +129,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        module-name: [ openmaqs-utilities, openmaqs-base, openmaqs-appium, openmaqs-selenium, openmaqs-webservices, openmaqs-cucumber, openmaqs-accessibility, openmaqs-database, openmaqs-playwright ]
+        module-name: [ openmaqs-utilities, openmaqs-base, openmaqs-appium, openmaqs-selenium, openmaqs-webservices, openmaqs-cucumber, openmaqs-accessibility, openmaqs-database, openmaqs-nosql, openmaqs-playwright ]
     steps:
       - name: Check if tests can be run
         if: matrix.module-name == 'openmaqs-appium' && github.actor == 'dependabot[bot]'
