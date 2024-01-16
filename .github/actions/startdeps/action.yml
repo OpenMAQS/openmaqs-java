@@ -20,7 +20,11 @@ runs:
       shell: pwsh
       #run:  docker-compose -f docker/MAQSService/docker-compose.yml -p OpenMAQS/maqs-java up -d
       run: Start-Process -FilePath "dotnet" -ArgumentList "run --project docker/MAQSService/MainTestService/MainTestService.csproj"
-    - name: Build the docker-compose stack
+    - name: Build the MAQS database docker stack
       if: inputs.module-name == 'openmaqs-database'
       shell: bash
       run: docker-compose -f docker/MAQSSQLServer/docker-compose.yml -p OpenMAQS/openmaqs-java up -d
+    - name: Build the MAQS MongoDB docker stack
+      if: inputs.module-name == 'openmaqs-nosql'
+      shell: bash
+      run: docker-compose -f docker/MAQSMongoDB/docker-compose.yml -p OpenMAQS/openmaqs-java up -d
