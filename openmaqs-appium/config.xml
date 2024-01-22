@@ -37,9 +37,12 @@
         <PlatformName>Android</PlatformName>
         <PlatformVersion>11.0</PlatformVersion>
         <DeviceName>Android GoogleAPI Emulator</DeviceName>
+        <BrowserName>Chrome</BrowserName>
+
+        <WebSiteBase>https://openmaqs.github.io/TestingSite/Automation/</WebSiteBase>
 
         <!-- Appium or grid connection -->
-        <MobileHubUrl>http://ondemand.saucelabs.com:80/wd/hub</MobileHubUrl>
+        <MobileHubUrl>https://ondemand.saucelabs.com:80/wd/hub</MobileHubUrl>
 
         <!-- Command time-out in milliseconds -->
         <MobileCommandTimeout>122000</MobileCommandTimeout>
