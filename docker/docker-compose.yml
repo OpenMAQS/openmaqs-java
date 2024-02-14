@@ -19,5 +19,5 @@ services:
       service: imap
   webservice:
     extends:
-      service: webservice
       file: ./MAQSService/docker-compose.yml
+      service: webservice

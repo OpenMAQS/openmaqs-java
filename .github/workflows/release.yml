@@ -25,6 +25,7 @@ jobs:
         run: |
           version=${release_info_v//v}
           echo "::set-output name=version::${version}"
+#          echo "version=${version}" >> $GITHUB_OUTPUT
         env:
           release_info_v: ${{steps.get_release.outputs.tag_name}}
   release_build:
@@ -32,14 +33,14 @@ jobs:
     needs: release_information
     runs-on: ubuntu-latest
     env:
-      JDK: 11
+      JDK: 17
       VERSION: ${{needs.release_information.outputs.version}}
     steps:
       - uses: actions/checkout@v3
-      - name: Set up JDK 15
+      - name: Set up JDK 17
         uses: actions/setup-java@v3.13.0
         with:
-          java-version: 15
+          java-version: 17
       - name: Maven Cache
         uses: actions/cache@v3.3.1
         with:
@@ -85,7 +86,7 @@ jobs:
     needs: [ release_build, release_information ]
     runs-on: ubuntu-latest
     env:
-      JDK: 11
+      JDK: 17
       VERSION: ${{needs.release_information.outputs.version}}
       TAG_NAME: ${{needs.release_information.outputs.tag_name}}
       RELEASE_ID: ${{needs.release_information.outputs.relase_id}}
@@ -94,10 +95,10 @@ jobs:
         repo: [github, ossrh]
     steps:
       - uses: actions/checkout@v3
-      - name: Set up JDK 15
+      - name: Set up JDK 17
         uses: actions/setup-java@v3.13.0
         with:
-            java-version: 15
+            java-version: 17
       - name: Maven Cache
         uses: actions/cache@v3.3.1
         with:
