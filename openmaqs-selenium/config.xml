@@ -39,17 +39,17 @@
         <Browser>Firefox</Browser>
         <Browser>Edge</Browser>
         <Browser>HEADLESSCHROME</Browser>-->
-        <Browser>HEADLESSCHROME</Browser>
+        <Browser>REMOTE</Browser>
 
         <!--Remote browser settings-->
         <RemoteBrowser>Chrome</RemoteBrowser>
-        <HubUrl>http://ondemand.saucelabs.com:80/wd/hub</HubUrl>
+        <HubUrl>https://hub.browserstack.com/wd/hub</HubUrl>
         <WebSiteBase>https://openmaqs.github.io/TestingSite/Automation/</WebSiteBase>
         <BrowserWaitTime>1000</BrowserWaitTime>
         <BrowserTimeout>20000</BrowserTimeout>
         <RemoteBrowserName>Chrome</RemoteBrowserName>
-        <RemotePlatform>OS X 10.11</RemotePlatform>
-        <RemoteVersion>54.0</RemoteVersion>
+        <!--        <RemotePlatform>OS X 10.11</RemotePlatform>-->
+        <!--        <RemoteVersion>54.0</RemoteVersion>-->
 
         <!--Browser Resize settings
         <BrowserSize>MAXIMIZE</BrowserSize>
@@ -62,10 +62,5 @@
     </SeleniumMaqs>
 
     <RemoteSeleniumCapsMaqs>
-        <username>Sauce_Labs_Username</username>
-        <accessKey>Sauce_Labs_Accesskey</accessKey>
-        <browserName>Chrome</browserName>
-        <platform>OS X 10.11</platform>
-        <version>54.0</version>
     </RemoteSeleniumCapsMaqs>
 </configuration>

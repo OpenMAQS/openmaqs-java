@@ -1,0 +1,12 @@
+framework: testng
+platforms:
+  - os: Windows
+    osVersion: 11
+    browserName: Chrome
+    browserVersion: latest
+parallelsPerPlatform: 5
+browserstackLocal: false
+buildIdentifier: ${BUILD_NUMBER}
+debug: true
+networkLogs: false
+consoleLogs: errors
