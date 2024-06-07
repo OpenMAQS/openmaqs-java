@@ -7,10 +7,8 @@
         <version>${revision}</version>
     </parent>
 
-    <groupId>io.github.openmaqs.selenium</groupId>
     <artifactId>openmaqs-selenium</artifactId>
     <name>OpenMAQS Selenium Testing Module</name>
-    <version>${revision}</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -20,11 +18,11 @@
 
     <dependencies>
         <dependency>
-            <groupId>io.github.openmaqs.utilities</groupId>
+            <groupId>io.github.openmaqs</groupId>
             <artifactId>openmaqs-utilities</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.github.openmaqs.base</groupId>
+            <groupId>io.github.openmaqs</groupId>
             <artifactId>openmaqs-base</artifactId>
         </dependency>
         <dependency>

@@ -9,15 +9,13 @@
         <version>${revision}</version>
     </parent>
 
-    <groupId>io.github.openmaqs.base</groupId>
     <artifactId>openmaqs-base</artifactId>
     <name>OpenMAQS Base Testing Module</name>
-    <version>${revision}</version>
     <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
-            <groupId>io.github.openmaqs.utilities</groupId>
+            <groupId>io.github.openmaqs</groupId>
             <artifactId>openmaqs-utilities</artifactId>
         </dependency>
         <dependency>

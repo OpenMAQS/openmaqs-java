@@ -10,10 +10,9 @@
         <version>${revision}</version>
     </parent>
 
-    <groupId>io.github.openmaqs.appium</groupId>
     <artifactId>openmaqs-appium</artifactId>
-    <version>${revision}</version>
     <name>OpenMAQS Appium Testing Module</name>
+    <packaging>jar</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -47,11 +46,11 @@
             <artifactId>testng</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.github.openmaqs.utilities</groupId>
+            <groupId>io.github.openmaqs</groupId>
             <artifactId>openmaqs-utilities</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.github.openmaqs.base</groupId>
+            <groupId>io.github.openmaqs</groupId>
             <artifactId>openmaqs-base</artifactId>
         </dependency>
         <dependency>

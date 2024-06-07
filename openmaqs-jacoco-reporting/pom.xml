@@ -11,7 +11,6 @@
 
     <artifactId>openmaqs-jacoco-reporting</artifactId>
     <name>OpenMAQS Code Coverage Reporting Module</name>
-    <version>${revision}</version>
     <packaging>pom</packaging>
 
     <profiles>
@@ -59,31 +58,31 @@
             <artifactId>openmaqs-appium</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.github.openmaqs.accessibility</groupId>
+            <groupId>io.github.openmaqs</groupId>
             <artifactId>openmaqs-accessibility</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.github.openmaqs.base</groupId>
+            <groupId>io.github.openmaqs</groupId>
             <artifactId>openmaqs-base</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.github.openmaqs.utilities</groupId>
+            <groupId>io.github.openmaqs</groupId>
             <artifactId>openmaqs-utilities</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.github.openmaqs.database</groupId>
+            <groupId>io.github.openmaqs</groupId>
             <artifactId>openmaqs-database</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.github.openmaqs.selenium</groupId>
+            <groupId>io.github.openmaqs</groupId>
             <artifactId>openmaqs-selenium</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.github.openmaqs.cucumber</groupId>
+            <groupId>io.github.openmaqs</groupId>
             <artifactId>openmaqs-cucumber</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.github.openmaqs.webservices</groupId>
+            <groupId>io.github.openmaqs</groupId>
             <artifactId>openmaqs-webservices</artifactId>
         </dependency>
     </dependencies>

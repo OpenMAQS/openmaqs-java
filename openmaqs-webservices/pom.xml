@@ -10,10 +10,9 @@
         <version>${revision}</version>
     </parent>
 
-    <groupId>io.github.openmaqs.webservices</groupId>
     <artifactId>openmaqs-webservices</artifactId>
     <name>OpenMAQS WebServices Testing Module</name>
-    <version>${revision}</version>
+    <packaging>jar</packaging>
 
     <properties>
         <spring.web.version>5.3.15</spring.web.version>
@@ -22,7 +21,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>io.github.openmaqs.base</groupId>
+            <groupId>io.github.openmaqs</groupId>
             <artifactId>openmaqs-base</artifactId>
         </dependency>
         <dependency>
@@ -30,7 +29,7 @@
             <artifactId>testng</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.github.openmaqs.utilities</groupId>
+            <groupId>io.github.openmaqs</groupId>
             <artifactId>openmaqs-utilities</artifactId>
         </dependency>
         <dependency>

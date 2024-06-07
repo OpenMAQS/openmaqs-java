@@ -20,11 +20,11 @@
 
     <dependencies>
         <dependency>
-            <groupId>io.github.openmaqs.selenium</groupId>
+            <groupId>io.github.openmaqs</groupId>
             <artifactId>openmaqs-selenium</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.github.openmaqs.webservices</groupId>
+            <groupId>io.github.openmaqs</groupId>
             <artifactId>openmaqs-webservices</artifactId>
         </dependency>
         <dependency>

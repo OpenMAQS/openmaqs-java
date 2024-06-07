@@ -9,7 +9,6 @@
         <version>${revision}</version>
     </parent>
 
-    <groupId>io.github.openmaqs.accessibility</groupId>
     <artifactId>openmaqs-accessibility</artifactId>
     <name>OpenMAQS Accessibility Testing Module</name>
     <version>${revision}</version>
@@ -22,7 +21,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>io.github.openmaqs.selenium</groupId>
+            <groupId>io.github.openmaqs</groupId>
             <artifactId>openmaqs-selenium</artifactId>
         </dependency>
         <dependency>

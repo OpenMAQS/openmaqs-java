@@ -8,7 +8,6 @@
         <artifactId>openmaqs-java</artifactId>
         <version>${revision}</version>
     </parent>
-    <groupId>io.github.openmaqs.database</groupId>
     <artifactId>openmaqs-database</artifactId>
     <version>${revision}</version>
     <name>OpenMAQS Database Testing Module</name>
@@ -28,12 +27,12 @@
             <version>${sqlite-dialect.version}</version>
         </dependency>
         <dependency>
-            <groupId>io.github.openmaqs.base</groupId>
+            <groupId>io.github.openmaqs</groupId>
             <artifactId>openmaqs-base</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>io.github.openmaqs.utilities</groupId>
+            <groupId>io.github.openmaqs</groupId>
             <artifactId>openmaqs-utilities</artifactId>
         </dependency>
         <dependency>
