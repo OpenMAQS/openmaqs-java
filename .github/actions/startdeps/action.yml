@@ -9,13 +9,13 @@ runs:
   using: "composite"
   steps:
     - name: Setup DotNet
-      if: inputs.module-name == 'openmaqs-webservices'
+      if: inputs.module-name == 'openmaqs-webservices' || inputs.module-name == 'openmaqs-cucumber'
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: |
           6.x.x
     - name: Start MAQS test services container
-      if: inputs.module-name == 'openmaqs-webservices'
+      if: inputs.module-name == 'openmaqs-webservices' || inputs.module-name == 'openmaqs-cucumber'
       shell: pwsh
       run:  docker-compose -f docker/MAQSService/docker-compose.yml -p OpenMAQS/openmaqs-java up -d
       #run: Start-Process -FilePath "dotnet" -ArgumentList "run --project docker/MAQSService/MainTestService/MainTestService.csproj"
