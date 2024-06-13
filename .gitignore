@@ -526,3 +526,4 @@ MigrationBackup/
 FodyWeavers.xsd
 
 *.zip
+.DS_Store
