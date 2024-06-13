@@ -39,7 +39,7 @@
         <DeviceName>Android GoogleAPI Emulator</DeviceName>
 
         <!-- Appium or grid connection -->
-        <MobileHubUrl>http://ondemand.saucelabs.com:80/wd/hub</MobileHubUrl>
+        <MobileHubUrl>https://hub.browserstack.com/wd/hub</MobileHubUrl>
 
         <!-- Command time-out in milliseconds -->
         <MobileCommandTimeout>122000</MobileCommandTimeout>

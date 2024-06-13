@@ -138,6 +138,11 @@ jobs:
           echo Cannot run Appium tests when build was triggered by dependabot
           exit 1  
       - uses: actions/checkout@v3
+      - name: BrowserStack Env Setup
+        uses: browserstack/github-actions/setup-env@master
+        with:
+          username: ${{ secrets.BROWSERSTACK_USERNAME }}
+          access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
       - uses: actions/setup-node@v4
         if: matrix.module-name == 'openmaqs-playwright'
         with:
@@ -260,7 +265,6 @@ jobs:
         with:
           distribution: zulu
           java-version: 11
-          cache: maven
       - name: Restore Local Maven Cache
         uses: actions/cache@v3.3.1
         with:
@@ -270,7 +274,7 @@ jobs:
         uses: whelk-io/maven-settings-xml-action@v21
         with:
           profiles: '[{"id": "gpg", "properties": { "gpg.keyname": "${{secrets.GPG_KEYNAME_ID}}", "gpg.passphrase": "${{secrets.GPG_PASSPHRASE}}" }}]'
-          servers: '[{"id": "ossrh", "username": "${{secrets.DEPLOY_PACKAGE_USERNAME}}", "password": "${{secrets.DEPLOY_PACKAGE_PASSWORD}}"}]'
+          servers: '[{"id": "ossrh", "username": "${{vars.DEPLOY_PACKAGE_USERNAME}}", "password": "${{secrets.DEPLOY_PACKAGE_PASSWORD}}"}]'
           active_profiles: >
             [ "ossrh", "release", "gpg" ]
       - name: Import GPG key
