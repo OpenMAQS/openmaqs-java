@@ -36,13 +36,13 @@ jobs:
       JDK: 17
       VERSION: ${{needs.release_information.outputs.version}}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up JDK 17
         uses: actions/setup-java@v4.2.1
         with:
           java-version: 17
       - name: Maven Cache
-        uses: actions/cache@v3.3.1
+        uses: actions/cache@v3.3.2
         with:
           path: ~/.m2
           key: ${{runner.os}}-m2
@@ -94,13 +94,13 @@ jobs:
       matrix:
         repo: [github, ossrh]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up JDK 17
         uses: actions/setup-java@v4.2.1
         with:
             java-version: 17
       - name: Maven Cache
-        uses: actions/cache@v3.3.1
+        uses: actions/cache@v3.3.2
         with:
           path: ~/.m2
           key: ${{runner.os}}-m2
