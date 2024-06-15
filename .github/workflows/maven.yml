@@ -64,7 +64,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 17
-        uses: actions/setup-java@v3.13.0
+        uses: actions/setup-java@v4.2.1
         with:
           distribution: zulu
           java-version: 17
@@ -153,7 +153,7 @@ jobs:
           bt-param: '-fae -B -e -Dtesting=solo -T 1C'
           version: ${{ github.sha }}
       - name: Test Reporting
-        if: always() && github.actor != 'dependabot[bot]'
+        if: always()
         id: test-report
         uses: phoenix-actions/test-reporting@v12
         with:
@@ -193,7 +193,7 @@ jobs:
         with:
           path: ${{github.workspace}}/artifacts/
       - name: Set up JDK 17
-        uses: actions/setup-java@v3.13.0
+        uses: actions/setup-java@v4.2.1
         with:
           distribution: zulu
           java-version: 17
@@ -225,7 +225,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 17
-        uses: actions/setup-java@v3.13.0
+        uses: actions/setup-java@v4.2.1
         with:
           distribution: zulu
           java-version: 17
@@ -240,7 +240,6 @@ jobs:
 
   labels:
     name: Pull Request Labels
-    if: github.actor != 'dependabot[bot]'
     runs-on: ubuntu-latest
     steps:
       - name: Label Pull Request
@@ -257,7 +256,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 11
-        uses: actions/setup-java@v3.13.0
+        uses: actions/setup-java@v4.2.1
         with:
           distribution: zulu
           java-version: 11
@@ -287,7 +286,7 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const result = await github.rest.repos.listReleases({
+            const result = await github.action.repos.listReleases({
               owner: context.repo.owner,
               repo: context.repo.repo
             })
@@ -296,7 +295,7 @@ jobs:
             for(var key in data){ 
                 if(data[key].tag_name == "v${{ needs.getVersion.outputs.buildNumber }}" && data[key].draft == true)
                 {
-                    github.rest.repos.updateRelease({
+                    github.action.repos.updateRelease({
                     release_id: data[key].id,
                     "draft": false,
                     owner: context.repo.owner,

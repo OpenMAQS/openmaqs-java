@@ -8,9 +8,6 @@ inputs:
   bt-param: # id of input
     description: 'Build and test params'
     required: true
-  artifact-name: # id of input
-    description: 'Artifact name'
-    required: true
   version:
     description: 'version number'
     required: true
@@ -35,4 +32,3 @@ runs:
       run: echo "::set-output name=random-id::123"
 #      run: echo "random-id=123" >> GITHUB_OUTPUT
       shell: bash
-      
