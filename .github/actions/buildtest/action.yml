@@ -8,9 +8,6 @@ inputs:
   bt-param: # id of input
     description: 'Build and test params'
     required: true
-  artifact-name: # id of input
-    description: 'Artifact name'
-    required: true
   module-name: # id of module
       description: 'module namespace'
       required: true
