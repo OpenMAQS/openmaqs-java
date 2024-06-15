@@ -25,6 +25,7 @@ jobs:
         run: |
           version=${release_info_v//v}
           echo "::set-output name=version::${version}"
+#          echo "version=${version}" >> $GITHUB_OUTPUT
         env:
           release_info_v: ${{steps.get_release.outputs.tag_name}}
   release_build:
@@ -32,16 +33,16 @@ jobs:
     needs: release_information
     runs-on: ubuntu-latest
     env:
-      JDK: 11
+      JDK: 17
       VERSION: ${{needs.release_information.outputs.version}}
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up JDK 15
-        uses: actions/setup-java@v3.11.0
+      - uses: actions/checkout@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4.2.1
         with:
-          java-version: 15
+          java-version: 17
       - name: Maven Cache
-        uses: actions/cache@v3.3.1
+        uses: actions/cache@v3.3.2
         with:
           path: ~/.m2
           key: ${{runner.os}}-m2
@@ -85,7 +86,7 @@ jobs:
     needs: [ release_build, release_information ]
     runs-on: ubuntu-latest
     env:
-      JDK: 11
+      JDK: 17
       VERSION: ${{needs.release_information.outputs.version}}
       TAG_NAME: ${{needs.release_information.outputs.tag_name}}
       RELEASE_ID: ${{needs.release_information.outputs.relase_id}}
@@ -93,19 +94,19 @@ jobs:
       matrix:
         repo: [github, ossrh]
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up JDK 15
-        uses: actions/setup-java@v3.11.0
+      - uses: actions/checkout@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4.2.1
         with:
-            java-version: 15
+            java-version: 17
       - name: Maven Cache
-        uses: actions/cache@v3.3.1
+        uses: actions/cache@v3.3.2
         with:
           path: ~/.m2
           key: ${{runner.os}}-m2
       - name: Import GPG key
         id: import_gpg
-        uses: crazy-max/ghaction-import-gpg@v5.3.0
+        uses: crazy-max/ghaction-import-gpg@v6.0.0
         env:
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
           PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
