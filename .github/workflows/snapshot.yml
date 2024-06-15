@@ -31,13 +31,13 @@ jobs:
       JDK: 17
       VERSION: ${{needs.update_release_draft.outputs.version}}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up JDK ${{env.JDK}}
         uses: actions/setup-java@v4.2.1
         with:
           java-version: ${{env.JDK}}
       - name: Maven Cache
-        uses: actions/cache@v3.3.1
+        uses: actions/cache@v3.3.2
         with:
           path: ~/.m2
           key: ${{runner.os}}-m2
@@ -86,13 +86,13 @@ jobs:
 #         #repo: [github, ossrh]
 #         repo: [ ossrh ]
 #     steps:
-#       - uses: actions/checkout@v3
+#       - uses: actions/checkout@v4
 #       - name: Set up JDK ${{env.JDK}}
 #         uses: actions/setup-java@v4.2.1
 #         with:
 #             java-version: ${{env.JDK}}
 #       - name: Maven Cache
-#         uses: actions/cache@v3.3.1
+#         uses: actions/cache@v3.3.2
 #         with:
 #           path: ~/.m2
 #           key: ${{runner.os}}-m2
