@@ -4,10 +4,17 @@
 
 package io.github.openmaqs.utilities.helper;
 
+import java.io.FileNotFoundException;
+import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import org.apache.commons.configuration2.ex.ConfigurationException;
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 /**
  * The Configuration unit test class.
@@ -121,5 +128,76 @@ public class ConfigUnitTest {
     Assert.assertTrue(Config.doesGeneralKeyExist("TimeoutOverride"));
     Assert.assertTrue(Config.doesKeyExist("HubAddress", ConfigSection.SELENIUM_MAQS));
     Assert.assertFalse(Config.doesKeyExist("HubAddress", ConfigSection.GLOBAL_MAQS));
+  }
+
+  @Test(groups = TestCategories.UTILITIES)
+  public void checkForAllFiles() {
+    List<String> fileTypes = Arrays.asList(".json", ".properties", ".xml", ".yml");
+    SoftAssert softAssert = new SoftAssert();
+
+      for (String types : fileTypes) {
+        String fileName;
+
+        if (types.contains("json")) {
+          fileName = "appsettings";
+        } else {
+          fileName = "config";
+        }
+
+        String file = PropertyManager.get("maqs.config.location", fileName + types);
+        softAssert.assertTrue(Paths.get(file).toFile().exists());
+      }
+      softAssert.assertAll();
+  }
+
+  @Test(groups = TestCategories.UTILITIES)
+  public void useJsonConfigFile() throws ConfigurationException, FileNotFoundException {
+    Config.getConfigFile("appsettings.json");
+    Map<String, String> testSection = Config.getSection(ConfigSection.SELENIUM_MAQS);
+    Assert.assertEquals(testSection.get("TestKey"), "testValueTwo");
+    Assert.assertEquals(testSection.get("Browser"), "Internet Explorer");
+  }
+
+  @Test(groups = TestCategories.UTILITIES)
+  public void usePropertiesConfigFile() throws ConfigurationException, FileNotFoundException {
+    Config.getConfigFile("config.properties");
+    Map<String, String> testSection = Config.getSection(ConfigSection.SELENIUM_MAQS);
+    Assert.assertEquals(testSection.get("TestKey"), "testValueTwo");
+    Assert.assertEquals(testSection.get("Browser"), "Internet Explorer");
+    Assert.assertEquals(testSection.get("HubAddress"), "132.15.12");
+  }
+
+  @Test(groups = TestCategories.UTILITIES)
+  public void useXmlConfigFile() throws ConfigurationException, FileNotFoundException {
+    Config.getConfigFile("config.xml");
+    Map<String, String> testSection = Config.getSection(ConfigSection.SELENIUM_MAQS);
+    Assert.assertEquals(testSection.get("TestKey"), "testValueTwo");
+    Assert.assertEquals(testSection.get("Browser"), "Internet Explorer");
+  }
+
+  @Test(groups = TestCategories.UTILITIES)
+  public void useYmlConfigFile() throws ConfigurationException, FileNotFoundException {
+    Config.getConfigFile("config.yml");
+    Map<String, String> testSection = Config.getSection(ConfigSection.SELENIUM_MAQS);
+    Assert.assertEquals(testSection.get("TestKey"), "testValueTwo");
+    Assert.assertEquals(testSection.get("Browser"), "Internet Explorer");
+  }
+
+  // TODO: this test simplifies the four tests above. Replace when those tests pass
+  @Ignore
+  @Test(groups = TestCategories.UTILITIES)
+  public void useConfigFiles() throws ConfigurationException, FileNotFoundException {
+    List<String> files = Arrays.asList("config.xml", "appsettings.json", "config.properties", "config.yml");
+    SoftAssert softAssert = new SoftAssert();
+
+      for (String file : files) {
+        Config.getConfigFile(file);
+        Map<String, String> testSection = Config.getSection(ConfigSection.SELENIUM_MAQS);
+        softAssert.assertEquals(testSection.get("TestKey"), "testValueTwo");
+        softAssert.assertEquals(testSection.get("Browser"), "Internet Explorer");
+        softAssert.assertEquals(testSection.get("HubAddress"), "132.15.12");
+      }
+
+    softAssert.assertAll();
   }
 }

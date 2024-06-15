@@ -10,15 +10,30 @@ import io.github.openmaqs.database.providers.SQLProvider;
 import io.github.openmaqs.database.providers.SQLiteProvider;
 import io.github.openmaqs.utilities.helper.Config;
 import io.github.openmaqs.utilities.helper.ConfigSection;
+import io.github.openmaqs.utilities.helper.ConfigValidation;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * The type Database config.
+ * The Database Config class.
  */
 public class DatabaseConfig {
 
   private DatabaseConfig() {
+  }
+
+  static {
+    checkConfig();
+  }
+
+  /**
+   * Ensure required fields are in the config.
+   */
+  private static void checkConfig() {
+    var validator = new ConfigValidation();
+    validator.setRequiredOneOfFields(Arrays.asList("DatabaseConnectionString", "DatabaseProviderType"));
+    Config.validate(ConfigSection.DATABASE_MAQS, validator);
   }
 
   /**

@@ -8,8 +8,10 @@ import io.github.openmaqs.selenium.constants.BrowserType;
 import io.github.openmaqs.selenium.constants.RemoteBrowserType;
 import io.github.openmaqs.utilities.helper.Config;
 import io.github.openmaqs.utilities.helper.ConfigSection;
+import io.github.openmaqs.utilities.helper.ConfigValidation;
 import io.github.openmaqs.utilities.helper.StringProcessor;
 import java.time.Duration;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,7 +24,19 @@ public final class SeleniumConfig {
    * Private constructor.
    */
   private SeleniumConfig() {
+  }
 
+  static {
+    checkConfig();
+  }
+
+  /**
+   * Ensure required fields are in the config.
+   */
+  private static void checkConfig() {
+    ConfigValidation validator = new ConfigValidation();
+    validator.setRequiredFields(Collections.singletonList("BrowserTimeout"));
+    Config.validate(ConfigSection.SELENIUM_MAQS, validator);
   }
 
   /**

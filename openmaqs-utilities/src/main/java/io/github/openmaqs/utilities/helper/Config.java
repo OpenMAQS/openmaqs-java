@@ -4,13 +4,21 @@
 
 package io.github.openmaqs.utilities.helper;
 
-import io.github.openmaqs.utilities.helper.exceptions.FrameworkConfigurationException;
+import io.github.openmaqs.utilities.helper.exceptions.MaqsConfigException;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import org.apache.commons.configuration2.Configuration;
+import org.apache.commons.configuration2.JSONConfiguration;
+import org.apache.commons.configuration2.PropertiesConfiguration;
 import org.apache.commons.configuration2.XMLConfiguration;
-import org.apache.commons.configuration2.builder.FileBasedConfigurationBuilder;
+import org.apache.commons.configuration2.YAMLConfiguration;
 import org.apache.commons.configuration2.builder.fluent.Configurations;
 import org.apache.commons.configuration2.ex.ConfigurationException;
 import org.apache.commons.configuration2.sync.ReadWriteSynchronizer;
@@ -18,7 +26,7 @@ import org.apache.commons.configuration2.sync.ReadWriteSynchronizer;
 /**
  * The Configuration class.
  */
-public final class Config {
+public class Config {
 
   private Config() {
     // Private constructor
@@ -32,17 +40,17 @@ public final class Config {
   /**
    * The default config.xml file name.
    */
-  public static final String CONFIG_FILE = PropertyManager.get("maqs.config.location", "config.xml");
+  public static String CONFIG_FILE = PropertyManager.get("maqs.config.location", "config.xml");
 
   /**
    * The configuration containing values loaded in from the config.xml file.
    */
-  private static XMLConfiguration configValues;
+  private static Configuration configValues;
 
   /**
    * The configuration containing values that were added to the configuration.
    */
-  private static final XMLConfiguration overrideConfig;
+  private static Configuration overrideConfig;
 
   /**
    * The base configs object.
@@ -52,17 +60,139 @@ public final class Config {
   // initialize the config object.
   static {
     try {
-      if ((new File(CONFIG_FILE).exists())) {
-        FileBasedConfigurationBuilder<XMLConfiguration> builder = configs.xmlBuilder(CONFIG_FILE);
-        configValues = builder.getConfiguration();
-        configValues.setSynchronizer(new ReadWriteSynchronizer());
+      CONFIG_FILE = checkForConfigFile();
+      getConfigFile(CONFIG_FILE);
+    } catch (ConfigurationException exception) {
+      throw new MaqsConfigException(StringProcessor.safeFormatter(
+          "Exception creating the configuration object from the file : %s", exception));
+    } catch (FileNotFoundException notFoundException) {
+      throw new MaqsConfigException(StringProcessor.safeFormatter("The file was not found: %s", notFoundException));
+    }
+  }
+
+  private static String checkForConfigFile() {
+    if (Paths.get("config.xml").toFile().exists()) {
+      return "config.xml";
+    } else if (Paths.get("appsettings.json").toFile().exists()) {
+      return "appsettings.json";
+    } else if (Paths.get("config.properties").toFile().exists()) {
+      return "config.properties";
+    } else if (Paths.get("config.yml").toFile().exists()) {
+      return "config.yml";
+    } else if (Paths.get("config.ini").toFile().exists()) {
+      return "config.ini";
+    } else {
+      throw new MaqsConfigException("The file config is not supported");
+    }
+  }
+
+  protected static void getConfigFile(String configName) throws ConfigurationException, FileNotFoundException {
+    if (configName.contains(".xml")) {
+      initializeXmlConfig();
+    } else if (configName.contains(".json")) {
+      initializeJsonConfig();
+    } else if (configName.contains(".properties")) {
+      initializePropertiesConfig();
+    } else if (configName.contains(".yml")) {
+      initializeYmlConfig();
+    }
+  }
+
+  private static void initializeXmlConfig() throws ConfigurationException {
+    configValues = configs.xml(CONFIG_FILE);
+    configValues.setSynchronizer(new ReadWriteSynchronizer());
+
+    overrideConfig = new XMLConfiguration();
+    overrideConfig.setSynchronizer(new ReadWriteSynchronizer());
+  }
+
+  private static void initializeJsonConfig() throws ConfigurationException, FileNotFoundException {
+    //    FileBasedConfigurationBuilder<JSONConfiguration> builder = configs.fileBasedBuilder(
+    //           JSONConfiguration.class, "appsettings.json");
+
+    JSONConfiguration configuration = new JSONConfiguration();
+    configuration.read(new FileReader("appsettings.json"));
+
+    //    configValues = builder.configure().getConfiguration();
+    configValues = configs.fileBased(JSONConfiguration.class, "appsettings.json");
+    configValues.setSynchronizer(new ReadWriteSynchronizer());
+
+    overrideConfig = new JSONConfiguration();
+    overrideConfig.setSynchronizer(new ReadWriteSynchronizer());
+  }
+
+  private static void initializePropertiesConfig() throws ConfigurationException {
+    configValues = configs.properties("config.properties");
+    configValues.setSynchronizer(new ReadWriteSynchronizer());
+
+    overrideConfig = new PropertiesConfiguration();
+    overrideConfig.setSynchronizer(new ReadWriteSynchronizer());
+  }
+
+  private static void initializeYmlConfig() throws ConfigurationException, FileNotFoundException {
+    YAMLConfiguration configuration = new YAMLConfiguration();
+
+    try {
+      configuration.read(new FileReader(new File("config.yml").getAbsolutePath()));
+
+    } catch (FileNotFoundException e) {
+      throw new FileNotFoundException(e.getMessage());
+    }
+
+    // FileBasedConfigurationBuilder<YAMLConfiguration> builder =
+    // configs.fileBasedBuilder(YAMLConfiguration.class,"config.yml");
+    //    YAMLConfiguration configuration = configs.fileBased(YAMLConfiguration.class, "config.yml");
+
+    configValues = new YAMLConfiguration(configuration);
+    configValues.setSynchronizer(new ReadWriteSynchronizer());
+
+    overrideConfig = new YAMLConfiguration(configuration);
+    overrideConfig.setSynchronizer(new ReadWriteSynchronizer());
+  }
+
+  /**
+   * Validates the app config section by ensuring required values are present.
+   * @param configSection The config section to be validated
+   * @param configValidation A list of strings containing the required field names
+   */
+  public static void validate(ConfigSection configSection, ConfigValidation configValidation) {
+    // Don't run the validation if the user has decided to skip the validation
+    if (getGeneralValue("SkipConfigValidation").equals("Yes")) {
+      return;
+    }
+
+    if (configValidation == null) {
+      throw new MaqsConfigException("The value passed in for configValidation (required fields in a config) is null");
+    }
+
+    var configSectionPassed = getSection(configSection);
+    List<String> exceptions = new ArrayList<>();
+
+    // Check if we have any required fields
+    if (configValidation.getRequiredFields() != null && !configValidation.getRequiredFields().isEmpty()) {
+      for (var requiredField : configValidation.getRequiredFields()) {
+        if (!configSectionPassed.containsKey(requiredField)) {
+          exceptions.add("Key missing: " + requiredField);
+        }
+      }
+    }
+
+    // Check if we have any one of required fields
+    if (configValidation.getRequiredOneOfFields() != null && !configValidation.getRequiredOneOfFields().isEmpty()
+        && configValidation.requiredOneOfFields.stream().noneMatch(configSectionPassed::containsKey)) {
+      // We have one of fields and didn't find any of them
+      exceptions.add("Need at least one of the following keys: "
+              + String.join(", ", configValidation.getRequiredOneOfFields()));
+    }
+
+    if (!exceptions.isEmpty()) {
+      StringBuilder message = new StringBuilder();
+      for (var exception : exceptions) {
+        message.append(exception);
       }
 
-      overrideConfig = new XMLConfiguration();
-      overrideConfig.setSynchronizer(new ReadWriteSynchronizer());
-    } catch (ConfigurationException exception) {
-      throw new FrameworkConfigurationException(StringProcessor.safeFormatter(
-          "Exception creating the xml configuration object from the file : %s", exception));
+      message.append("*This check can be skipped by setting the 'SkipConfigValidation' configuration value to 'Yes'.");
+      throw new MaqsConfigException(message.toString());
     }
   }
 
@@ -135,6 +265,7 @@ public final class Config {
       boolean overrideExisting) {
     for (Map.Entry<String, String> entry : configurations.entrySet()) {
       String sectionedKey = section + "." + entry.getKey();
+
       if (!overrideConfig.containsKey(sectionedKey) || overrideExisting) {
         overrideConfig.setProperty(sectionedKey, entry.getValue());
       }
