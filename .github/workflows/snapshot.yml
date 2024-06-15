@@ -31,7 +31,7 @@ jobs:
       JDK: 17
       VERSION: ${{needs.update_release_draft.outputs.version}}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up JDK ${{env.JDK}}
         uses: actions/setup-java@v4.2.1
         with:
@@ -86,7 +86,7 @@ jobs:
 #         #repo: [github, ossrh]
 #         repo: [ ossrh ]
 #     steps:
-#       - uses: actions/checkout@v3
+#       - uses: actions/checkout@v4
 #       - name: Set up JDK ${{env.JDK}}
 #         uses: actions/setup-java@v4.2.1
 #         with:
