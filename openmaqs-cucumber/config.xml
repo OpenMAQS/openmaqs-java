@@ -45,7 +45,7 @@
         <!--<Browser>REMOTE</Browser>-->
         <RemoteBrowser>Chrome</RemoteBrowser>
         <HubUrl>http://ondemand.saucelabs.com:80/wd/hub</HubUrl>
-        <WebSiteBase>http://magenicautomation.azurewebsites.net/</WebSiteBase>
+        <WebSiteBase>https://openmaqs.github.io/TestingSite/Automation/</WebSiteBase>
         <BrowserWaitTime>1000</BrowserWaitTime>
         <BrowserTimeout>20000</BrowserTimeout>
         <RemoteBrowserName>Chrome</RemoteBrowserName>
@@ -72,7 +72,7 @@
 
     <WebServiceMaqs>
         <!-- Web service root -->
-        <WebServiceUri>http://magenicautomation.azurewebsites.net</WebServiceUri>
+        <WebServiceUri>http://127.0.0.1:5026</WebServiceUri>
 
         <!-- Time-out in milliseconds -->
         <WebServiceTimeout>10000</WebServiceTimeout>
