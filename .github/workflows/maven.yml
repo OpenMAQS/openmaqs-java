@@ -267,7 +267,7 @@ jobs:
           path: ~/.m2
           key: ${{runner.os}}-m2
       - name: Create settings file
-        uses: whelk-io/maven-settings-xml-action@v21
+        uses: whelk-io/maven-settings-xml-action@v22
         with:
           profiles: '[{"id": "gpg", "properties": { "gpg.keyname": "${{secrets.GPG_KEYNAME_ID}}", "gpg.passphrase": "${{secrets.GPG_PASSPHRASE}}" }}]'
           servers: '[{"id": "ossrh", "username": "${{secrets.DEPLOY_PACKAGE_USERNAME}}", "password": "${{secrets.DEPLOY_PACKAGE_PASSWORD}}"}]'
