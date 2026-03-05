@@ -155,7 +155,7 @@ jobs:
       - name: Test Reporting
         if: always()
         id: test-report
-        uses: phoenix-actions/test-reporting@v12
+        uses: phoenix-actions/test-reporting@v15
         with:
           name: ${{matrix.module-name}} Test Results
           path: '**/junitreports/TEST-**.xml'
