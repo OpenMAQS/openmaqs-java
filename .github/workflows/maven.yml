@@ -70,7 +70,7 @@ jobs:
           java-version: 17
           cache: maven
       - name: Restore Local Maven Cache
-        uses: actions/cache@v3.3.2
+        uses: actions/cache@v4
         with:
           path: ~/.m2
           key: ${{runner.os}}-m2
