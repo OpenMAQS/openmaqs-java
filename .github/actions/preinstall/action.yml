@@ -20,7 +20,7 @@ runs:
         distribution: zulu
         java-version: 17
     - name: Restore Local Maven Cache
-      uses: actions/cache@v2.1.6
+      uses: actions/cache@v4
       with:
         path: ~/.m2
         key:  ${{ runner.os }}-maven-${{inputs.version}}.${{github.run_number}}
