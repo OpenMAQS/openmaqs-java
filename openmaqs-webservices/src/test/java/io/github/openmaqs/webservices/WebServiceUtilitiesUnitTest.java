@@ -9,7 +9,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import io.github.openmaqs.utilities.helper.TestCategories;
 import java.math.BigDecimal;
 import java.net.http.HttpResponse;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

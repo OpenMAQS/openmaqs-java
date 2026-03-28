@@ -8,10 +8,12 @@ import io.github.openmaqs.appium.constants.PlatformType;
 import io.github.openmaqs.appium.exceptions.AppiumConfigException;
 import io.github.openmaqs.utilities.helper.Config;
 import io.github.openmaqs.utilities.helper.ConfigSection;
+import io.github.openmaqs.utilities.helper.ConfigValidation;
 import io.github.openmaqs.utilities.helper.StringProcessor;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,7 +33,22 @@ public class AppiumConfig {
   private static final ConfigSection APPIUM_CAPS_SECTION = ConfigSection.APPIUM_CAPS_MAQS;
 
   private AppiumConfig() {
+  }
 
+  /*
+    Loads when class is loaded.
+   */
+  static {
+    checkConfig();
+  }
+
+  /**
+   * Ensure required fields are in the config.
+   */
+  private static void checkConfig() {
+    ConfigValidation validator = new ConfigValidation();
+    validator.setRequiredOneOfFields(Arrays.asList("App", "BrowserName"));
+    Config.validate(ConfigSection.APPIUM_MAQS, validator);
   }
 
   /**

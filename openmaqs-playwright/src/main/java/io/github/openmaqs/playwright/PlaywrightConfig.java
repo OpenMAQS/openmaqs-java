@@ -6,7 +6,9 @@ package io.github.openmaqs.playwright;
 
 import io.github.openmaqs.utilities.helper.Config;
 import io.github.openmaqs.utilities.helper.ConfigSection;
+import io.github.openmaqs.utilities.helper.ConfigValidation;
 import java.awt.Dimension;
+import java.util.Collections;
 
 /**
  * The Playwright Config class.
@@ -17,6 +19,19 @@ public class PlaywrightConfig {
    * Private playwright constructor.
    */
   protected PlaywrightConfig() {
+  }
+
+  static {
+    checkConfig();
+  }
+
+  /**
+   * Ensure required fields are in the config.
+   */
+  private static void checkConfig() {
+    var validator = new ConfigValidation();
+    validator.setRequiredOneOfFields(Collections.singletonList("Timeout"));
+    Config.validate(ConfigSection.PLAYWRIGHT_MAQS, validator);
   }
 
   /**
